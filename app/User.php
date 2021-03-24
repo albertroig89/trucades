@@ -27,7 +27,22 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public static function findByEmail($email)
+    {
+        return static::where(compact('email'))->first();
+    }
+
     protected $casts = [
         'is_admin' => 'boolean'
     ];
+
+    public function profile()
+    {
+        return $this->hasOne(UserProfile::class);
+    }
+
+    public function isAdmin()
+    {
+        return $this->is_admin;
+    }
 }
