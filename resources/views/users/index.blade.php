@@ -13,12 +13,12 @@
                         <thead>
                         <tr>
                           <th scope="col">Id</th>
-                          <th scope="col">Nombre</th>
-                          <th scope="col">Correo electronico</th>
-                          <th scope="col">Profession</th>
-                          <th scope="col">Visualizar detalles usuario</th>
-                          <th scope="col">Editar detalles del usuario</th>
-                          <th scope="col">Eliminar usuario</th>
+                          <th scope="col">Nom</th>
+                          <th scope="col">Email</th>
+                          <th scope="col">Departament</th>
+                          <th scope="col">Visualitzar detalls d'usuari</th>
+                          <th scope="col">Editar detalls d'usuari</th>
+                          <th scope="col">Eliminar usuari</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -27,17 +27,15 @@
                             <th scope="row">{{ $user->id }}</th>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
-                              @empty($user->profession_id)
-                                  <td>No tiene profession</td>
+                              @empty($user->department_id)
+                                  <td>Sense departament</td>
                               @else
-                              <td>{{ $user->profession->title }}</td>
+                              <td>{{ $user->department->title }}</td>
                               @endempty
 {{--                            <td>{{ $user->profession()->pluck('title') }}</td>--}}
                             <td><a href="{{ route('users.show', ['id' => $user->id]) }}"><span class="oi oi-eye"></span></a></td>
-                            <!--<td><a href="{{ url('/usuarios/'.$user->id) }}">Ver detalles</a></td> Fa el mateix que la linea anterior-->
                             <td><a href="{{ route('users.edit', ['id' => $user->id]) }}"><span class="oi oi-pencil"></span></a></td>
-    {{--                        <td><a href="{{ route('users.edit', ['id' => $user]) }}">Editar</a></td> FA EL MATEIX QUE LA  LINEA ANTERIOR PERO MES SIMPLIFICAT--}}
-    {{--                        <td><a href="{{ route('users.edit', $user) }}">Editar</a></td> FA EL MATEIX QUE LES LINEA ANTERIOR PERO ENCARA MES SIMPLIFICAT--}}
+
                             <td><form action="{{ route('users.destroy', $user) }}" method="POST">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
@@ -53,9 +51,4 @@
         </ul>
     </div>
 </div>
-@endsection
-
-@section('sidebar')
-    @parent
-    <h2>Barra lateral personalizada!</h2>
 @endsection
