@@ -29,6 +29,7 @@ class CreateUserRequest extends FormRequest
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6',
+            'department_id' => 'required',
         ];
     }
 
@@ -40,7 +41,8 @@ class CreateUserRequest extends FormRequest
             'email.email' => 'Introduce un correo electronico correcto',
             'email.unique' => 'El correo introducido ya existe',
             'password.required' => 'Especifica una contraseña',
-            'password.min' => 'La contraseña debe contener almenos 6 caracteres'
+            'password.min' => 'La contraseña debe contener almenos 6 caracteres',
+            'department_id' => 'El departamento es obligatorio'
         ];
     }
 

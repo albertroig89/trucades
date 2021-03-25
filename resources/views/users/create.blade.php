@@ -48,11 +48,11 @@
                         @endif
                     </div>
                     <div class="form-group">
-                        <label for="profession_id">Departament:</label>
-                        <select class="form-control" name="profession_id" id="profession_id">
+                        <label for="department_id">Departament:</label>
+                        <select class="form-control" name="department_id" id="department_id">
                             <option value="">Sel·lecciona el teu departament</option>
                             @foreach ($departments as $department)
-                                <option class="form-control" value="{{ (intval($department->id)) }}">{{ $department->title }}</option>
+                                <option class="form-control" value="{{ ($department->id) }}">{{ $department->title }}</option>
                             @endforeach
                         </select>
                         <div class="invalid-feedback">Example invalid custom select feedback</div>
@@ -71,22 +71,6 @@
                         @endif
                     </div>
                 </div>
-                {{--                <div class="form-group">--}}
-                {{--                        <div class="form-check">--}}
-                {{--                                <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>--}}
-                {{--                                <label class="form-check-label" for="invalidCheck3">--}}
-                {{--                                        Agree to terms and conditions--}}
-                {{--                                </label>--}}
-                {{--                                --}}
-                {{--                                <div class="invalid-feedback">--}}
-                {{--                                        @if ($errors->has('checkbox'))--}}
-                {{--                                                <div class="invalid-feedback">--}}
-                {{--                                                        <p>{{ $errors->first('password') }}</p>--}}
-                {{--                                                </div>--}}
-                {{--                                        @endif--}}
-                {{--                                </div>--}}
-                {{--                        </div>--}}
-                {{--                </div>--}}
                 <button type="submit" class="btn btn-primary">Crear usuario</button>
             </form>
             <br>
@@ -97,11 +81,6 @@
                 <div class="form-group">
                     <div class="alert alert-danger">
                         <h5>Por favor corrige los errores mencionados arriba {{ $errors }}</h5>
-                        {{--                    <ul>--}}
-                        {{--                        @foreach ($errors->all() as $error)--}}
-                        {{--                            <li>{{ $error }}</li>--}}
-                        {{--                        @endforeach--}}
-                        {{--                    </ul>--}}
                     </div>
                 </div>
             @endif

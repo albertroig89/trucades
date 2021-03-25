@@ -12,7 +12,7 @@ class DepartmentSeeder extends Seeder
      */
     public function run()
     {
-        App\Department::create([
+        Department::create([
             'title' => 'Tecnic',
         ]);
 
