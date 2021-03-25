@@ -9,6 +9,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class UsersModuleTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * @test
      */
@@ -17,7 +19,6 @@ class UsersModuleTest extends TestCase
 
         factory(User::class)->create([
             'name' => 'Albert Roig',
-            'website' => 'coldwar.cat'
         ]);
 
         factory(User::class)->create([
@@ -27,7 +28,7 @@ class UsersModuleTest extends TestCase
 
         $this->get('/usuarios')
             ->assertStatus(200)
-            ->assertSee('Listado de usuarios')
+            ->assertSee('Usuaris')
             ->assertSee('Albert')
             ->assertSee('Laia');
     }
@@ -87,13 +88,9 @@ class UsersModuleTest extends TestCase
 //        $professionId = Profession::where('title', 'Desarrollador back-end')->value('id');
 //        dump($professionId);
         $this->post('/usuarios/', [
-//            'profession_id' => 1,
             'name' => 'Albert',
             'email' => 'albertroiglg@gmail.com',
             'password' => '123456',
-            'profession_id' => 2,
-            'bio' => 'Trabajo en microdelta, me gustan las motos',
-            'twitter' => 'https://twitter.com/bertito',
         ])->assertRedirect('usuarios');
         //])->assertRedirect(route('users.index')); EL MATEIX QUE LA LINEA ANTERIOR
 
@@ -102,14 +99,11 @@ class UsersModuleTest extends TestCase
             'name' => 'Albert',
             'email' => 'albertroiglg@gmail.com',
             'password' => '123456',
-            'profession_id' => 2,
         ]);
 
-        $this->assertDatabaseHas('user_profiles', [
-            'bio' => 'Trabajo en microdelta, me gustan las motos',
-            'twitter' => 'https://twitter.com/bertito',
-            'user_id' => User::findByEmail('albertroiglg@gmail.com')->id,
-        ]);
+//        $this->assertDatabaseHas('user_profiles', [
+//            'user_id' => User::findByEmail('albertroiglg@gmail.com')->id,
+//        ]);
     }
 
     /**

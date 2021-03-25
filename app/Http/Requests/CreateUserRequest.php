@@ -15,7 +15,7 @@ class CreateUserRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,13 +26,9 @@ class CreateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'profession_id' => ['nullable'],
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
-//            'email' => ['required', 'email', 'unique':users,email], FA EL MATEIX QUE LA LINEA ANTERIOR
             'password' => 'required|min:6',
-            'bio' => 'required',
-            'twitter' => ['nullable', 'url']
         ];
     }
 
@@ -58,13 +54,13 @@ class CreateUserRequest extends FormRequest
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'password' => bcrypt($data['password']),
-                'profession_id' => $data['profession_id'],
+                'department_id' => $data['department_id'],
             ]);
 
-            $user->profile()->create([
-                'bio' => $data['bio'],
-                'twitter' => $data['twitter'],
-            ]);
+//            $user->profile()->create([
+//                'bio' => $data['bio'],
+//                'twitter' => $data['twitter'],
+//            ]);
 
 //            dd($user);
         });

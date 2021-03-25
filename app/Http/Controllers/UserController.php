@@ -15,7 +15,7 @@ class UserController extends Controller
         //$users = DB::table('users')->get(); //constructor de consultes
         $users = User::all();//fa el mateix que la linea anterior pero en eloquent
 
-        $title = 'Llistat d\'usuaris';
+        $title = 'Usuaris';
 //        dd($users);
         return view('users.index', compact('title', 'users'));
 

@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', "Creacion de usuarios")
+@section('title', "Creació de usuaris")
 
 @section('content')
 
@@ -52,8 +52,6 @@
                         <select class="form-control" name="profession_id" id="profession_id">
                             <option value="">Sel·lecciona el teu departament</option>
                             @foreach ($departments as $department)
-{{--                                {{ $professionId = Profession::where('title', $profession->title)->value('id') }}--}}
-
                                 <option class="form-control" value="{{ (intval($department->id)) }}">{{ $department->title }}</option>
                             @endforeach
                         </select>
