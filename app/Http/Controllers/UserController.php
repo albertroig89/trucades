@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateUserRequest;
 use App\Profession;
+use App\Department;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class UserController extends Controller
         //$users = DB::table('users')->get(); //constructor de consultes
         $users = User::all();//fa el mateix que la linea anterior pero en eloquent
 
-        $title = 'Listado de usuarios';
+        $title = 'Llistat d\'usuaris';
 //        dd($users);
         return view('users.index', compact('title', 'users'));
 
@@ -36,9 +37,9 @@ class UserController extends Controller
     public function create()
     {
         $title = 'Creacion de usuarios';
-        $professions = Profession::all();
+        $departments = Department::all();
 
-        return view('users.create', compact('title', 'professions'));
+        return view('users.create', compact('title', 'departments'));
     }
 
     public function edit(User $user)

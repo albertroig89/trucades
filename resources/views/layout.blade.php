@@ -91,8 +91,8 @@
                     <th><h2>Menu</h2></th>
                 @show
                 <table>
-                    <tr><td><a href="{{ route('users.index') }}">Mostrar usuarios</a></td></tr>
-                    <tr><td><a href="{{ route('users.create') }}">Crear usuarios</a></td></tr>
+                    <tr><td><a href="{{ route('users.index') }}">Mostrar usuaris</a></td></tr>
+                    <tr><td><a href="{{ route('users.create') }}">Crear usuaris</a></td></tr>
                     <tr><td><a href="../../saludo/albert">Saludo</a></td></tr>
                     <tr><td><a href="../../saludo/albert/sdarcknes">Saludo nickname</a></td></tr>
                 </table>
