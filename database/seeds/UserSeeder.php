@@ -14,18 +14,22 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-//SE EXECUTA ABANS LO SEEDER DELS USUARIS QUE EL DE LES PROFESSIONS PER AIXO NO POT CREAR ELS USUARIS
 
-        $techId = DB::select('SELECT id FROM departments WHERE title = "Tecnic"');
+//        $techId = DB::select('SELECT id FROM departments WHERE title = "Tecnic"');
+//        $progId = DB::select('SELECT id FROM departments WHERE title = "Programador"');
+//        $admid = DB::select('SELECT id FROM departments WHERE title = "Administracio"');
+//        $comId = DB::select('SELECT id FROM departments WHERE title = "Comercial"');
+
+        $techId = Department::where('title', 'Programador')->value('id');
         $progId = Department::where('title', 'Programador')->value('id');
-        $admid = Department::where('title', 'Administracio')->value('id');
+        $admId = Department::where('title', 'Administracio')->value('id');
         $comId = Department::where('title', 'Comercial')->value('id');
 
         User::create([
             'name' => 'Albert Roig',
             'email' => 'albert@microdelta.net',
             'password' => bcrypt('laravel'),
-            'Department_id' => $techId[0]->id,
+            'Department_id' => $techId,
             'is_admin' => true
         ]);
 
@@ -34,21 +38,21 @@ class UserSeeder extends Seeder
             'name' => 'Joel Valor',
             'email' => 'joel@microdelta.net',
             'password' => bcrypt('laravel2'),
-            'Department_id' => $techId[0]->id,
+            'Department_id' => $techId,
         ]);
 
         User::create([
             'name' => 'Josep Castells',
             'email' => 'josep@microdelta.net',
             'password' => bcrypt('laravel3'),
-            'Department_id' => $techId[0]->id,
+            'Department_id' => $techId,
         ]);
 
         User::create([
             'name' => 'Cristina Esquerre',
             'email' => 'administracio@microdelta.net',
             'password' => bcrypt('laravel4'),
-            'Department_id' => $admid[0]->id,
+            'Department_id' => $admId[0]->id,
         ]);
 
         User::create([
@@ -62,7 +66,7 @@ class UserSeeder extends Seeder
             'name' => 'Juan Valor',
             'email' => 'soft@microdelta.net',
             'password' => bcrypt('pass1234'),
-            'Department_id' => $progId[0]->id,
+            'Department_id' => $progId,
         ]);
 
     }

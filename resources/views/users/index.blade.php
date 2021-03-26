@@ -30,7 +30,10 @@
                               @empty($user->department_id)
                                   <td>Sense departament</td>
                               @else
+                                  {{ dd($user->department) }}
                               <td>{{ $user->department->title }}</td>
+{{--                                  {{ dd($user->department->title) }}--}}
+{{--                                  <td>{{ $user->department }}</td>--}}
                               @endempty
 {{--                            <td>{{ $user->profession()->pluck('title') }}</td>--}}
                             <td><a href="{{ route('users.show', ['id' => $user->id]) }}"><span class="oi oi-eye"></span></a></td>

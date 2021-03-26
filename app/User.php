@@ -36,10 +36,10 @@ class User extends Authenticatable
         'is_admin' => 'boolean'
     ];
 
-    public function profile()
-    {
-        return $this->hasOne(UserProfile::class);
-    }
+//    public function profile()
+//    {
+//        return $this->hasOne(UserProfile::class);
+//    }
 
     public function isAdmin()
     {
