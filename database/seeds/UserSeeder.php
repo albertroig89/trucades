@@ -21,8 +21,6 @@ class UserSeeder extends Seeder
         $admid = Department::where('title', 'Administracio')->value('id');
         $comId = Department::where('title', 'Comercial')->value('id');
 
-        dd($techId[0]->id);
-
         User::create([
             'name' => 'Albert Roig',
             'email' => 'albert@microdelta.net',
