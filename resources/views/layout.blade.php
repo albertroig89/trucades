@@ -104,7 +104,7 @@
 
 <footer class="footer mt-auto py-3 bg-light">
   <div class="container">
-    <span class="text-muted">Pie de pagina proyecto laravel</span>
+    <span class="text-muted">Desarrollat per Albert Roig</span>
   </div>
 </footer>
 

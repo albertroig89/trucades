@@ -82,7 +82,7 @@ class UsersModuleTest extends TestCase
      */
     function it_creates_a_new_user()
     {
-        $this->withoutExceptionHandling();
+//        $this->withoutExceptionHandling();
 //        $profession = Profession::all();
 //        dump($profession);
 //        $professionId = Profession::where('title', 'Desarrollador back-end')->value('id');

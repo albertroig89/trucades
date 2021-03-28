@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', "Usuarios")
+@section('title', "Treballs")
 
 @section('content')
 
@@ -8,7 +8,7 @@
         <div class="card-header"><h3>{{ $title }}</h3></div>
         <div class="card-body">
             <ul>
-                @if ($users->count())
+                @if ($jobs->count())
                     <table class="table table-striped">
                         <thead>
                         <tr>
@@ -23,19 +23,12 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($users as $user)
+                        @foreach ($jobs as $job)
                             <tr>
-                                <th scope="row">{{ $user->id }}</th>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                @empty($user->department_id)
-                                    <td>Sense departament</td>
-                                @else
-                                    {{--                              <td>{{ $user->department->title }}</td>--}}
-                                    {{--                                  {{ dd($user->department->title) }}--}}
-                                    <td>{{ $user->department }}</td>
-                                @endempty
-                                {{--                            <td>{{ $user->profession()->pluck('title') }}</td>--}}
+                                <th scope="row">{{ $job->created_at }}</th>
+                                <td>{{ $job->user->name }}</td>
+                                <td>{{ $job->client->name }}</td>
+                                <td>{{ $user->department }}</td>
                                 <td><a href="{{ route('users.show', ['id' => $user->id]) }}"><span class="oi oi-eye"></span></a></td>
                                 <td><a href="{{ route('users.edit', ['id' => $user->id]) }}"><span class="oi oi-pencil"></span></a></td>
 
@@ -49,7 +42,7 @@
                         </tbody>
                     </table>
                 @else
-                    <li>No hay usuarios registrados.</li>
+                    <li>No hi ha feines pendents</li>
                 @endif
             </ul>
         </div>

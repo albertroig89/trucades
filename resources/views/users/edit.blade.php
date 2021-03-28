@@ -52,6 +52,16 @@
                         @endif
                     </div>
                     <div class="form-group">
+                        <label for="department_id">Departament:</label>
+                        <select class="form-control" name="department_id" id="department_id">
+                            <option value="">Sel·lecciona el teu departament</option>
+                            @foreach ($departments as $department)
+                                <option class="form-control" value="{{ ($department->id) }}">{{ $department->title }}</option>
+                            @endforeach
+                        </select>
+                        <div class="invalid-feedback">Example invalid custom select feedback</div>
+                    </div>
+                    <div class="form-group">
                         @if ($errors->has('password'))
                             <label for="password">Password</label>
                             <input type="password" name="password" class="form-control is-invalid" id="password" placeholder="Introduce tu contraseña">

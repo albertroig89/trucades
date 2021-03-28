@@ -11,26 +11,31 @@
 |
 */
 
-Route::get('/', function () {
-    return 'Home';
-});
+//Route::get('/', function () {
+//    return 'Home';
+//});
 
-Route::get('/menu', 'UserController@menu')
-    ->name('users');
+//Route::get('/menu', 'UserController@menu')
+//    ->name('users');
 
 Route::get('/usuarios', 'UserController@index')
     ->name('users.index');
 
+Route::get('/trabajos', 'JobsController@jobs')
+    ->name('jobs');
+
+Route::get('/trabajos/nuevo', 'JobsController@jobs')
+    ->name('jobs.create');
 
 Route::get('/usuarios/{user}', 'UserController@show')
     ->where('user', '[0-9]+')
     ->name('users.show');
-//->here('id', '\d+'); ES EL MATEIX QUE LA LINEA ANTERIOR EL + SIGNIFICA QUE HI POT HABER MES D'UN NUMERO
+
 
 Route::get('/usuarios/nuevo', 'UserController@create')
     ->name('users.create');
 
-Route::post('/usuarios', 'UserController@store'); // PODEM POSAR 2 RUTES AL MATEIX LLOC PER DIFIRENTS METODOS "GET" I "POST"
+Route::post('/usuarios', 'UserController@store');
 
 Route::get('/usuarios/{user}/editar', 'UserController@edit')
     ->where('id', '\d+')
@@ -38,9 +43,12 @@ Route::get('/usuarios/{user}/editar', 'UserController@edit')
 
 Route::put('/usuarios/{user}', 'UserController@update');
 
-Route::get('/saludo/{name}', 'WelcomeUserController@index');  //AL POSAR EL ? DESPRES DEL CAMP EL FEM OPCIONAL
+Route::get('/saludo/{name}', 'WelcomeUserController@index');
 
 Route::get('/saludo/{name}/{nickname}', 'WelcomeUserController@index2');
 
 Route::delete('/usuarios/{user}', 'UserController@destroy')
     ->name('users.destroy');
+Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('home');

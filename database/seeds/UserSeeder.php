@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
 //        $admid = DB::select('SELECT id FROM departments WHERE title = "Administracio"');
 //        $comId = DB::select('SELECT id FROM departments WHERE title = "Comercial"');
 
-        $techId = Department::where('title', 'Programador')->value('id');
+        $techId = Department::where('title', 'Tecnic')->value('id');
         $progId = Department::where('title', 'Programador')->value('id');
         $admId = Department::where('title', 'Administracio')->value('id');
         $comId = Department::where('title', 'Comercial')->value('id');
@@ -52,14 +52,14 @@ class UserSeeder extends Seeder
             'name' => 'Cristina Esquerre',
             'email' => 'administracio@microdelta.net',
             'password' => bcrypt('laravel4'),
-            'Department_id' => $admId[0]->id,
+            'Department_id' => $admId,
         ]);
 
         User::create([
             'name' => 'Manel Bel',
             'email' => 'comercial@microdelta.net',
             'password' => bcrypt('laravel5'),
-            'Department_id' => $comId[0]->id,
+            'Department_id' => $comId,
         ]);
 
         User::create([

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateUserRequest;
-use App\Profession;
 use App\Department;
 use App\User;
 
@@ -37,7 +36,8 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $title = 'Edicion de usuarios';
-        return view('users.edit', ['user' => $user], compact('title'));
+        $departments = Department::all();
+        return view('users.edit', ['user' => $user], compact('title', 'departments'));
     }
     public function menu()
     {
