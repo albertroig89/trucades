@@ -16,6 +16,11 @@ class JobsController extends Controller
 //        return view('saludo', compact('name', 'nickname', 'title'));
 //    }
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function jobs() {
 
         $jobs = Job::all();

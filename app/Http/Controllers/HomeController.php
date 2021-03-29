@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Job;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $jobs = Job::all();
+
+        $title = 'Treballs';
+
+        return view ('home');
+//        return view('jobs.jobs', compact('title', 'jobs'));
     }
 }

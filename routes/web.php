@@ -22,7 +22,7 @@ Route::get('/usuarios', 'UserController@index')
     ->name('users.index');
 
 Route::get('/trabajos', 'JobsController@jobs')
-    ->name('jobs');
+    ->name('jobs.jobs');
 
 Route::get('/trabajos/nuevo', 'JobsController@jobs')
     ->name('jobs.create');
