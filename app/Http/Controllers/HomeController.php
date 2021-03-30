@@ -28,7 +28,7 @@ class HomeController extends Controller
 
         $title = 'Treballs';
 
-        return view ('home');
-//        return view('jobs.jobs', compact('title', 'jobs'));
+//        return view ('home');
+        return view('jobs.jobs', compact('title', 'jobs'));
     }
 }

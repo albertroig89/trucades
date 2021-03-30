@@ -93,7 +93,7 @@
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
-                        <ul class="dropdown-menu">
+                        <ul >
                             <li>
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
@@ -127,6 +127,7 @@
                     <th><h2>Menu</h2></th>
                 @show
                 <table>
+                    <tr><td><a href="{{ route('jobs.jobs') }}">Feines</a></td></tr>
                     <tr><td><a href="{{ route('users.index') }}">Mostrar usuaris</a></td></tr>
                     <tr><td><a href="{{ route('users.create') }}">Crear usuaris</a></td></tr>
                     <tr><td><a href="../../saludo/albert">Saludo</a></td></tr>
