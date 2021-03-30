@@ -25,9 +25,19 @@ class JobsController extends Controller
 
         $jobs = Job::all();
 
-        $title = 'Treballs';
+        $title = 'Feines';
 //        dd($users);
         return view('jobs.jobs', compact('title', 'jobs'));
+
+    }
+
+    public function calls() {
+
+        $calls = Job::all();
+
+        $title = 'Trucades';
+//        dd($users);
+        return view('jobs.calls', compact('title', 'calls'));
 
     }
 }

@@ -24,11 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $jobs = Job::all();
+        $calls = Job::all();
 
-        $title = 'Treballs';
+        $title = 'Trucades';
 
 //        return view ('home');
-        return view('jobs.jobs', compact('title', 'jobs'));
+        return view('jobs.calls', compact('title', 'calls'));
     }
 }
