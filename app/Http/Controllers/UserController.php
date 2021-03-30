@@ -39,11 +39,6 @@ class UserController extends Controller
         $departments = Department::all();
         return view('users.edit', ['user' => $user], compact('title', 'departments'));
     }
-    public function menu()
-    {
-        $title = 'Menu';
-        return view('menu', compact('title'));
-    }
 
     public function store(CreateUserRequest $request)
     {
