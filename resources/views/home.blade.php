@@ -34,7 +34,7 @@
                                 <td>{{ $call->user_id }}</td>
                                 <td>{{ $call->client_id }}</td>
                                 <td>{{ $call->callinf }}</td>
-                                <td>{{ $call->user_id }}</td>
+                                <td>{{ $call->user_id2 }}</td>
                                 <td><a href="{{ route('calls.show', ['id' => $call->id]) }}"><span class="oi oi-eye"></span></a></td>
                                 <td><a href="{{ route('calls.edit', ['id' => $call->id]) }}"><span class="oi oi-pencil"></span></a></td>
 
