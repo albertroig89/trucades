@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Call;
+use App\Client;
 use App\User;
 use Illuminate\Http\Request;
 

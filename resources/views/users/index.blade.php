@@ -31,7 +31,7 @@
                                   <td>Sense departament</td>
                               @else
 {{--                                  {{ dd($user->department) }}--}}
-                              <td>{{ $user->department_id }}</td>
+                              <td>{{ $user->department->title }}</td>
 {{--                                  {{ dd($user->department->title) }}--}}
 {{--                                  <td>{{ $user->department }}</td>--}}
                               @endempty

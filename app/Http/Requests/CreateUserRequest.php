@@ -42,7 +42,7 @@ class CreateUserRequest extends FormRequest
             'email.unique' => 'El correo introducido ya existe',
             'password.required' => 'Especifica una contraseña',
             'password.min' => 'La contraseña debe contener almenos 6 caracteres',
-            'department_id' => 'El departamento es obligatorio'
+            'department_id.required' => 'El departamento es obligatorio'
         ];
     }
 

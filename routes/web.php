@@ -55,21 +55,21 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 //----------------------------------------------------------------------------------------------CALLS
 
-Route::get('/trucades/{user}', 'HomeController@show')
+Route::get('/llamadas/{user}', 'HomeController@show')
     ->where('user', '[0-9]+')
     ->name('calls.show');
 
-Route::get('/trucades/nuevo', 'HomeController@create')
+Route::get('/llamadas/nuevo', 'HomeController@create')
     ->name('calls.create');
 
-Route::post('/trucades', 'HomeController@store');
+Route::post('/llamadas', 'HomeController@store');
 
-Route::get('/trucades/{user}/editar', 'HomeController@edit')
+Route::get('/llamadas/{user}/editar', 'HomeController@edit')
     ->where('id', '\d+')
     ->name('calls.edit');
 
-Route::put('/trucades/{user}', 'HomeController@update');
+Route::put('/llamadas/{user}', 'HomeController@update');
 
-Route::delete('/trucades/{user}', 'HomeController@destroy')
+Route::delete('/llamadas/{user}', 'HomeController@destroy')
     ->name('calls.destroy');
 

@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="card pl-0 pr-0 col-md-12" >
+    <div class="card pl-0 pr-0 col-md-12 mt-2" >
         <div class="card-header"><h3>{{ $title }}</h3></div>
         <div class="card-body">
             @if (session('status'))
@@ -31,8 +31,12 @@
                         @foreach ($calls as $call)
                             <tr>
                                 <th scope="row">{{ $call->created_at }}</th>
-                                <td>{{ $call->user_id }}</td>
-                                <td>{{ $call->client_id }}</td>
+                                @empty($call->user_id)
+                                    <td>No te empleat</td>
+                                @else
+                                <td>{{ $call->user->name }}</td>
+                                @endempty
+                                <td>{{ $call->client->name }}</td>
                                 <td>{{ $call->callinf }}</td>
                                 <td>{{ $call->user_id2 }}</td>
                                 <td><a href="{{ route('calls.show', ['id' => $call->id]) }}"><span class="oi oi-eye"></span></a></td>

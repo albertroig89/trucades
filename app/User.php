@@ -32,6 +32,11 @@ class User extends Authenticatable
         return static::where(compact('email'))->first();
     }
 
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
+
     protected $casts = [
         'is_admin' => 'boolean'
     ];

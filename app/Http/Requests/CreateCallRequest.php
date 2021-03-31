@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\DB;
+use App\Call;
 
 class CreateCallRequest extends FormRequest
 {
@@ -13,7 +15,7 @@ class CreateCallRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +26,42 @@ class CreateCallRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'user_id' => 'required',
+            'client_id' => 'required',
+            'user_id2' => 'required',
+            'callinf' => 'required',
         ];
+    }
+
+    public function  messages()
+    {
+        return [
+            'user_id.required' => 'Sel·lecciona un empleat',
+            'client_id.required' => 'Afegeix un client',
+            'user_id2.required' => 'Especifica una contraseña',
+            'callinf.required' => 'Omple l\'informació de la trucada'
+        ];
+    }
+
+    public function createCall()
+    {
+        DB::transaction (function () {
+
+            $data = $this->validated();
+
+            $call = Call::create([
+                'user_id' => $data['user_id'],
+                'client_id' => $data['client_id'],
+                'user_id2' => ($data['user_id2']),
+                'callinf' => $data['callinf'],
+            ]);
+
+//            $user->profile()->create([
+//                'bio' => $data['bio'],
+//                'twitter' => $data['twitter'],
+//            ]);
+
+//            dd($user);
+        });
     }
 }
