@@ -39,8 +39,8 @@
                                 <td>{{ $call->client->name }}</td>
                                 <td>{{ $call->callinf }}</td>
                                 <td>{{ $call->user_id2 }}</td>
-                                <td><a href="{{ route('calls.show', ['id' => $call->id]) }}"><span class="oi oi-eye"></span></a></td>
-                                <td><a href="{{ route('calls.edit', ['id' => $call->id]) }}"><span class="oi oi-pencil"></span></a></td>
+                                <td><a href="{{ route('calls.show', ['call' => $call]) }}"><span class="oi oi-eye"></span></a></td>
+                                <td><a href="{{ route('calls.edit', ['call' => $call]) }}"><span class="oi oi-pencil"></span></a></td>
 
                                                                 <td><form action="{{ route('calls.destroy', $call) }}" method="POST">
                                                                         {{ csrf_field() }}

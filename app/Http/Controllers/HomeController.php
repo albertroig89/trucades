@@ -37,14 +37,14 @@ class HomeController extends Controller
 
     public function show(Call $call)
     {
-        $title = 'Detalles de Usuarios';
-
+        $title = 'Trucada';
+//        dd($call);
         return view('calls.show', compact('title', 'call'));
     }
 
     public function create()
     {
-        $title = 'Creacion de usuarios';
+        $title = 'Crear nova trucada';
         $clients = Client::all();
 //        dd($departments);
         return view('calls.create', compact('title', 'clients'));
