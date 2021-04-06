@@ -104,6 +104,22 @@
                     <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('home') }}">Trucades</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('calls.create') }}">Nova trucada</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('jobs.jobs') }}">Feines</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('users.index') }}">Usuaris</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('users.create') }}">Nou usuari</a>
+            </li>
+
         </ul>
       </div>
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -154,16 +170,16 @@
         </div>
         <div class="mt-3 col-2">
 
-                @section('sidebar')
-                    <th><h2>Menu</h2></th>
-                @show
-                <table>
-                    <tr><td><a href="{{ route('jobs.jobs') }}">Feines</a></td></tr>
-                    <tr><td><a href="{{ route('home') }}">Trucades</a></td></tr>
-                    <tr><td><a href="{{ route('calls.create') }}">Afegir trucada</a></td></tr>
-                    <tr><td><a href="{{ route('users.index') }}">Mostrar usuaris</a></td></tr>
-                    <tr><td><a href="{{ route('users.create') }}">Crear usuaris</a></td></tr>
-                </table>
+{{--                @section('sidebar')--}}
+{{--                    <th><h2>Menu</h2></th>--}}
+{{--                @show--}}
+{{--                <table>--}}
+{{--                    <tr><td><a href="{{ route('jobs.jobs') }}">Feines</a></td></tr>--}}
+{{--                    <tr><td><a href="{{ route('home') }}">Trucades</a></td></tr>--}}
+{{--                    <tr><td><a href="{{ route('calls.create') }}">Afegir trucada</a></td></tr>--}}
+{{--                    <tr><td><a href="{{ route('users.index') }}">Mostrar usuaris</a></td></tr>--}}
+{{--                    <tr><td><a href="{{ route('users.create') }}">Crear usuaris</a></td></tr>--}}
+{{--                </table>--}}
 
         </div>
 

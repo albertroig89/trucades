@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Call;
 use App\Client;
 use App\User;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -44,7 +43,6 @@ class HomeController extends Controller
         $title = 'Crear nova trucada';
         $clients = Client::all();
         $users = User::all();
-        dd($users);
 
         return view('calls.create', compact('title', 'clients', 'users'));
     }

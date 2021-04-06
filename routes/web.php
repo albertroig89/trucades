@@ -53,11 +53,11 @@ Route::get('/trabajos', 'JobsController@jobs')
 Route::get('/', 'HomeController@index')
     ->name('home');
 
-Route::get('/llamadas/{call}', 'HomeController@show')
-    ->name('calls.show');
-
 Route::get('/llamadas/nuevo', 'HomeController@create')
     ->name('calls.create');
+
+Route::get('/llamadas/{call}', 'HomeController@show')
+    ->name('calls.show');
 
 Route::post('/llamadas', 'HomeController@store');
 

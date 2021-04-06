@@ -7,22 +7,21 @@
     <div class="card pl-0 pr-0 col-md-4 mt-2">
         <div class="card-header"><h3>{{ $title }}</h3></div>
         <div class="card-body">
-            <form method="POST" action="{{ url('usuarios') }}">
+            <form method="POST" action="{{ url('home') }}">
 
                 {!! csrf_field() !!}
 
                 <div class="form-group">
                     <div class="form-group">
-                        <label for="user_id">Empleat:</label>
-                        <select class="form-control" name="user_id" id="user_id">
-                            <option value="">Sel·lecciona empleat</option>
+                        <label for="user_id2">Ates per:</label>
+                        <select class="form-control" name="user_id2" id="user_id2">
+                            <option value="">Sel·lecciona el qui la ates</option>
                             @foreach ($users as $user)
                                 <option class="form-control" value="{{ ($user->id) }}">{{ $user->name }}</option>
                             @endforeach
                         </select>
                         <div class="invalid-feedback">Example invalid custom select feedback</div>
                     </div>
-
                     <div class="form-group">
                         <label for="callinf">Informació trucada:</label>
                         @if ($errors->has('callinf'))
@@ -37,9 +36,9 @@
                         @endif
                     </div>
                     <div class="form-group">
-                        <label for="user_id2">Ates per:</label>
-                        <select class="form-control" name="user_id2" id="user_id2">
-                            <option value="">Sel·lecciona el teu departament</option>
+                        <label for="user_id">Empleat:</label>
+                        <select class="form-control" name="user_id" id="user_id">
+                            <option value="">Sel·lecciona empleat</option>
                             @foreach ($users as $user)
                                 <option class="form-control" value="{{ ($user->id) }}">{{ $user->name }}</option>
                             @endforeach
