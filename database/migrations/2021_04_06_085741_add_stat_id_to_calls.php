@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddStatusIdToCalls extends Migration
+class AddStatIdToCalls extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,8 @@ class AddStatusIdToCalls extends Migration
     public function up()
     {
         Schema::table('calls', function (Blueprint $table) {
-            $table->unsignedInteger('status_id')->unsigned()->after('client_id');
-            $table->foreign('status_id')->references('id')->on('status');
+            $table->unsignedInteger('stat_id')->unsigned()->after('client_id');
+            $table->foreign('stat_id')->references('id')->on('stats');
         });
     }
 
@@ -27,8 +27,8 @@ class AddStatusIdToCalls extends Migration
     public function down()
     {
         Schema::table('calls', function (Blueprint $table) {
-            $table->dropForeign(['status_id']);
-            $table->dropColumn('status_id');
+            $table->dropForeign(['stat_id']);
+            $table->dropColumn('stat_id');
         });
     }
 }

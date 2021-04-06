@@ -4,13 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Status extends Model
+class Stat extends Model
 {
     protected $fillable = [
-        'status'
+        'title'
     ];
 
-    public function status()
+    public function stat()
     {
         return $this->hasMany(Call::class);
     }

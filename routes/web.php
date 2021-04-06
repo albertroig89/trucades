@@ -18,19 +18,14 @@
 //Route::get('/menu', 'UserController@menu')
 //    ->name('users');
 
+//----------------------------------------------------------------------------------------------USERS
+
 Route::get('/usuarios', 'UserController@index')
     ->name('users.index');
-
-Route::get('/trabajos', 'JobsController@jobs')
-    ->name('jobs.jobs');
-
-Route::get('/trabajos/nuevo', 'JobsController@jobs')
-    ->name('jobs.create');
 
 Route::get('/usuarios/{user}', 'UserController@show')
     ->where('user', '[0-9]+')
     ->name('users.show');
-
 
 Route::get('/usuarios/nuevo', 'UserController@create')
     ->name('users.create');
@@ -52,8 +47,17 @@ Route::delete('/usuarios/{user}', 'UserController@destroy')
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+//----------------------------------------------------------------------------------------------JOBS
+
+Route::get('/trabajos', 'JobsController@jobs')
+    ->name('jobs.jobs');
+
+Route::get('/trabajos/nuevo', 'JobsController@jobs')
+    ->name('jobs.create');
+
 //----------------------------------------------------------------------------------------------CALLS
+
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/llamadas/{call}', 'HomeController@show')
     ->name('calls.show');
