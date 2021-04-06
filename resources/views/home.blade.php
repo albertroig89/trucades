@@ -29,6 +29,7 @@
                         </thead>
                         <tbody>
                         @foreach ($calls as $call)
+{{--                            @if ($call->status->status === 1)--}}
                             <tr>
                                 <th scope="row">{{ $call->created_at }}</th>
                                 @empty($call->user_id)
@@ -48,6 +49,47 @@
                                                                         <button class="btn btn-link" type="submit"><span class="oi oi-trash"></span></button>
                                                                     </form></td>
                             </tr>
+{{--                            @elseif ($call->status->status === 2)--}}
+{{--                                <tr bgcolor="red">--}}
+{{--                                    <th scope="row">{{ $call->created_at }}</th>--}}
+{{--                                    @empty($call->user_id)--}}
+{{--                                        <td>No te empleat</td>--}}
+{{--                                    @else--}}
+{{--                                        <td>{{ $call->user->name }}</td>--}}
+{{--                                    @endempty--}}
+{{--                                    <td>{{ $call->client->name }}</td>--}}
+{{--                                    <td>{{ $call->callinf }}</td>--}}
+{{--                                    <td>{{ $call->user_id2 }}</td>--}}
+{{--                                    <td><a href="{{ route('calls.show', ['call' => $call]) }}"><span class="oi oi-eye"></span></a></td>--}}
+{{--                                    <td><a href="{{ route('calls.edit', ['call' => $call]) }}"><span class="oi oi-pencil"></span></a></td>--}}
+
+{{--                                    <td><form action="{{ route('calls.destroy', $call) }}" method="POST">--}}
+{{--                                            {{ csrf_field() }}--}}
+{{--                                            {{ method_field('DELETE') }}--}}
+{{--                                            <button class="btn btn-link" type="submit"><span class="oi oi-trash"></span></button>--}}
+{{--                                        </form></td>--}}
+{{--                                </tr>--}}
+{{--                            @else--}}
+{{--                                <tr bgcolor="#1e90ff">--}}
+{{--                                    <th scope="row">{{ $call->created_at }}</th>--}}
+{{--                                    @empty($call->user_id)--}}
+{{--                                        <td>No te empleat</td>--}}
+{{--                                    @else--}}
+{{--                                        <td>{{ $call->user->name }}</td>--}}
+{{--                                    @endempty--}}
+{{--                                    <td>{{ $call->client->name }}</td>--}}
+{{--                                    <td>{{ $call->callinf }}</td>--}}
+{{--                                    <td>{{ $call->user_id2 }}</td>--}}
+{{--                                    <td><a href="{{ route('calls.show', ['call' => $call]) }}"><span class="oi oi-eye"></span></a></td>--}}
+{{--                                    <td><a href="{{ route('calls.edit', ['call' => $call]) }}"><span class="oi oi-pencil"></span></a></td>--}}
+
+{{--                                    <td><form action="{{ route('calls.destroy', $call) }}" method="POST">--}}
+{{--                                            {{ csrf_field() }}--}}
+{{--                                            {{ method_field('DELETE') }}--}}
+{{--                                            <button class="btn btn-link" type="submit"><span class="oi oi-trash"></span></button>--}}
+{{--                                        </form></td>--}}
+{{--                                </tr>--}}
+{{--                            @endif--}}
                         @endforeach
                         </tbody>
                     </table>
