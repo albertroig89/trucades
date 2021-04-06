@@ -96,9 +96,14 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item active">
-            <a class="nav-link" aria-current="page" href="#">@yield('title')</a>
-          </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown04">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </li>
         </ul>
       </div>
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -158,8 +163,6 @@
                     <tr><td><a href="{{ route('calls.create') }}">Afegir trucada</a></td></tr>
                     <tr><td><a href="{{ route('users.index') }}">Mostrar usuaris</a></td></tr>
                     <tr><td><a href="{{ route('users.create') }}">Crear usuaris</a></td></tr>
-                    <tr><td><a href="../../saludo/albert">Saludo</a></td></tr>
-                    <tr><td><a href="../../saludo/albert/sdarcknes">Saludo nickname</a></td></tr>
                 </table>
 
         </div>

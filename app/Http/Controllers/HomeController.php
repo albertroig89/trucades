@@ -30,15 +30,12 @@ class HomeController extends Controller
         $users = User::all();
 
         $title = 'Trucades';
-
-//        return view ('home');
         return view('home', compact('title', 'calls', 'users'));
     }
 
     public function show(Call $call)
     {
         $title = 'Trucada';
-//        dd($call);
         return view('calls.show', compact('title', 'call'));
     }
 
@@ -46,13 +43,15 @@ class HomeController extends Controller
     {
         $title = 'Crear nova trucada';
         $clients = Client::all();
-//        dd($departments);
-        return view('calls.create', compact('title', 'clients'));
+        $users = User::all();
+        dd($users);
+
+        return view('calls.create', compact('title', 'clients', 'users'));
     }
 
     public function edit(Call $call)
     {
-        $title = 'Edicion de usuarios';
+        $title = 'Modificar trucada';
         $clients = Client::all();
         return view('calls.edit', ['call' => $call], compact('title', 'clients'));
     }

@@ -38,10 +38,6 @@ Route::get('/usuarios/{user}/editar', 'UserController@edit')
 
 Route::put('/usuarios/{user}', 'UserController@update');
 
-Route::get('/saludo/{name}', 'WelcomeUserController@index');
-
-Route::get('/saludo/{name}/{nickname}', 'WelcomeUserController@index2');
-
 Route::delete('/usuarios/{user}', 'UserController@destroy')
     ->name('users.destroy');
 
@@ -52,12 +48,10 @@ Auth::routes();
 Route::get('/trabajos', 'JobsController@jobs')
     ->name('jobs.jobs');
 
-Route::get('/trabajos/nuevo', 'JobsController@jobs')
-    ->name('jobs.create');
-
 //----------------------------------------------------------------------------------------------CALLS
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')
+    ->name('home');
 
 Route::get('/llamadas/{call}', 'HomeController@show')
     ->name('calls.show');

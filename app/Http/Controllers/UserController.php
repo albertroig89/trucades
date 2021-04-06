@@ -27,7 +27,7 @@ class UserController extends Controller
 
     public function create()
     {
-        $title = 'Creacion de usuarios';
+        $title = 'Creacion de usuaris';
         $departments = Department::all();
 //        dd($departments);
         return view('users.create', compact('title', 'departments'));

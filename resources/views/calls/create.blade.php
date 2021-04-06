@@ -13,9 +13,9 @@
 
                 <div class="form-group">
                     <div class="form-group">
-                        <label for="id">Empleat:</label>
-                        <select class="form-control" name="id" id="id">
-                            <option value="">Sel·lecciona el teu departament</option>
+                        <label for="user_id">Empleat:</label>
+                        <select class="form-control" name="user_id" id="user_id">
+                            <option value="">Sel·lecciona empleat</option>
                             @foreach ($users as $user)
                                 <option class="form-control" value="{{ ($user->id) }}">{{ $user->name }}</option>
                             @endforeach
@@ -37,8 +37,8 @@
                         @endif
                     </div>
                     <div class="form-group">
-                        <label for="id">Ates per:</label>
-                        <select class="form-control" name="id" id="id">
+                        <label for="user_id2">Ates per:</label>
+                        <select class="form-control" name="user_id2" id="user_id2">
                             <option value="">Sel·lecciona el teu departament</option>
                             @foreach ($users as $user)
                                 <option class="form-control" value="{{ ($user->id) }}">{{ $user->name }}</option>

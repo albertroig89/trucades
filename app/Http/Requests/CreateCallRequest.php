@@ -29,6 +29,7 @@ class CreateCallRequest extends FormRequest
             'user_id' => 'required',
             'client_id' => 'required',
             'user_id2' => 'required',
+            'stat_id' => 'required',
             'callinf' => 'required',
         ];
     }
@@ -38,7 +39,8 @@ class CreateCallRequest extends FormRequest
         return [
             'user_id.required' => 'Sel·lecciona un empleat',
             'client_id.required' => 'Afegeix un client',
-            'user_id2.required' => 'Especifica una contraseña',
+            'user_id2.required' => 'Sel·lecciona un empleat',
+            'stat_id' => 'required',
             'callinf.required' => 'Omple l\'informació de la trucada'
         ];
     }
@@ -52,11 +54,12 @@ class CreateCallRequest extends FormRequest
             $call = Call::create([
                 'user_id' => $data['user_id'],
                 'client_id' => $data['client_id'],
-                'user_id2' => ($data['user_id2']),
+                'user_id2' => $data['user_id2'],
+                'stat_id' => $data['stat_id'],
                 'callinf' => $data['callinf'],
             ]);
 
-//            $user->profile()->create([
+//            $call->profile()->create([
 //                'bio' => $data['bio'],
 //                'twitter' => $data['twitter'],
 //            ]);

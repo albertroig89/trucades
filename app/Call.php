@@ -20,8 +20,8 @@ class Call extends Model
         return $this->belongsTo(Client::class);
     }
 
-    public function status()
+    public function stat()
     {
-        return $this->belongsTo(Status::class);
+        return $this->belongsTo(Stat::class);
     }
 }
