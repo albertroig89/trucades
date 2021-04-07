@@ -29,7 +29,6 @@
                         </thead>
                         <tbody>
                         @foreach ($calls as $call)
-                            @if (auth()->id() === $call->user_id)
                                 @if ($call->stat->id === 1)
 
                                     <tr bgcolor="#f0e68c">
@@ -37,7 +36,7 @@
                                         @empty($call->user_id)
                                             <td>No te empleat</td>
                                         @else
-                                        <td>{{ $call->user->name }}</td>
+                                            <td>{{ $call->user->name }}</td>
                                         @endempty
                                         <td>{{ $call->client->name }}</td>
                                         <td>{{ $call->callinf }}</td>
@@ -45,11 +44,11 @@
                                         <td><a href="{{ route('calls.show', ['call' => $call]) }}"><span class="oi oi-eye"></span></a></td>
                                         <td><a href="{{ route('calls.edit', ['call' => $call]) }}"><span class="oi oi-pencil"></span></a></td>
 
-                                                                        <td><form action="{{ route('calls.destroy', $call) }}" method="POST">
-                                                                                {{ csrf_field() }}
-                                                                                {{ method_field('DELETE') }}
-                                                                                <button class="btn btn-link" type="submit"><span class="oi oi-trash"></span></button>
-                                                                            </form></td>
+                                        <td><form action="{{ route('calls.destroy', $call) }}" method="POST">
+                                                {{ csrf_field() }}
+                                                {{ method_field('DELETE') }}
+                                                <button class="btn btn-link" type="submit"><span class="oi oi-trash"></span></button>
+                                            </form></td>
                                     </tr>
                                 @elseif ($call->stat->id === 2)
                                     <tr bgcolor="#fa8072">
@@ -92,7 +91,6 @@
                                             </form></td>
                                     </tr>
                                 @endif
-                            @endif
                         @endforeach
                         </tbody>
                     </table>
