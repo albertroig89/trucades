@@ -53,20 +53,23 @@ Route::get('/trabajos', 'JobsController@jobs')
 Route::get('/', 'HomeController@index')
     ->name('home');
 
-Route::get('/llamadas/nuevo', 'HomeController@create')
+Route::get('calls.index', 'CallController@index')
+    ->name('calls.index');
+
+Route::get('/llamadas/nuevo', 'CallController@create')
     ->name('calls.create');
 
-Route::get('/llamadas/{call}', 'HomeController@show')
+Route::get('/llamadas/{call}', 'CallController@show')
     ->name('calls.show');
 
-Route::post('/llamadas', 'HomeController@store');
+Route::post('/llamadas', 'CallController@store');
 
-Route::get('/llamadas/{call}/editar', 'HomeController@edit')
+Route::get('/llamadas/{call}/editar', 'CallController@edit')
     ->where('id', '\d+')
     ->name('calls.edit');
 
-Route::put('/llamadas/{call}', 'HomeController@update');
+Route::put('/llamadas/{call}', 'CallController@update');
 
-Route::delete('/llamadas/{call}', 'HomeController@destroy')
+Route::delete('/llamadas/{call}', 'CallCallController@destroy')
     ->name('calls.destroy');
 

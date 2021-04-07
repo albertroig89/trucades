@@ -105,7 +105,7 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('home') }}">Trucades</a>
+                <a class="nav-link" href="{{ route('calls.index') }}">Trucades</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('calls.create') }}">Nova trucada</a>
