@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Client extends Model
 {
     protected $fillable = [
-        'user_id', 'client_id', 'callinf'
+        'name', 'email'
     ];
+
+    public function client()
+    {
+        return $this->hasMany(Call::class);
+    }
 }
