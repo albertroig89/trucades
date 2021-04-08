@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Call;
-use App\Client;
+use App\Department;
 use App\User;
 
 class HomeController extends Controller
@@ -27,9 +27,11 @@ class HomeController extends Controller
     {
         $calls = Call::all();
         $users = User::all();
+        $techId = Department::where('title', 'Tecnic')->value('id');
+        $globId = Department::where('title', 'Global')->value('id');
 
         $title = 'Trucades';
-        return view('home', compact('title', 'calls', 'users'));
+        return view('home', compact('title', 'calls', 'users', 'techId', 'globId'));
     }
 
 }

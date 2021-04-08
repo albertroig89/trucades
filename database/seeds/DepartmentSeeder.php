@@ -28,5 +28,9 @@ class DepartmentSeeder extends Seeder
             'title' => 'Comercial',
         ]);
 
+        Department::create([
+            'title' => 'Global',
+        ]);
+
     }
 }

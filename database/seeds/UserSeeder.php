@@ -24,13 +24,22 @@ class UserSeeder extends Seeder
         $progId = Department::where('title', 'Programador')->value('id');
         $admId = Department::where('title', 'Administracio')->value('id');
         $comId = Department::where('title', 'Comercial')->value('id');
+        $globId = Department::where('title', 'Global')->value('id');
+
+
+        User::create([
+            'name' => 'Global',
+            'email' => 'global@microdelta.net',
+            'password' => bcrypt('laravel'),
+            'department_id' => $globId,
+        ]);
 
         User::create([
             'name' => 'Albert Roig',
             'email' => 'albert@microdelta.net',
             'password' => bcrypt('laravel'),
             'department_id' => $techId,
-            'is_admin' => true
+            'is_admin' => true,
         ]);
 
 
