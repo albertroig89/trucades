@@ -29,13 +29,13 @@
                         </thead>
                         <tbody>
                         @foreach ($calls as $call)
-                            @if ($call->user->department_id === $techId)
-                                @if (auth()->id() === $call->user_id || $call->user_id === 1)
+                            @if ($call->user->department_id === $techId or $call->user->department_id === $globId)
+                                @if (auth()->id() === $call->user_id or $call->user_id === 1)
                                     @if ($call->stat->id === 1)
 
                                         <tr bgcolor="#f0e68c">
                                             <th scope="row">{{ $call->created_at }}</th>
-                                            <td>{{ $call->user->name }} 1er</td>
+                                            <td>{{ $call->user->name }}</td>
                                             <td>{{ $call->client->name }}</td>
                                             <td>{{ $call->callinf }}</td>
                                             <td>{{ $call->user_id2 }}</td>
@@ -54,7 +54,7 @@
                                             @empty($call->user_id)
                                                 <td>No te empleat</td>
                                             @else
-                                                <td>{{ $call->user->name }} 1er</td>
+                                                <td>{{ $call->user->name }}</td>
                                             @endempty
                                             <td>{{ $call->client->name }}</td>
                                             <td>{{ $call->callinf }}</td>
@@ -70,7 +70,7 @@
                                         </tr>
                                     @else
                                         <tr bgcolor="#87cefa">
-                                            <th scope="row">{{ $call->created_at }} 1er</th>
+                                            <th scope="row">{{ $call->created_at }}</th>
                                             @empty($call->user_id)
                                                 <td>No te empleat</td>
                                             @else
@@ -99,7 +99,7 @@
                                             @empty($call->user_id)
                                                 <td>No te empleat</td>
                                             @else
-                                                <td>{{ $call->user->name }} 2n</td>
+                                                <td>{{ $call->user->name }}</td>
                                             @endempty
                                             <td>{{ $call->client->name }}</td>
                                             <td>{{ $call->callinf }}</td>
@@ -119,7 +119,7 @@
                                             @empty($call->user_id)
                                                 <td>No te empleat</td>
                                             @else
-                                                <td>{{ $call->user->name }} 2n</td>
+                                                <td>{{ $call->user->name }}</td>
                                             @endempty
                                             <td>{{ $call->client->name }}</td>
                                             <td>{{ $call->callinf }}</td>
@@ -139,7 +139,7 @@
                                             @empty($call->user_id)
                                                 <td>No te empleat</td>
                                             @else
-                                                <td>{{ $call->user->name }} 2n</td>
+                                                <td>{{ $call->user->name }}</td>
                                             @endempty
                                             <td>{{ $call->client->name }}</td>
                                             <td>{{ $call->callinf }}</td>
