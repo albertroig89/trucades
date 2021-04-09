@@ -14,4 +14,9 @@ class Client extends Model
     {
         return $this->hasMany(Call::class);
     }
+
+    public function phone()
+    {
+        return $this->hasMany(Phone::class);
+    }
 }

@@ -70,6 +70,18 @@ Route::get('/llamadas/{call}/editar', 'CallController@edit')
 
 Route::put('/llamadas/{call}', 'CallController@update');
 
-Route::delete('/llamadas/{call}', 'CallCallController@destroy')
+Route::delete('/llamadas/{call}', 'CallController@destroy')
     ->name('calls.destroy');
 
+
+//----------------------------------------------------------------------------------------------CLIENTS
+
+Route::get('/clientes', 'ClientController@index')
+    ->name('clients.index');
+
+Route::get('/llamadas/{client}/editar', 'ClientController@edit')
+    ->where('id', '\d+')
+    ->name('clients.edit');
+
+Route::delete('/clientes/{client}', 'ClientController@destroy')
+    ->name('clients.destroy');

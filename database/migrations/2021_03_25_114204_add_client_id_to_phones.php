@@ -15,7 +15,7 @@ class AddClientIdToPhones extends Migration
     {
         Schema::table('phones', function (Blueprint $table) {
             $table->unsignedInteger('client_id')->unsigned()->after('id');
-            $table->foreign('client_id')->references('id')->on('clients');
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
         });
     }
 
