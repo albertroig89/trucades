@@ -133,8 +133,9 @@
 <main class="flex-shrink-0">
 
     <div class="row ml-3 mt-5">
-        <div class="mt-3 col-10">
+        <div class="mt-3 col-12">
            @yield('content')
+
         </div>
 {{--        <div class="mt-3 col-2">--}}
 

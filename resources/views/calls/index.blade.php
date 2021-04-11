@@ -29,68 +29,7 @@
                         </thead>
                         <tbody>
                         @foreach ($calls as $call)
-                                @if ($call->stat->id === 1)
-
-                                    <tr bgcolor="#f0e68c">
-                                        <th scope="row">{{ $call->created_at }}</th>
-                                        @empty($call->user_id)
-                                            <td>No te empleat</td>
-                                        @else
-                                            <td>{{ $call->user->name }}</td>
-                                        @endempty
-                                        <td>{{ $call->client->name }}</td>
-                                        <td>{{ $call->callinf }}</td>
-                                        <td>{{ $call->user_id2 }}</td>
-                                        <td><a href="{{ route('calls.show', ['call' => $call]) }}"><span class="oi oi-eye"></span></a></td>
-                                        <td><a href="{{ route('calls.edit', ['call' => $call]) }}"><span class="oi oi-pencil"></span></a></td>
-
-                                        <td><form action="{{ route('calls.destroy', $call) }}" method="POST">
-                                                {{ csrf_field() }}
-                                                {{ method_field('DELETE') }}
-                                                <button class="btn btn-link" type="submit"><span class="oi oi-trash"></span></button>
-                                            </form></td>
-                                    </tr>
-                                @elseif ($call->stat->id === 2)
-                                    <tr bgcolor="#fa8072">
-                                        <th scope="row">{{ $call->created_at }}</th>
-                                        @empty($call->user_id)
-                                            <td>No te empleat</td>
-                                        @else
-                                            <td>{{ $call->user->name }}</td>
-                                        @endempty
-                                        <td>{{ $call->client->name }}</td>
-                                        <td>{{ $call->callinf }}</td>
-                                        <td>{{ $call->user_id2 }}</td>
-                                        <td><a href="{{ route('calls.show', ['call' => $call]) }}"><span class="oi oi-eye"></span></a></td>
-                                        <td><a href="{{ route('calls.edit', ['call' => $call]) }}"><span class="oi oi-pencil"></span></a></td>
-
-                                        <td><form action="{{ route('calls.destroy', $call) }}" method="POST">
-                                                {{ csrf_field() }}
-                                                {{ method_field('DELETE') }}
-                                                <button class="btn btn-link" type="submit"><span class="oi oi-trash"></span></button>
-                                            </form></td>
-                                    </tr>
-                                @else
-                                    <tr bgcolor="#87cefa">
-                                        <th scope="row">{{ $call->created_at }}</th>
-                                        @empty($call->user_id)
-                                            <td>No te empleat</td>
-                                        @else
-                                            <td>{{ $call->user->name }}</td>
-                                        @endempty
-                                        <td>{{ $call->client->name }}</td>
-                                        <td>{{ $call->callinf }}</td>
-                                        <td>{{ $call->user_id2 }}</td>
-                                        <td><a href="{{ route('calls.show', ['call' => $call]) }}"><span class="oi oi-eye"></span></a></td>
-                                        <td><a href="{{ route('calls.edit', ['call' => $call]) }}"><span class="oi oi-pencil"></span></a></td>
-
-                                        <td><form action="{{ route('calls.destroy', $call) }}" method="POST">
-                                                {{ csrf_field() }}
-                                                {{ method_field('DELETE') }}
-                                                <button class="btn btn-link" type="submit"><span class="oi oi-trash"></span></button>
-                                            </form></td>
-                                    </tr>
-                                @endif
+                            @include('layouts.partials.call')
                         @endforeach
                         </tbody>
                     </table>
@@ -101,30 +40,3 @@
         </div>
     </div>
 @endsection
-
-
-
-
-{{--@extends('layouts.app')--}}
-
-{{--@section('content')--}}
-{{--<div class="container">--}}
-{{--    <div class="row">--}}
-{{--        <div class="col-md-8 col-md-offset-2">--}}
-{{--            <div class="panel panel-default">--}}
-{{--                <div class="panel-heading">Dashboard</div>--}}
-
-{{--                <div class="panel-body">--}}
-{{--                    @if (session('status'))--}}
-{{--                        <div class="alert alert-success">--}}
-{{--                            {{ session('status') }}--}}
-{{--                        </div>--}}
-{{--                    @endif--}}
-
-{{--                    You are logged in!--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
-{{--@endsection--}}
