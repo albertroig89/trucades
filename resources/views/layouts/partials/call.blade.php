@@ -1,4 +1,4 @@
-@if ($call->stat->id === 1)
+@if ($call->stat->id === $nStat)
     <tr bgcolor="#f0e68c">
         <th scope="row">{{ $call->created_at }}</th>
         <td>{{ $call->user->name }}</td>
@@ -15,7 +15,7 @@
             </form>
         </td>
     </tr>
-@elseif ($call->stat->id === 2)
+@elseif ($call->stat->id === $uStat)
     <tr bgcolor="#fa8072">
         <th scope="row">{{ $call->created_at }}</th>
         <td>{{ $call->user->name }}</td>
@@ -30,7 +30,7 @@
                 <button class="btn btn-link" type="submit"><span class="oi oi-trash"></span></button>
             </form></td>
     </tr>
-@else
+@elseif ($call->stat->id === $pStat)
     <tr bgcolor="#87cefa">
         <th scope="row">{{ $call->created_at }}</th>
         <td>{{ $call->user->name }}</td>
