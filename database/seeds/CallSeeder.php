@@ -40,7 +40,7 @@ class CallSeeder extends Seeder
             'user_id' => 2,
             'client_id' => 4,
             'stat_id' => 1,
-            'user_id2' => 5,
+            'user_id2' => 3,
             'callinf' =>'No pot connectar a internet',
         ]);
 
@@ -88,7 +88,7 @@ class CallSeeder extends Seeder
             'user_id' => 6,
             'client_id' => 2,
             'stat_id' => 3,
-            'user_id2' => 5,
+            'user_id2' => 2,
             'callinf' =>'Reparar taules microgestio',
         ]);
     }

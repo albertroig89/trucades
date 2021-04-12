@@ -13,6 +13,11 @@
 
                 <div class="form-group">
                     <div class="form-group">
+                        <form class="form-inline">
+                            <input name="buscarpor" class="form-control mr-sm-2" type="search" placeholder="Buscar client" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                        </form>
+                        <br>
                         <label for="user_id2">Ates per:</label>
                         <select class="form-control" name="user_id2" id="user_id2">
                             <option value="">Sel·lecciona el qui la ates</option>

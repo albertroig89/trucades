@@ -4,7 +4,11 @@
         <td>{{ $call->user->name }}</td>
         <td>{{ $call->client->name }}</td>
         <td>{{ $call->callinf }}</td>
-        <td>{{ $call->user_id2 }}</td>
+        @foreach ($users as $user)
+            @if ($user->id === $call->user_id2)
+                <td>{{ $user->name }}</td>
+            @endif
+        @endforeach
         <td><a href="{{ route('calls.show', ['call' => $call]) }}"><span class="oi oi-eye"></span></a></td>
         <td><a href="{{ route('calls.edit', ['call' => $call]) }}"><span class="oi oi-pencil"></span></a></td>
         <td>
@@ -21,7 +25,11 @@
         <td>{{ $call->user->name }}</td>
         <td>{{ $call->client->name }}</td>
         <td>{{ $call->callinf }}</td>
-        <td>{{ $call->user_id2 }}</td>
+        @foreach ($users as $user)
+            @if ($user->id === $call->user_id2)
+                <td>{{ $user->name }}</td>
+            @endif
+        @endforeach
         <td><a href="{{ route('calls.show', ['call' => $call]) }}"><span class="oi oi-eye"></span></a></td>
         <td><a href="{{ route('calls.edit', ['call' => $call]) }}"><span class="oi oi-pencil"></span></a></td>
         <td><form action="{{ route('calls.destroy', $call) }}" method="POST">
@@ -36,7 +44,11 @@
         <td>{{ $call->user->name }}</td>
         <td>{{ $call->client->name }}</td>
         <td>{{ $call->callinf }}</td>
-        <td>{{ $call->user_id2 }}</td>
+        @foreach ($users as $user)
+            @if ($user->id === $call->user_id2)
+                <td>{{ $user->name }}</td>
+            @endif
+        @endforeach
         <td><a href="{{ route('calls.show', ['call' => $call]) }}"><span class="oi oi-eye"></span></a></td>
         <td><a href="{{ route('calls.edit', ['call' => $call]) }}"><span class="oi oi-pencil"></span></a></td>
         <td><form action="{{ route('calls.destroy', $call) }}" method="POST">
