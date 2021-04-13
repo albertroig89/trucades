@@ -13,9 +13,9 @@
 
                 <div class="form-group">
                     <div class="form-group">
-                        <form class="form-inline">
-                            <input name="buscarpor" class="form-control mr-sm-2" type="search" placeholder="Buscar client" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                        <form methos="POST" action="{{ url('clients.index') }}">
+                            <input name="buscarpor" class="form-control" type="search" placeholder="Buscar client" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Buscar</button>
                         </form>
                         <br>
                         <label for="user_id2">Ates per:</label>

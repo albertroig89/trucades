@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="card pl-0 pr-0 col-md-12" >
+    <div class="card pl-0 pr-0 col-md-12 mt-2" >
         <div class="card-header"><h3>{{ $title }}</h3></div>
         <div class="card-body">
             @if (session('status'))
