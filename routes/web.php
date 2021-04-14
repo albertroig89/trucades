@@ -18,6 +18,18 @@
 //Route::get('/menu', 'UserController@menu')
 //    ->name('users');
 
+//----------------------------------------------------------------------------------------------DATEPICKER
+
+Route::get('/test/datepicker', function () {
+    return view('datepicker');
+});
+
+Route::post('/test/save', ['as' => 'save-date',
+    'uses' => 'DateController@showDate',
+    function () {
+        return '';
+}]);
+
 //----------------------------------------------------------------------------------------------USERS
 
 Route::get('/usuarios', 'UserController@index')
