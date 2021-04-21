@@ -20,6 +20,11 @@
 
 //----------------------------------------------------------------------------------------------DATEPICKER
 
+Route::get('/test/datetimepicker', function () {
+    return view('datetimepicker');
+});
+
+
 Route::get('/test/datepicker', function () {
     return view('datepicker');
 });

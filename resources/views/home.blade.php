@@ -22,9 +22,9 @@
                             <th scope="col">Client</th>
                             <th scope="col">Nota</th>
                             <th scope="col">Ates per</th>
-                            <th scope="col">Visualitzar detalls feina</th>
-                            <th scope="col">Editar detalls feina</th>
-                            <th scope="col">Eliminar feina</th>
+                            <th scope="col">Visualitzar trucada</th>
+                            <th scope="col">Editar trucada</th>
+                            <th scope="col">Eliminar trucada</th>
                         </tr>
                         </thead>
                         <tbody>

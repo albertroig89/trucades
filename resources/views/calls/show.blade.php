@@ -11,6 +11,8 @@
             <p>Empleat: {{ $call->user->name }}</p>
             <p>Correu electronic: {{ $call->client->email }}</p>
             <p>Info: {{ $call->callinf }}</p>
+            <p>Inici: @include('layouts.partials.datetimepicker')</p>
+            <p>Finalització @include('layouts.partials.datetimepicker')</p>
             <p><a href="{{ route('home') }}">Regresar al listado de usuarios</a></p>
         </div>
     </div>
