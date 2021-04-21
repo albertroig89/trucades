@@ -1,5 +1,18 @@
+<style>
+    /*estils diferents per a les files de les trucades*/
+    .normalState {
+        bgcolor: #91ffb5;
+    }
+    .urgentState {
+        bgcolor: #f66767;
+    }
+    .pendingState {
+        bgcolor: #62a3e7;
+    }
+    /*final estils files trucades*/
+</style>
 @if ($call->stat->id === $nStat)
-    <tr bgcolor="#f0e68c">
+    <tr bgcolor="#91ffb5" class="normalState">
         <th scope="row">{{ $call->created_at }}</th>
         <td>{{ $call->user->name }}</td>
         <td>{{ $call->client->name }}</td>
@@ -20,7 +33,7 @@
         </td>
     </tr>
 @elseif ($call->stat->id === $uStat)
-    <tr bgcolor="#fa8072">
+    <tr bgcolor="#f66767" class="urgentState">
         <th scope="row">{{ $call->created_at }}</th>
         <td>{{ $call->user->name }}</td>
         <td>{{ $call->client->name }}</td>
@@ -39,7 +52,7 @@
             </form></td>
     </tr>
 @elseif ($call->stat->id === $pStat)
-    <tr bgcolor="#87cefa">
+    <tr bgcolor="#62a3e7" class="pendingState">
         <th scope="row">{{ $call->created_at }}</th>
         <td>{{ $call->user->name }}</td>
         <td>{{ $call->client->name }}</td>

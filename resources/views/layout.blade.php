@@ -48,6 +48,19 @@
             width: 600px;
         }
         /*hasta aqui*/
+
+        /*estils diferents per a les files de les trucades*/
+        .normalState {
+            bgcolor: #91ffb5;
+        }
+        .urgentState {
+            bgcolor: #f66767;
+        }
+        .pendingState {
+            bgcolor: #62a3e7;
+        }
+        /*final estils files trucades*/
+
     </style>
 
     
@@ -72,7 +85,7 @@
                     Trucades
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('home') }}">Mostrar trucades propies</a>
+                    <a class="dropdown-item" href="{{ route('home') }}">Mostrar trucades</a>
                     <a class="dropdown-item" href="{{ route('calls.create') }}">Nova trucada</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ route('calls.index') }}">Mostrar totes les trucades</a>
@@ -83,7 +96,7 @@
                     Feines
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('home') }}">Mostrar feines propies</a>
+                    <a class="dropdown-item" href="{{ route('home') }}">Mostrar feines</a>
                     <a class="dropdown-item" href="{{ route('calls.create') }}">Nova feina</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ route('jobs.jobs') }}">Mostrar totes les feines</a>
