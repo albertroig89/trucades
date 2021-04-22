@@ -73,7 +73,7 @@
                     Feines
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('home') }}">Mostrar feines</a>
+                    <a class="dropdown-item" href="{{ route('jobs.jobs') }}">Mostrar feines</a>
                     <a class="dropdown-item" href="{{ route('calls.create') }}">Nova feina</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ route('jobs.jobs') }}">Mostrar totes les feines</a>
@@ -142,7 +142,7 @@
 <!-- Begin page content -->
 <main class="flex-shrink-0">
 
-    <div class="row ml-3 mt-5">
+    <div class="row ml-2 mt-5 pr-4">
         <div class="mt-3 col-12">
            @yield('content')
 

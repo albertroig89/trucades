@@ -1,26 +1,37 @@
 <style>
-    /*estils diferents per a les files de les trucades*/
-    /*.table-striped>tbody>tr:nth-child(odd)>td,*/
-    /*.table-striped>tbody>tr:nth-child(odd)>th {*/
-    /*    background-color: #91ffb5;*/
-    /*}*/
-    /*.table-striped>tbody>tr:nth-child(even)>td,*/
-    /*.table-striped>tbody>tr:nth-child(even)>th {*/
-    /*    background-color: #f66767;*/
-    /*}*/
-    /*.table-striped>thead>tr>th {*/
-    /*    background-color: #62a3e7;*/
-    /*}*/
     .normalState {
-        background-color: #91ffb5;
+        background-color: #daffe3;
+        height: 50px;
     }
     .urgentState {
-        background-color: #f66767;
+        background-color: #fab9b9;
     }
     .pendingState {
-        background-color: #62a3e7;
+        background-color: #aed7ff;
     }
     /*final estils files trucades*/
+    /*estils iconos*/
+    .oi-eye{
+        color: #686868;
+    }
+
+    .oi-eye:hover{
+        color: #1c1c1c;
+    }
+    .oi-pencil{
+        color: #686868;
+    }
+    .oi-pencil:hover{
+        color: #1c1c1c;
+    }
+    .oi-trash{
+        color: #686868;
+    }
+    .oi-trash:hover{
+        color: #1c1c1c;
+    }
+    /*final estils iconos*/
+    /**/
 </style>
 @if ($call->stat->id === $nStat)
     <tr class="normalState">

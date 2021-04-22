@@ -70,7 +70,7 @@ Route::get('/trabajos', 'JobsController@jobs')
 Route::get('/', 'HomeController@index')
     ->name('home');
 
-Route::get('calls.index', 'CallController@index')
+Route::get('/llamadas', 'CallController@index')
     ->name('calls.index');
 
 Route::get('/llamadas/nuevo', 'CallController@create')

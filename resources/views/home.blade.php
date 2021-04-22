@@ -14,7 +14,7 @@
             @endif
             <ul>
                 @if ($calls->count())
-                    <table class="table">
+                    <table class="table pl-0">
                         <thead>
                         <tr>
                             <th scope="col">Data</th>
