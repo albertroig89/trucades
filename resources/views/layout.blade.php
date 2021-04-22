@@ -9,18 +9,8 @@
       <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title') - Microdelta</title>
 
-  <!-- DATETIMEPICKER BOTSTRAP I JAVASCRIPT-->
-{{--      <script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>--}}
-{{--      <script src ="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>--}}
-{{--      <script src ="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>--}}
-{{--      <script src ="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>--}}
-{{--      <script>--}}
-{{--          $(function() {--}}
-{{--              $('#datetimepicker1').datetimepicker();--}}
-{{--          });--}}
-{{--      </script>--}}
-{{--      <link rel ="stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">--}}
-{{--      <link rel ="stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">--}}
+<!-- DATETIMEPICKER BOTSTRAP I JAVASCRIPT-->
+
 <!-- HASTA AQUI DATETIME PICKER -->
 
       <!-- Bootstrap core CSS -->
@@ -48,19 +38,6 @@
             width: 600px;
         }
         /*hasta aqui*/
-
-        /*estils diferents per a les files de les trucades*/
-        .normalState {
-            bgcolor: #91ffb5;
-        }
-        .urgentState {
-            bgcolor: #f66767;
-        }
-        .pendingState {
-            bgcolor: #62a3e7;
-        }
-        /*final estils files trucades*/
-
     </style>
 
     

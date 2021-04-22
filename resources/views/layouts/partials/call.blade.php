@@ -1,18 +1,29 @@
 <style>
     /*estils diferents per a les files de les trucades*/
+    /*.table-striped>tbody>tr:nth-child(odd)>td,*/
+    /*.table-striped>tbody>tr:nth-child(odd)>th {*/
+    /*    background-color: #91ffb5;*/
+    /*}*/
+    /*.table-striped>tbody>tr:nth-child(even)>td,*/
+    /*.table-striped>tbody>tr:nth-child(even)>th {*/
+    /*    background-color: #f66767;*/
+    /*}*/
+    /*.table-striped>thead>tr>th {*/
+    /*    background-color: #62a3e7;*/
+    /*}*/
     .normalState {
-        bgcolor: #91ffb5;
+        background-color: #91ffb5;
     }
     .urgentState {
-        bgcolor: #f66767;
+        background-color: #f66767;
     }
     .pendingState {
-        bgcolor: #62a3e7;
+        background-color: #62a3e7;
     }
     /*final estils files trucades*/
 </style>
 @if ($call->stat->id === $nStat)
-    <tr bgcolor="#91ffb5" class="normalState">
+    <tr class="normalState">
         <th scope="row">{{ $call->created_at }}</th>
         <td>{{ $call->user->name }}</td>
         <td>{{ $call->client->name }}</td>
@@ -33,7 +44,7 @@
         </td>
     </tr>
 @elseif ($call->stat->id === $uStat)
-    <tr bgcolor="#f66767" class="urgentState">
+    <tr class="urgentState">
         <th scope="row">{{ $call->created_at }}</th>
         <td>{{ $call->user->name }}</td>
         <td>{{ $call->client->name }}</td>
@@ -52,7 +63,7 @@
             </form></td>
     </tr>
 @elseif ($call->stat->id === $pStat)
-    <tr bgcolor="#62a3e7" class="pendingState">
+    <tr class="pendingState">
         <th scope="row">{{ $call->created_at }}</th>
         <td>{{ $call->user->name }}</td>
         <td>{{ $call->client->name }}</td>
