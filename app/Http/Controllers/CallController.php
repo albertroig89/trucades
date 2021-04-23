@@ -41,7 +41,9 @@ class CallController extends Controller
     {
         $title = 'Modificar trucada';
         $clients = Client::all();
-        return view('calls.edit', ['call' => $call], compact('title', 'clients'));
+        $users = User::all();
+
+        return view('calls.edit', ['call' => $call], compact('title', 'clients', 'users'));
     }
     public function store(CreateCallRequest $request)
     {
