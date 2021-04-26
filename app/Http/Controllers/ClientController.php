@@ -20,7 +20,7 @@ class ClientController extends Controller
     {
         $title = 'Crear nou client';
         $clients = Client::all();
-        return view('calls.create', compact('title', 'clients'));
+        return view('clients.create', compact('title', 'clients'));
     }
 
     function destroy(Client $client)

@@ -77,9 +77,8 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Editar usuario</button>
+                <a href="{{ route('users.index') }}" class="btn btn-default float-right">Regresar al listado de usuarios</a>
             </form>
-            <br>
-            <p><a href="{{ route('users.index') }}">Regresar al listado de usuarios</a></p>
 
             @if ($errors->any())
                 <br>

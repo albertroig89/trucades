@@ -20,9 +20,9 @@
                             <th scope="col">Data</th>
                             <th scope="col">Empleat</th>
                             <th scope="col">Client</th>
-                            <th scope="col">Nota</th>
+                            <th scope="col" class="w-25">Nota</th>
                             <th scope="col">Ates per</th>
-                            <th scope="col">Visualitzar trucada</th>
+                            <th scope="col">Comensar feina</th>
                             <th scope="col">Editar trucada</th>
                             <th scope="col">Eliminar trucada</th>
                         </tr>

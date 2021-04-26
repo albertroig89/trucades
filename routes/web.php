@@ -96,6 +96,9 @@ Route::delete('/llamadas/{call}', 'CallController@destroy')
 Route::get('/clientes', 'ClientController@index')
     ->name('clients.index');
 
+Route::get('/clientes/nuevo', 'ClientController@create')
+    ->name('clients.create');
+
 Route::get('/llamadas/{client}/editar', 'ClientController@edit')
     ->where('id', '\d+')
     ->name('clients.edit');

@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="card pl-0 pr-0 col-md-4 mt-2">
-        <div class="card-header"><h3>{{ $title }}</h3></div>
+        <div class="card-header"><h3>{{ $call->client->name }}</h3></div>
         <div class="card-body">
             <form method="POST" action="{{ url("llamadas/{$call->id}") }}">
                 {{ method_field('PUT') }}
@@ -39,7 +39,11 @@
                     <div class="form-group">
                         <label for="id">Ates per:</label>
                         <select class="form-control" name="id" id="id">
-                            <option value="{{ old('id', $call->user_id) }}">{{ old('name', $call->user->name) }}</option>
+                            @foreach ($users as $user)
+                                @if ($user->id === old('id2', $call->user_id2))
+                                    <option class="form-control" value="{{ old('id2', $call->user_id2) }}">{{ $user->name }}</option>
+                                @endif
+                            @endforeach
                             @foreach ($users as $user)
                                 <option class="form-control" value="{{ ($user->id) }}">{{ $user->name }}</option>
                             @endforeach
@@ -47,10 +51,9 @@
                         <div class="invalid-feedback">Example invalid custom select feedback</div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Afegir trucada</button>
+                <button type="submit" class="btn btn-primary">Editar trucada</button>
+                <a href="{{ route('home') }}" class="btn btn-default float-right">Tornar a les trucades</a>
             </form>
-            <br>
-            <p><a href="{{ route('home') }}">Tornar a les trucades</a></p>
 
             @if ($errors->any())
                 <br>
