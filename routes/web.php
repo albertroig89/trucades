@@ -79,7 +79,7 @@ Route::get('/llamadas/nuevo', 'CallController@create')
 Route::get('/llamadas/{call}', 'CallController@show')
     ->name('calls.show');
 
-Route::post('/llamadas', 'CallController@store');
+Route::post('/', 'CallController@store');
 
 Route::get('/llamadas/{call}/editar', 'CallController@edit')
     ->where('id', '\d+')

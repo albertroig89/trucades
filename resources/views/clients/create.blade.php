@@ -59,9 +59,8 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Afegir client</button>
+                <a href="{{ route('clients.index') }}" class="btn btn-default float-right">Tornar als clients</a>
             </form>
-            <br>
-            <p><a href="{{ route('clients.index') }}">Tornar als clients</a></p>
 
             @if ($errors->any())
                 <br>

@@ -31,5 +31,7 @@ class ClientSeeder extends Seeder
             'name' => "Optica Esguard",
             'email' => "isa@opticaesguard.com",
         ]);
+
+//        factory(Client::class, 40)->create();
     }
 }

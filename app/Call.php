@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Call extends Model
 {
     protected $fillable = [
-        'user_id', 'client_id', 'status_id', 'user_id2', 'callinf'
+        'user_id', 'client_id', 'stat_id', 'user_id2', 'callinf'
     ];
 
     public function user()

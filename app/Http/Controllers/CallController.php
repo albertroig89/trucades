@@ -6,6 +6,7 @@ use App\Call;
 use App\Client;
 use App\Stat;
 use App\User;
+use App\Http\Requests\CreateCallRequest;
 use Illuminate\Http\Request;
 
 class CallController extends Controller
@@ -33,8 +34,9 @@ class CallController extends Controller
         $title = 'Crear nova trucada';
         $clients = Client::all();
         $users = User::all();
+        $stats = Stat::all();
 
-        return view('calls.create', compact('title', 'clients', 'users'));
+        return view('calls.create', compact('title', 'clients', 'users', 'stats'));
     }
 
     public function edit(Call $call)
@@ -47,7 +49,7 @@ class CallController extends Controller
     public function store(CreateCallRequest $request)
     {
         $request->createCall();
-        return redirect('home');
+        return redirect('/');
     }
 
     public function update(Call $call)

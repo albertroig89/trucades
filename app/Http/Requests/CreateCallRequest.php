@@ -38,7 +38,7 @@ class CreateCallRequest extends FormRequest
     {
         return [
             'user_id.required' => 'Sel·lecciona un empleat',
-            'client_id.required' => 'Afegeix un client',
+            'client_id.required' => 'Sel·lecciona un client',
             'user_id2.required' => 'Sel·lecciona un empleat',
             'stat_id' => 'required',
             'callinf.required' => 'Omple l\'informació de la trucada'

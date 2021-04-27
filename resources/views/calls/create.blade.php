@@ -7,17 +7,21 @@
     <div class="card pl-0 pr-0 col-md-4 mt-2">
         <div class="card-header"><h3>{{ $title }}</h3></div>
         <div class="card-body">
-            <form method="POST" action="{{ url('home') }}">
+            <form method="POST" action="{{ url('/') }}">
 
                 {!! csrf_field() !!}
 
                 <div class="form-group">
                     <div class="form-group">
-                        <form methos="POST" action="{{ url('clients.index') }}">
-                            <input name="buscarpor" class="form-control" type="search" placeholder="Buscar client" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Buscar</button>
-                        </form>
-                        <br>
+                        <label for="selector-clients">Client:</label>
+                        <select class='form-control selector-clients' name='client_id' id='client_id'>
+                            <option value=''>Selecciona un client</option>
+                            @foreach ($clients as $client)
+                                <option value="{{ ($client->id) }}">{{ $client->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="user_id2">Ates per:</label>
                         <select class="form-control" name="user_id2" id="user_id2">
                             <option value="">Sel·lecciona el qui la ates</option>
@@ -49,6 +53,14 @@
                             @endforeach
                         </select>
                         <div class="invalid-feedback">Example invalid custom select feedback</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="stat_id">Estat:</label>
+                        <select class='form-control' name='stat_id' id='stat_id'>
+                            @foreach ($stats as $stat)
+                                <option value="{{ ($stat->id) }}">{{ $stat->title }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Afegir trucada</button>

@@ -31,7 +31,6 @@
 window.onerror = function(errorMsg) {
 	$('#console').html($('#console').html()+'<br>'+errorMsg)
 }*/
-
     $.datetimepicker.setLocale('en');
 
     $('#datetimepicker_format').datetimepicker({value:'2015/04/15 05:03', format: $("#datetimepicker_format_value").val()});
@@ -165,7 +164,5 @@ window.onerror = function(errorMsg) {
         }
     });
     $('#datetimepicker_dark').datetimepicker({theme:'dark'})
-
-
 </script>
 </html>
