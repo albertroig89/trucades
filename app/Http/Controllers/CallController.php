@@ -43,36 +43,35 @@ class CallController extends Controller
     {
         $clients = Client::all();
         $users = User::all();
+        $stats = Stat::all();
 
-        return view('calls.edit', ['call' => $call], compact( 'clients', 'users'));
+        return view('calls.edit', ['call' => $call], compact( 'clients', 'users', 'stats'));
     }
     public function store(CreateCallRequest $request)
     {
         $request->createCall();
-        return redirect('/');
+        return redirect()->route('home');
     }
 
     public function update(Call $call)
     {
         $data = request()->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email,'.$call->id,
-//            'password' => ''
+            'user_id' => 'required',
+            'client_id' => 'required',
+            'user_id2' => 'required',
+            'stat_id' => 'required',
+            'callinf' => 'required',
         ], [
-            'name.required' => 'El campo nombre es obligatorio',
-            'email.required' => 'Introduce un correo electronico',
-            'email.email' => 'Introduce un correo electronico correcto',
-            'email.unique' => 'El correo introducido ya existe',
+            'user_id.required' => 'Sel·lecciona un empleat',
+            'client_id.required' => 'Sel·lecciona un client',
+            'user_id2.required' => 'Sel·lecciona un empleat',
+            'stat_id' => 'required',
+            'callinf.required' => 'Omple l\'informació de la trucada'
         ]);
 
-//        if ($data['password'] != null) {
-//            $data['password'] = bcrypt($data['password']);
-//        }else{
-//            unset($data['password']);
-//        }
         $call->update($data);
 
-        return redirect()->route('calls.show', ['call' => $call]);
+        return redirect()->route('home');
     }
 
     function destroy(Call $call)

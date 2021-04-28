@@ -30,14 +30,14 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Global',
             'email' => 'global@microdelta.net',
-            'password' => bcrypt('laravel'),
+            'password' => bcrypt('MicAmposta43'),
             'department_id' => $globId,
         ]);
 
         User::create([
             'name' => 'Albert Roig',
             'email' => 'albert@microdelta.net',
-            'password' => bcrypt('laravel'),
+            'password' => bcrypt('MicAmposta43'),
             'department_id' => $techId,
             'is_admin' => true,
         ]);
@@ -46,35 +46,35 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Joel Valor',
             'email' => 'joel@microdelta.net',
-            'password' => bcrypt('laravel2'),
+            'password' => bcrypt('MicAmposta43'),
             'department_id' => $techId,
         ]);
 
         User::create([
             'name' => 'Josep Castells',
             'email' => 'josep@microdelta.net',
-            'password' => bcrypt('laravel3'),
+            'password' => bcrypt('MicAmposta43'),
             'department_id' => $techId,
         ]);
 
         User::create([
             'name' => 'Cristina Esquerre',
             'email' => 'administracio@microdelta.net',
-            'password' => bcrypt('laravel4'),
+            'password' => bcrypt('MicAmposta43'),
             'department_id' => $admId,
         ]);
 
         User::create([
             'name' => 'Manel Bel',
             'email' => 'comercial@microdelta.net',
-            'password' => bcrypt('laravel5'),
+            'password' => bcrypt('MicAmposta43'),
             'department_id' => $comId,
         ]);
 
         User::create([
             'name' => 'Juan Valor',
             'email' => 'soft@microdelta.net',
-            'password' => bcrypt('pass1234'),
+            'password' => bcrypt('MicAmposta43'),
             'department_id' => $progId,
         ]);
 

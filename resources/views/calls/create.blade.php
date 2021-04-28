@@ -15,7 +15,7 @@
                     <div class="form-group">
                         <label for="selector-clients">Client:</label>
                         <select class='form-control selector-clients' name='client_id' id='client_id'>
-                            <option value=''>Selecciona un client</option>
+                            <option value="">Selecciona un client</option>
                             @foreach ($clients as $client)
                                 <option value="{{ ($client->id) }}">{{ $client->name }}</option>
                             @endforeach
@@ -24,9 +24,11 @@
                     <div class="form-group">
                         <label for="user_id2">Ates per:</label>
                         <select class="form-control" name="user_id2" id="user_id2">
-                            <option value="">Sel·lecciona el qui la ates</option>
+                            <option value="{{ auth()->id() }}">{{ auth()->user()->name }}</option>
                             @foreach ($users as $user)
-                                <option class="form-control" value="{{ ($user->id) }}">{{ $user->name }}</option>
+                                @if (auth()->id() != $user->id))
+                                    <option class="form-control" value="{{ ($user->id) }}">{{ $user->name }}</option>
+                                @endif
                             @endforeach
                         </select>
                         <div class="invalid-feedback">Example invalid custom select feedback</div>

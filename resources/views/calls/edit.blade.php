@@ -13,11 +13,24 @@
 
                 <div class="form-group">
                     <div class="form-group">
+                        <label for="selector-clients">Client:</label>
+                        <select class='form-control selector-clients' name='client_id' id='client_id'>
+                            <option value="{{ old('id', $call->client_id) }}">{{ old('name', $call->client->name) }}</option>
+                            @foreach ($clients as $client)
+                                @if (old('id', $call->client_id) != $client->id)
+                                    <option value="{{ ($client->id) }}">{{ $client->name }}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="user_id">Empleat:</label>
                         <select class="form-control" name="user_id" id="user_id">
                             <option value="{{ old('id', $call->user_id) }}">{{ old('name', $call->user->name) }}</option>
                             @foreach ($users as $user)
-                                <option class="form-control" value="{{ ($user->id) }}">{{ $user->name }}</option>
+                                @if (old('id', $call->user_id) != $user->id)
+                                    <option class="form-control" value="{{ ($user->id) }}">{{ $user->name }}</option>
+                                @endif
                             @endforeach
                         </select>
                         <div class="invalid-feedback">Example invalid custom select feedback</div>
@@ -38,17 +51,27 @@
                     </div>
                     <div class="form-group">
                         <label for="id">Ates per:</label>
-                        <select class="form-control" name="id" id="id">
+                        <select class="form-control" name="user_id2" id="user_id2">
                             @foreach ($users as $user)
                                 @if ($user->id === old('id2', $call->user_id2))
-                                    <option class="form-control" value="{{ old('id2', $call->user_id2) }}">{{ $user->name }}</option>
+                                        <option class="form-control" value="{{ old('id2', $call->user_id2) }}">{{ $user->name }}</option>
                                 @endif
                             @endforeach
                             @foreach ($users as $user)
-                                <option class="form-control" value="{{ ($user->id) }}">{{ $user->name }}</option>
+                                @if (old('id2', $call->user_id2) != $user->id)
+                                    <option class="form-control" value="{{ ($user->id) }}">{{ $user->name }}</option>
+                                @endif
                             @endforeach
                         </select>
                         <div class="invalid-feedback">Example invalid custom select feedback</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="stat_id">Estat:</label>
+                        <select class='form-control' name='stat_id' id='stat_id'>
+                            @foreach ($stats as $stat)
+                                <option value="{{ ($stat->id) }}">{{ $stat->title }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Editar trucada</button>

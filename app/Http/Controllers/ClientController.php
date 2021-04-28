@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Client;
+use App\Http\Requests\CreateClientRequest;
 use App\Phone;
+use App\User;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -21,6 +23,19 @@ class ClientController extends Controller
         $title = 'Crear nou client';
         $clients = Client::all();
         return view('clients.create', compact('title', 'clients'));
+    }
+
+    public function edit(Client $client)
+    {
+        $clients = Client::all();
+        $users = User::all();
+
+        return view('clients.edit', ['client' => $client], compact( 'clients', 'users'));
+    }
+    public function store(CreateClientRequest $request)
+    {
+        $request->createClient();
+        return redirect('clients.index');
     }
 
     function destroy(Client $client)

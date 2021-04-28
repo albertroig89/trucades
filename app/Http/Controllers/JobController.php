@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Job;
 use Illuminate\Http\Request;
 
-class JobsController extends Controller
+class JobController extends Controller
 {
 
 //    public function index($name)
@@ -21,7 +21,7 @@ class JobsController extends Controller
         $this->middleware('auth');
     }
 
-    public function jobs() {
+    public function index() {
 
         $jobs = Job::all();
 

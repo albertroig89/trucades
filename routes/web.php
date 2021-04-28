@@ -18,7 +18,7 @@
 //Route::get('/menu', 'UserController@menu')
 //    ->name('users');
 
-//----------------------------------------------------------------------------------------------DATEPICKER
+//----------------------------------------------------------------------------------------------DATETIMEPICKER
 
 Route::get('/test/datetimepicker', function () {
     return view('datetimepicker');
@@ -62,9 +62,22 @@ Auth::routes();
 
 //----------------------------------------------------------------------------------------------JOBS
 
-Route::get('/trabajos', 'JobsController@jobs')
+Route::get('/trabajos', 'JobController@index')
     ->name('jobs.jobs');
 
+Route::get('/trabajos/nuevo', 'JobController@create')
+    ->name('jobs.create');
+
+Route::post('/trabajos', 'JobController@store');
+
+Route::get('/trabajos/{job}/editar', 'JobController@edit')
+    ->where('id', '\d+')
+    ->name('jobs.edit');
+
+Route::put('/trabajos/{job}', 'JobController@update');
+
+Route::delete('/trabajos/{job}', 'JobController@destroy')
+    ->name('jobs.destroy');
 //----------------------------------------------------------------------------------------------CALLS
 
 Route::get('/', 'HomeController@index')
@@ -99,9 +112,13 @@ Route::get('/clientes', 'ClientController@index')
 Route::get('/clientes/nuevo', 'ClientController@create')
     ->name('clients.create');
 
-Route::get('/llamadas/{client}/editar', 'ClientController@edit')
+Route::post('/clientes', 'ClientController@store');
+
+Route::get('/clientes/{client}/editar', 'ClientController@edit')
     ->where('id', '\d+')
     ->name('clients.edit');
+
+Route::put('/llamadas/{client}', 'ClientController@update');
 
 Route::delete('/clientes/{client}', 'ClientController@destroy')
     ->name('clients.destroy');
