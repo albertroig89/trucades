@@ -5,9 +5,9 @@
 @section('content')
 
     <div class="card pl-0 pr-0 col-md-4 mt-2">
-        <div class="card-header"><h3>{{ $title }}</h3></div>
+        <div class="card-header"><h3>{{ $client->name }}</h3></div>
         <div class="card-body">
-            <form method="POST" action="{{ url('clients.index') }}">
+            <form method="POST" action="{{ url('clientes') }}">
 
                 {!! csrf_field() !!}
 
@@ -54,11 +54,11 @@
                             </div>
                         @else
                             <input type="text" name="phone" class="form-control" id="phone" aria-describedby="clientHelp" placeholder="977 70 70 70" value="{{ old('phone') }}">
-                            <small id="emailHelp" class="form-text text-muted">Escriu el telefon del client.</small>
+                            <small id="phoneHelp" class="form-text text-muted">Escriu el telefon del client.</small>
                         @endif
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Editar client</button>
+                <button type="submit" class="btn btn-primary">Afegir client</button>
                 <a href="{{ route('clients.index') }}" class="btn btn-default float-right">Tornar als clients</a>
             </form>
 
