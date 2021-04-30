@@ -24,6 +24,19 @@
               });
           });
       </script>
+      <script>
+          $(document).ready(function() {
+              $("#add_phone").click(function(){
+                  var contador = $("input[type='text']").length;
+
+                  $(this).before('<div><label for="phone_'+ contador +'">Telèfon:</label><input type="text" class="form-control" aria-describedby="clientHelp" placeholder="977 70 70 70" id="phone_'+ contador +'" name="phone[]"/><br><button type="button" class="btn btn-default delete_phone float-right">Borrar telèfon</button></div>');
+              });
+              $(document).on('click', '.delete_phone', function(){
+                  $(this).parent().remove();
+              });
+          });
+      </script>
+
       <!-- Bootstrap core CSS END-->
 
     <!-- Favicons -->
@@ -117,7 +130,7 @@
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    Logout
+                                    Sortir
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

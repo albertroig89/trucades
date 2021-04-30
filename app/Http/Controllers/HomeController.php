@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Call;
 use App\Department;
+use App\Phone;
 use App\Stat;
 use App\User;
 
@@ -28,6 +29,7 @@ class HomeController extends Controller
     {
         $calls = Call::all();
         $users = User::all();
+        $phones = Phone::all();
         $techId = Department::where('title', 'Tecnic')->value('id');
         $globId = Department::where('title', 'Global')->value('id');
         $nStat = Stat::where('title', 'Normal')->value('id');
@@ -36,7 +38,7 @@ class HomeController extends Controller
 
 
         $title = 'Trucades';
-        return view('home', compact('title', 'calls', 'users', 'techId', 'globId', 'nStat', 'uStat', 'pStat'));
+        return view('home', compact('title', 'calls', 'users', 'phones', 'techId', 'globId', 'nStat', 'uStat', 'pStat'));
     }
 
 }

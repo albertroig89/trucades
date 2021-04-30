@@ -29,8 +29,9 @@ class ClientController extends Controller
     {
         $clients = Client::all();
         $users = User::all();
+        $phones = Phone::all();
 
-        return view('clients.edit', ['client' => $client], compact( 'clients', 'users'));
+        return view('clients.edit', ['client' => $client], compact( 'clients', 'users', 'phones'));
     }
     public function store(CreateClientRequest $request)
     {

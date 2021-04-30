@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Call;
 use App\Client;
+use App\Phone;
 use App\Stat;
 use App\User;
 use App\Http\Requests\CreateCallRequest;
@@ -15,12 +16,13 @@ class CallController extends Controller
     {
         $calls = Call::all();
         $users = User::all();
+        $phones = Phone::all();
         $nStat = Stat::where('title', 'Normal')->value('id');
         $uStat = Stat::where('title', 'Urgent')->value('id');
         $pStat = Stat::where('title', 'Pendent')->value('id');
 
         $title = 'Trucades';
-        return view('calls.index', compact('title', 'calls', 'users', 'nStat', 'uStat', 'pStat'));
+        return view('calls.index', compact('title', 'calls', 'users', 'phones', 'nStat', 'uStat', 'pStat'));
     }
 
     public function show(Call $call)

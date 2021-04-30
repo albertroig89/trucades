@@ -4,6 +4,13 @@
         <td>{{ $call->user->name }}</td>
         <td>{{ $call->client->name }}</td>
         <td>{{ $call->callinf }}</td>
+        <td>
+            @foreach ($phones as $phone)
+                @if ($phone->client_id === $call->client->id)
+                    {{ $phone->phone }}
+                @endif
+            @endforeach
+        </td>
         @foreach ($users as $user)
             @if ($user->id === $call->user_id2)
                 <td>{{ $user->name }}</td>
@@ -25,6 +32,13 @@
         <td>{{ $call->user->name }}</td>
         <td>{{ $call->client->name }}</td>
         <td>{{ $call->callinf }}</td>
+        <td>
+            @foreach ($phones as $phone)
+                @if ($phone->client_id === $call->client->id)
+                    {{ $phone->phone }}
+                @endif
+            @endforeach
+        </td>
         @foreach ($users as $user)
             @if ($user->id === $call->user_id2)
                 <td>{{ $user->name }}</td>
@@ -44,6 +58,13 @@
         <td>{{ $call->user->name }}</td>
         <td>{{ $call->client->name }}</td>
         <td>{{ $call->callinf }}</td>
+        <td>
+            @foreach ($phones as $phone)
+                @if ($phone->client_id === $call->client->id)
+                    {{ $phone->phone }}
+                @endif
+            @endforeach
+        </td>
         @foreach ($users as $user)
             @if ($user->id === $call->user_id2)
                 <td>{{ $user->name }}</td>
