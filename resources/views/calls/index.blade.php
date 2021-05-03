@@ -20,12 +20,15 @@
                             <th scope="col">Data</th>
                             <th scope="col">Empleat</th>
                             <th scope="col">Client</th>
-                            <th scope="col" class="w-50">Nota</th>
+                            <th scope="col" class="nota">Nota</th>
                             <th scope="col">Telèfon</th>
                             <th scope="col">Ates per</th>
-                            <th scope="col">Comensar feina</th>
-                            <th scope="col">Editar trucada</th>
-                            <th scope="col">Eliminar trucada</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+{{--                            <th scope="col">Comensar feina</th>--}}
+{{--                            <th scope="col">Editar trucada</th>--}}
+{{--                            <th scope="col">Eliminar trucada</th>--}}
                         </tr>
                         </thead>
                         <tbody>

@@ -27,7 +27,7 @@ class UserController extends Controller
 
     public function create()
     {
-        $title = 'Creacion de usuaris';
+        $title = 'Nou usuari';
         $departments = Department::all();
 //        dd($departments);
         return view('users.create', compact('title', 'departments'));
@@ -43,7 +43,7 @@ class UserController extends Controller
     public function store(CreateUserRequest $request)
     {
         $request->createUser();
-        return redirect('usuarios');
+        return redirect()->route('users.index');
     }
 
     public function update(User $user)

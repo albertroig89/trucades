@@ -20,7 +20,7 @@ class ClientController extends Controller
 
     public function create()
     {
-        $title = 'Crear nou client';
+        $title = 'Nou client';
         $clients = Client::all();
         return view('clients.create', compact('title', 'clients'));
     }
@@ -36,7 +36,7 @@ class ClientController extends Controller
     public function store(CreateClientRequest $request)
     {
         $request->createClient();
-        return redirect('clients.index');
+        return redirect()->route('clients.index');
     }
 
     function destroy(Client $client)

@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', "Crear nou client")
+@section('title', "Nou client")
 
 @section('content')
 

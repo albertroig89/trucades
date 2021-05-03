@@ -33,7 +33,7 @@ class CallController extends Controller
 
     public function create()
     {
-        $title = 'Crear nova trucada';
+        $title = 'Nova trucada';
         $clients = Client::all();
         $users = User::all();
         $stats = Stat::all();

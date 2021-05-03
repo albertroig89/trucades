@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', "Creació de usuaris")
+@section('title', "Nou usuari")
 
 @section('content')
 

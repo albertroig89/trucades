@@ -7,9 +7,19 @@
 }
 .pendingState {
     background-color: #aed7ff;
+    /*background-color: #aed7ff;*/
 }
 .table {
-    height: 150%;
+    /*height: 100%;*/
+}
+.nota{
+    width: 40%;
+}
+th{
+    text-align: center;
+}
+td{
+    text-align: center;
 }
 /*estils iconos*/
 .oi-plus{
