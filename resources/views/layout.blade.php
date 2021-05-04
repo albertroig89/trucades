@@ -10,13 +10,14 @@
     <title>@yield('title') - Microdelta</title>
 
       <!-- Bootstrap core CSS -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
       <link rel="stylesheet" type="text/css" href="/css/styles.css" media="screen" /> <!--ESTILS PROPIS-->
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" integrity="sha256-BJ/G+e+y7bQdrYkS2RBTyNfBHpA9IuGaPmf9htub5MQ=" crossorigin="anonymous" />
       <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css"/>
+
+
       <script>
           jQuery(document).ready(function($){
               $(document).ready(function() {
@@ -176,4 +177,156 @@
 </footer>
 
   </body>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.js"></script>
+  <script>/*
+window.onerror = function(errorMsg) {
+	$('#console').html($('#console').html()+'<br>'+errorMsg)
+}*/
+      $.datetimepicker.setLocale('es');
+
+      $('#datetimepicker_format').datetimepicker({value:'15/04/2015 05:03', format: $("#datetimepicker_format_value").val()});
+      console.log($('#datetimepicker_format').datetimepicker('getValue'));
+
+      $("#datetimepicker_format_change").on("click", function(e){
+          $("#datetimepicker_format").data('xdsoft_datetimepicker').setOptions({format: $("#datetimepicker_format_value").val()});
+      });
+      $("#datetimepicker_format_locale").on("change", function(e){
+          $.datetimepicker.setLocale($(e.currentTarget).val());
+      });
+
+      $('#datetimepicker').datetimepicker({
+          dayOfWeekStart : 1,
+          lang:'en',
+          disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
+          startDate:	'1986/01/05'
+      });
+      $('#datetimepicker').datetimepicker({value:'2015/04/15 05:03', step:10});
+
+      $('.some_class').datetimepicker();
+
+      $('#default_datetimepicker').datetimepicker({
+          formatTime:'H:i',
+          formatDate:'d.m.Y',
+          //defaultDate:'8.12.1986', // it's my birthday
+          defaultDate:'+03.01.1970', // it's my birthday
+          defaultTime:'10:00',
+          timepickerScrollbar:false
+      });
+
+      $('#datetimepicker10').datetimepicker({
+          step:5,
+          inline:true
+      });
+
+      $('#datetimepicker_mask').datetimepicker({
+          format:'d/m/Y H:i',
+          mask:'39/19/9999 29:59'
+      });
+
+      $('#datetimepicker_mask2').datetimepicker({
+          format:'d/m/Y H:i',
+          mask:'39/19/9999 29:59'
+      });
+
+      $('#datetimepicker1').datetimepicker({
+          datepicker:false,
+          format:'H:i',
+          step:5
+      });
+      $('#datetimepicker2').datetimepicker({
+          yearOffset:222,
+          lang:'ch',
+          timepicker:false,
+          format:'d/m/Y',
+          formatDate:'Y/m/d',
+          minDate:'-1970/01/02', // yesterday is minimum date
+          maxDate:'+1970/01/02' // and tommorow is maximum date calendar
+      });
+      $('#datetimepicker3').datetimepicker({
+          inline:true
+      });
+      $('#datetimepicker4').datetimepicker();
+      $('#open').click(function(){
+          $('#datetimepicker4').datetimepicker('show');
+      });
+      $('#close').click(function(){
+          $('#datetimepicker4').datetimepicker('hide');
+      });
+      $('#reset').click(function(){
+          $('#datetimepicker4').datetimepicker('reset');
+      });
+      $('#datetimepicker5').datetimepicker({
+          datepicker:false,
+          allowTimes:['12:00','13:00','15:00','17:00','17:05','17:20','19:00','20:00'],
+          step:5
+      });
+      $('#datetimepicker6').datetimepicker();
+      $('#destroy').click(function(){
+          if( $('#datetimepicker6').data('xdsoft_datetimepicker') ){
+              $('#datetimepicker6').datetimepicker('destroy');
+              this.value = 'create';
+          }else{
+              $('#datetimepicker6').datetimepicker();
+              this.value = 'destroy';
+          }
+      });
+      var logic = function( currentDateTime ){
+          if (currentDateTime && currentDateTime.getDay() == 6){
+              this.setOptions({
+                  minTime:'11:00'
+              });
+          }else
+              this.setOptions({
+                  minTime:'8:00'
+              });
+      };
+      $('#datetimepicker7').datetimepicker({
+          onChangeDateTime:logic,
+          onShow:logic
+      });
+      $('#datetimepicker8').datetimepicker({
+          onGenerate:function( ct ){
+              $(this).find('.xdsoft_date')
+                  .toggleClass('xdsoft_disabled');
+          },
+          minDate:'-1970/01/2',
+          maxDate:'+1970/01/2',
+          timepicker:false
+      });
+      $('#datetimepicker9').datetimepicker({
+          onGenerate:function( ct ){
+              $(this).find('.xdsoft_date.xdsoft_weekend')
+                  .addClass('xdsoft_disabled');
+          },
+          weekends:['01.01.2014','02.01.2014','03.01.2014','04.01.2014','05.01.2014','06.01.2014'],
+          timepicker:false
+      });
+      var dateToDisable = new Date();
+      dateToDisable.setDate(dateToDisable.getDate() + 2);
+      $('#datetimepicker11').datetimepicker({
+          beforeShowDay: function(date) {
+              if (date.getMonth() == dateToDisable.getMonth() && date.getDate() == dateToDisable.getDate()) {
+                  return [false, ""]
+              }
+
+              return [true, ""];
+          }
+      });
+      $('#datetimepicker12').datetimepicker({
+          beforeShowDay: function(date) {
+              if (date.getMonth() == dateToDisable.getMonth() && date.getDate() == dateToDisable.getDate()) {
+                  return [true, "custom-date-style"];
+              }
+
+              return [true, ""];
+          }
+      });
+      $('#datetimepicker_dark').datetimepicker({theme:'dark'})
+  </script>
 </html>
