@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', "Edicion de usuarios")
+@section('title', "Editar trucada")
 
 @section('content')
 
@@ -24,18 +24,21 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="user_id">Empleat:</label>
-                        <select class="form-control" name="user_id" id="user_id">
-                            <option value="{{ old('id', $call->user_id) }}">{{ old('name', $call->user->name) }}</option>
+                        <label for="id">Ates per:</label>
+                        <select class="form-control" name="user_id2" id="user_id2">
                             @foreach ($users as $user)
-                                @if (old('id', $call->user_id) != $user->id)
+                                @if ($user->id === old('id2', $call->user_id2))
+                                    <option class="form-control" value="{{ old('id2', $call->user_id2) }}">{{ $user->name }}</option>
+                                @endif
+                            @endforeach
+                            @foreach ($users as $user)
+                                @if (old('id2', $call->user_id2) != $user->id)
                                     <option class="form-control" value="{{ ($user->id) }}">{{ $user->name }}</option>
                                 @endif
                             @endforeach
                         </select>
                         <div class="invalid-feedback">Example invalid custom select feedback</div>
                     </div>
-
                     <div class="form-group">
                         <label for="callinf">Informació trucada:</label>
                         @if ($errors->has('callinf'))
@@ -50,15 +53,11 @@
                         @endif
                     </div>
                     <div class="form-group">
-                        <label for="id">Ates per:</label>
-                        <select class="form-control" name="user_id2" id="user_id2">
+                        <label for="user_id">Empleat:</label>
+                        <select class="form-control" name="user_id" id="user_id">
+                            <option value="{{ old('id', $call->user_id) }}">{{ old('name', $call->user->name) }}</option>
                             @foreach ($users as $user)
-                                @if ($user->id === old('id2', $call->user_id2))
-                                        <option class="form-control" value="{{ old('id2', $call->user_id2) }}">{{ $user->name }}</option>
-                                @endif
-                            @endforeach
-                            @foreach ($users as $user)
-                                @if (old('id2', $call->user_id2) != $user->id)
+                                @if (old('id', $call->user_id) != $user->id)
                                     <option class="form-control" value="{{ ($user->id) }}">{{ $user->name }}</option>
                                 @endif
                             @endforeach

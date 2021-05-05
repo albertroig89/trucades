@@ -8,7 +8,7 @@ use App\Phone;
 use App\Stat;
 use App\User;
 use App\Http\Requests\CreateCallRequest;
-use Illuminate\Http\Request;
+
 
 class CallController extends Controller
 {
@@ -29,6 +29,15 @@ class CallController extends Controller
     {
         $title = 'Trucada';
         return view('calls.show', compact('title', 'call'));
+    }
+
+    public function job(Call $call)
+    {
+        $clients = Client::all();
+        $users = User::all();
+        $stats = Stat::all();
+
+        return view('calls.jobfromcall', compact( 'call', 'clients', 'users', 'stats'));
     }
 
     public function create()

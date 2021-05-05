@@ -27,17 +27,37 @@ class JobController extends Controller
 
         $title = 'Feines';
 //        dd($users);
-        return view('jobs.jobs', compact('title', 'jobs'));
+        return view('jobs.index', compact('title', 'jobs'));
 
     }
 
-    public function calls() {
+    public function show(Job $job)
+    {
+        $title = 'Feina';
+        return view('jobs.show', compact('title', 'job'));
+    }
 
-        $calls = Job::all();
+    public function create()
+    {
+        $title = 'Nova trucada';
+        $clients = Client::all();
+        $users = User::all();
+        $stats = Stat::all();
 
-        $title = 'Trucades';
-//        dd($users);
-        return view('jobs.calls', compact('title', 'calls'));
+        return view('jobs.create', compact('title', 'clients', 'users', 'stats'));
+    }
 
+    public function edit(Job $job)
+    {
+        $clients = Client::all();
+        $users = User::all();
+        $stats = Stat::all();
+
+        return view('jobs.edit', ['job' => $job], compact( 'clients', 'users', 'stats'));
+    }
+    public function store(CreateJobRequest $request)
+    {
+        $request->createCall();
+        return redirect()->route('home');
     }
 }

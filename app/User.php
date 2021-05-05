@@ -37,6 +37,11 @@ class User extends Authenticatable
         return $this->belongsTo(Department::class);
     }
 
+    public function job()
+    {
+        return $this->hasMany(Job::class);
+    }
+
     protected $casts = [
         'is_admin' => 'boolean'
     ];

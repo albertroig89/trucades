@@ -48,7 +48,7 @@ Auth::routes();
 //----------------------------------------------------------------------------------------------JOBS
 
 Route::get('/trabajos', 'JobController@index')
-    ->name('jobs.jobs');
+    ->name('jobs.index');
 
 Route::get('/trabajos/nuevo', 'JobController@create')
     ->name('jobs.create');
@@ -76,6 +76,9 @@ Route::get('/llamadas/nuevo', 'CallController@create')
 
 Route::get('/llamadas/{call}', 'CallController@show')
     ->name('calls.show');
+
+Route::get('/llamadas/{call}', 'CallController@job')
+    ->name('calls.job');
 
 Route::post('/', 'CallController@store');
 
