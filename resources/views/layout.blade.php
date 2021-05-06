@@ -13,30 +13,10 @@
 
 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" integrity="sha256-BJ/G+e+y7bQdrYkS2RBTyNfBHpA9IuGaPmf9htub5MQ=" crossorigin="anonymous" />
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css"/>
       <link rel="stylesheet" type="text/css" href="/css/styles.css" media="screen" /> <!--ESTILS PROPIS-->
-
-      <script>
-          jQuery(document).ready(function($){
-              $(document).ready(function() {
-                  $('.selector-clients').select2();
-              });
-          });
-      </script>
-      <script>
-          $(document).ready(function() {
-              $("#add_phone").click(function(){
-                  var contador = $("input[type='text']").length;
-
-                  $(this).before('<div><label for="phone_'+ contador +'">Telèfon:</label><input type="text" class="form-control" aria-describedby="clientHelp" placeholder="977 70 70 70" id="phone_'+ contador +'" name="phone[]"/><br><button type="button" class="btn btn-default delete_phone float-right">Borrar telèfon</button></div>');
-              });
-              $(document).on('click', '.delete_phone', function(){
-                  $(this).parent().remove();
-              });
-          });
-      </script>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
 
       <!-- Bootstrap core CSS END-->
 
@@ -184,6 +164,25 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.js"></script>
+  <script>
+      jQuery(document).ready(function($){
+          $(document).ready(function() {
+              $('.selector-clients').select2();
+          });
+      });
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#add_phone").click(function(){
+              var contador = $("input[type='text']").length;
+
+              $(this).before('<div><label for="phone_'+ contador +'">Telèfon:</label><input type="text" class="form-control" aria-describedby="clientHelp" placeholder="977 70 70 70" id="phone_'+ contador +'" name="phone[]"/><br><button type="button" class="btn btn-default delete_phone float-right">Borrar telèfon</button></div>');
+          });
+          $(document).on('click', '.delete_phone', function(){
+              $(this).parent().remove();
+          });
+      });
+  </script>
   <script>/*
 window.onerror = function(errorMsg) {
 	$('#console').html($('#console').html()+'<br>'+errorMsg)

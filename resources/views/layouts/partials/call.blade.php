@@ -22,7 +22,7 @@
             <form action="{{ route('calls.destroy', $call) }}" method="POST">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
-                <button class="btn btn-link" type="submit"><span class="oi oi-trash"></span></button>
+                <button class="btn btn-link" type="submit"><span class="oi oi-trash mt-0"></span></button>
             </form>
         </td>
     </tr>

@@ -58,6 +58,9 @@ td{
     color: #1c1c1c;
 
 }
+.btn-link{
+    padding-top: 0px;
+}
 /*estils datetime picker*/
 .container {
     margin-top: 5px;

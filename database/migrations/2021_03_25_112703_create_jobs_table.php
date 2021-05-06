@@ -15,7 +15,7 @@ class CreateJobsTable extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('job');
+            $table->string('job', 1000);
             $table->dateTime('inittime');
             $table->dateTime('endtime');
             $table->timestamps();
