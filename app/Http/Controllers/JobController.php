@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Client;
 use App\Job;
+use App\Stat;
+use App\User;
 use Illuminate\Http\Request;
 
 class JobController extends Controller
@@ -39,7 +42,7 @@ class JobController extends Controller
 
     public function create()
     {
-        $title = 'Nova trucada';
+        $title = 'Nova feina';
         $clients = Client::all();
         $users = User::all();
         $stats = Stat::all();

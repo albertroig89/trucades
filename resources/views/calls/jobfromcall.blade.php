@@ -14,11 +14,11 @@
                 <div class="form-group">
                     <div class="form-group">
                         <label for="datetimepicker_mask">Inici trucada:</label>
-                        <input type="text" value="" id="datetimepicker_mask"/>
+                        <input type="text" class="form-control" value="" id="datetimepicker_mask"/>
                     </div>
                     <div class="form-group">
                         <label for="datetimepicker_mask2">Final trucada:</label>
-                        <input type="text" value="" id="datetimepicker_mask2"/>
+                        <input type="text" class="form-control" value="" id="datetimepicker_mask2"/>
                     </div>
                     <div class="form-group">
                         <label for="callinf">Informació trucada:</label>
@@ -54,7 +54,7 @@
                         </select>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Editar trucada</button>
+                <button type="submit" class="btn btn-primary">Afegir feina</button>
                 <a href="{{ route('home') }}" class="btn btn-default float-right">Tornar a les trucades</a>
             </form>
 

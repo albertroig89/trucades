@@ -22,19 +22,15 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="user_id2">Ates per:</label>
-                        <select class="form-control" name="user_id2" id="user_id2">
-                            <option value="{{ auth()->id() }}">{{ auth()->user()->name }}</option>
-                            @foreach ($users as $user)
-                                @if (auth()->id() != $user->id))
-                                <option class="form-control" value="{{ ($user->id) }}">{{ $user->name }}</option>
-                                @endif
-                            @endforeach
-                        </select>
-                        <div class="invalid-feedback">Example invalid custom select feedback</div>
+                        <label for="datetimepicker_mask">Inici trucada:</label>
+                        <input type="text" class="form-control" value="" id="datetimepicker_mask"/>
                     </div>
                     <div class="form-group">
-                        <label for="callinf">Informació trucada:</label>
+                        <label for="datetimepicker_mask2">Final trucada:</label>
+                        <input type="text" class="form-control" value="" id="datetimepicker_mask2"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="callinf">Informació de la feina:</label>
                         @if ($errors->has('callinf'))
                             <textarea name="callinf" class="form-control is-invalid" id="callinf">{{ old('callinf') }}</textarea>
                         @elseif ($errors->any())
@@ -56,17 +52,9 @@
                         </select>
                         <div class="invalid-feedback">Example invalid custom select feedback</div>
                     </div>
-                    <div class="form-group">
-                        <label for="stat_id">Estat:</label>
-                        <select class='form-control' name='stat_id' id='stat_id'>
-                            @foreach ($stats as $stat)
-                                <option value="{{ ($stat->id) }}">{{ $stat->title }}</option>
-                            @endforeach
-                        </select>
-                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Afegir trucada</button>
-                <a href="{{ route('home') }}" class="btn btn-default float-right">Tornar a les trucades</a>
+                <button type="submit" class="btn btn-primary">Afegir feina</button>
+                <a href="{{ route('home') }}" class="btn btn-default float-right">Tornar a l'inici</a>
             </form>
 
             @if ($errors->any())

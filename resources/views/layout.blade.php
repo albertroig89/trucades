@@ -63,7 +63,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('jobs.index') }}">Mostrar feines</a>
-                    <a class="dropdown-item" href="{{ route('calls.create') }}">Nova feina</a>
+                    <a class="dropdown-item" href="{{ route('jobs.create') }}">Nova feina</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ route('jobs.index') }}">Mostrar totes les feines</a>
                 </div>
@@ -176,7 +176,7 @@
           $("#add_phone").click(function(){
               var contador = $("input[type='text']").length;
 
-              $(this).before('<div><label for="phone_'+ contador +'">Telèfon:</label><input type="text" class="form-control" aria-describedby="clientHelp" placeholder="977 70 70 70" id="phone_'+ contador +'" name="phone[]"/><br><button type="button" class="btn btn-default delete_phone float-right">Borrar telèfon</button></div>');
+              $(this).before('<div><label for="phone'+ contador +'">Telèfon:</label><input type="text" class="form-control" aria-describedby="clientHelp" placeholder="977 70 70 70" id="phone'+ contador +'" name="phone[]"/><br><button type="button" class="btn btn-default delete_phone float-right">Borrar telèfon</button></div>');
           });
           $(document).on('click', '.delete_phone', function(){
               $(this).parent().remove();
