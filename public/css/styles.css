@@ -87,6 +87,14 @@ td{
     border-color: #686868;
     color: white;
 }
+.btn-default:active{
+    background-color: #006dcc;
+    border-color: #003399;
+}
+.btn-default:focus{
+    background-color: #006dcc;
+    border-color: #006dcc;
+}
 /*estils dropdown*/
 .dropdown-item{
     active-color: #686868;;

@@ -176,7 +176,7 @@
           $("#add_phone").click(function(){
               var contador = $("input[type='text']").length;
 
-              $(this).before('<div><label for="phone'+ contador +'">Telèfon:</label><input type="text" class="form-control" aria-describedby="clientHelp" placeholder="977 70 70 70" id="phone'+ contador +'" name="phone[]"/><br><button type="button" class="btn btn-default delete_phone float-right">Borrar telèfon</button></div>');
+              $(this).before('<div><label for="phones'+ contador +'">Telèfon:</label><input type="text" class="form-control" aria-describedby="clientHelp" placeholder="977 70 70 70" id="phones'+ contador +'" name="phones[]"/><br><button type="button" class="btn btn-default delete_phone float-right">Borrar telèfon</button></div>');
           });
           $(document).on('click', '.delete_phone', function(){
               $(this).parent().remove();

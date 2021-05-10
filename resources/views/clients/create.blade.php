@@ -22,7 +22,7 @@
                         @elseif ($errors->any())
                             <input type="text" name="name" class="form-control is-valid" id="name" aria-describedby="clientHelp" placeholder="Exemple S.L." value="{{ old('name') }}">
                             <div class="valid-feedback">
-                                Correcto!
+                                Correcte!
                             </div>
                         @else
                             <input type="text" name="name" class="form-control" id="name" aria-describedby="clientHelp" placeholder="Exemple S.L." value="{{ old('name') }}">
@@ -34,7 +34,7 @@
                         @if ($errors->has('email'))
                             <input type="text" name="email" class="form-control is-invalid" id="email" aria-describedby="clientHelp" placeholder="example@example.com" value="{{ old('email') }}">
                         @elseif ($errors->any())
-                            <input type="text" name="email" class="form-control is-invalid" id="email" aria-describedby="clientHelp" placeholder="example@example.com" value="{{ old('email') }}">
+                            <input type="text" name="email" class="form-control is-valid" id="email" aria-describedby="clientHelp" placeholder="example@example.com" value="{{ old('email') }}">
                             <div class="valid-feedback">
                                 Correcte!
                             </div>
@@ -46,12 +46,12 @@
                     <div class="form-group">
                         <label for="phone1">Telèfon:</label>
                         @if ($errors->has('phone'))
-                            <input type="text" name="phone1" class="form-control is-invalid" id="phone1" aria-describedby="clientHelp" placeholder="example@example.com" value="{{ old('phone') }}">
+                            <input type="text" name="phone" class="form-control is-invalid" id="phone" aria-describedby="clientHelp" placeholder="example@example.com" value="{{ old('phone') }}">
                             <div class="button">
                                 <button type="button" id="add_phone" class="btn btn-default">Afegir telèfon</button>
                             </div>
                         @elseif ($errors->any())
-                            <input type="text" name="phone1" class="form-control is-invalid" id="phone1" aria-describedby="clientHelp" placeholder="example@example.com" value="{{ old('phone') }}">
+                            <input type="text" name="phone" class="form-control is-valid" id="phone" aria-describedby="clientHelp" placeholder="example@example.com" value="{{ old('phone') }}">
                             <div class="button">
                                 <button type="button" id="add_phone" class="btn btn-default">Afegir telèfon</button>
                             </div>
@@ -59,7 +59,7 @@
                                 Correcte!
                             </div>
                         @else
-                            <input type="text" name="phone1" class="form-control" id="phone1" aria-describedby="clientHelp" placeholder="977 70 70 70" value="{{ old('phone') }}">
+                            <input type="text" name="phone" class="form-control" id="phone" aria-describedby="clientHelp" placeholder="977 70 70 70" value="{{ old('phone') }}">
                             <small id="phoneHelp" class="form-text text-muted">Escriu el telefon del client.</small>
                             <div class="button">
                                 <button type="button" id="add_phone" class="btn btn-default">Afegir telèfon</button>

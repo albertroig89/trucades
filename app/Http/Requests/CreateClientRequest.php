@@ -28,11 +28,8 @@ class CreateClientRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
-            'phone1' => 'required',
-            'phone2' => '',
-            'phone3' => '',
-            'phone4' => '',
-            'phone5' => ''
+            'phone' => 'required',
+            'phones' => '',
         ];
     }
 
@@ -59,13 +56,16 @@ class CreateClientRequest extends FormRequest
             ]);
 
             $client->phone()->create([
-                'phone' => $data['phone1'],
-                'phone' => $data['phone2'],
-                'phone' => $data['phone3'],
-                'phone' => $data['phone4'],
-                'phone' => $data['phone5'],
+                'phone' => $data['phone'],
             ]);
 
+            $phones = $data['phones'];
+
+            foreach($phones as $phone){
+                $client->phone()->create([
+                    'phone' => $phone,
+                ]);
+            };
         });
     }
 }
