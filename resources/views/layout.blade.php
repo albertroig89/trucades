@@ -17,7 +17,7 @@
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css"/>
       <link rel="stylesheet" type="text/css" href="/css/styles.css" media="screen" /> <!--ESTILS PROPIS-->
       <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
-
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.8/push.min.js"></script>
       <!-- Bootstrap core CSS END-->
 
     <!-- Favicons -->
@@ -29,9 +29,6 @@
 {{--    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">--}}
 {{--    <meta name="theme-color" content="#7952b3">--}}
 
-    
-    <!-- Custom styles for this template -->
-{{--    <link href="{{ asset('css/style.css') }}" rel="stylesheet">--}}
   </head>
   <body class="d-flex flex-column h-100">
     
@@ -126,7 +123,14 @@
     </div>
   </nav>
 </header>
-
+<script>
+    window.onload = function() {
+        Push.Permission.request();
+    }
+</script>
+<script>
+    Push.create('Hello World!')
+</script>
 <!-- Begin page content -->
 <main class="flex-shrink-0">
 
@@ -155,7 +159,6 @@
     <span class="text-muted">Desarrollat per Albert Roig</span>
   </div>
 </footer>
-
   </body>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
@@ -164,6 +167,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.js"></script>
+
+
   <script>
       jQuery(document).ready(function($){
           $(document).ready(function() {

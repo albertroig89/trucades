@@ -36,7 +36,6 @@ class HomeController extends Controller
         $uStat = Stat::where('title', 'Urgent')->value('id');
         $pStat = Stat::where('title', 'Pendent')->value('id');
 
-
         $title = 'Trucades';
         return view('home', compact('title', 'calls', 'users', 'phones', 'techId', 'globId', 'nStat', 'uStat', 'pStat'));
     }
