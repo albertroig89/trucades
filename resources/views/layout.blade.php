@@ -17,7 +17,6 @@
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css"/>
       <link rel="stylesheet" type="text/css" href="/css/styles.css" media="screen" /> <!--ESTILS PROPIS-->
       <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.8/push.min.js"></script>
       <!-- Bootstrap core CSS END-->
 
     <!-- Favicons -->
@@ -123,14 +122,8 @@
     </div>
   </nav>
 </header>
-<script>
-    window.onload = function() {
-        Push.Permission.request();
-    }
-</script>
-<script>
-    Push.create('Hello World!')
-</script>
+
+
 <!-- Begin page content -->
 <main class="flex-shrink-0">
 
@@ -167,7 +160,19 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.8/push.min.js"></script>
 
+{{--  script notificacions--}}
+{{--  <script>--}}
+{{--      window.onload = function() {--}}
+{{--          Push.Permission.request();--}}
+{{--      }--}}
+
+{{--      Push.create("Trucada", {--}}
+{{--          body: "Aixo es lo cos de la notificació",--}}
+{{--          icon: '/public/images/logo.jpg',--}}
+{{--      });--}}
+{{--  </script>--}}
 
   <script>
       jQuery(document).ready(function($){

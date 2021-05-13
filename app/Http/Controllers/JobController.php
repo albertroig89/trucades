@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Client;
+use App\Http\Requests\CreateJobRequest;
 use App\Job;
 use App\Stat;
 use App\User;
@@ -60,7 +61,7 @@ class JobController extends Controller
     }
     public function store(CreateJobRequest $request)
     {
-        $request->createCall();
-        return redirect()->route('home');
+        $request->createJob();
+        return redirect()->route('jobs.index');
     }
 }

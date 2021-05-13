@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Job;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\DB;
 
@@ -27,9 +28,9 @@ class CreateJobRequest extends FormRequest
         return [
             'user_id' => 'required',
             'client_id' => 'required',
-            'user_id2' => 'required',
-            'stat_id' => 'required',
-            'callinf' => 'required',
+            'job' => 'required',
+            'inittime' => 'required',
+            'endtime' => 'required',
         ];
     }
 
@@ -38,9 +39,9 @@ class CreateJobRequest extends FormRequest
         return [
             'user_id.required' => 'Sel·lecciona un empleat',
             'client_id.required' => 'Sel·lecciona un client',
-            'user_id2.required' => 'Sel·lecciona un empleat',
-            'stat_id' => 'required',
-            'callinf.required' => 'Omple l\'informació de la trucada'
+            'job.required' => 'Introdueix la feina que has fet',
+            'inittime.required' => 'Introdueix comensament de feina',
+            'endtime.required' => 'Introdueix final de feina'
         ];
     }
 
@@ -53,9 +54,9 @@ class CreateJobRequest extends FormRequest
             $call = Call::create([
                 'user_id' => $data['user_id'],
                 'client_id' => $data['client_id'],
-                'user_id2' => $data['user_id2'],
-                'stat_id' => $data['stat_id'],
-                'callinf' => $data['callinf'],
+                'job' => $data['job'],
+                'inittime' => $data['datetimepicker_mask'],
+                'endtime' => $data['datetimepicker_mask2'],
             ]);
 
 //            $call->profile()->create([
@@ -73,7 +74,7 @@ class CreateJobRequest extends FormRequest
 
             $data = $this->validated();
 
-            $call = Call::create([
+            $job = Job::create([
                 'user_id' => $data['user_id'],
                 'client_id' => $data['client_id'],
                 'user_id2' => $data['user_id2'],
