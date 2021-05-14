@@ -1,6 +1,6 @@
 @if ($call->stat->id === $nStat)
     <tr class="normalState">
-        <th scope="row">{{ $call->created_at }}</th>
+        <th scope="row">{{ \Carbon\Carbon::parse($call->created_at)->format('d/m/y H:m') }}</th>
         <td>{{ $call->user->name }}</td>
         <td>{{ $call->client->name }}</td>
         <td class="nota">{{ $call->callinf }}</td>
@@ -28,7 +28,7 @@
     </tr>
 @elseif ($call->stat->id === $uStat)
     <tr class="urgentState">
-        <th scope="row">{{ $call->created_at }}</th>
+        <th scope="row">{{ \Carbon\Carbon::parse($call->created_at)->format('d/m/y H:m') }}</th>
         <td>{{ $call->user->name }}</td>
         <td>{{ $call->client->name }}</td>
         <td>{{ $call->callinf }}</td>
@@ -54,7 +54,7 @@
     </tr>
 @elseif ($call->stat->id === $pStat)
     <tr class="pendingState">
-        <th scope="row">{{ $call->created_at }}</th>
+        <th scope="row">{{ \Carbon\Carbon::parse($call->created_at)->format('d/m/y H:m') }}</th>
         <td>{{ $call->user->name }}</td>
         <td>{{ $call->client->name }}</td>
         <td>{{ $call->callinf }}</td>

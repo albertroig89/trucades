@@ -77,9 +77,9 @@ class CreateJobRequest extends FormRequest
             $job = Job::create([
                 'user_id' => $data['user_id'],
                 'client_id' => $data['client_id'],
-                'user_id2' => $data['user_id2'],
-                'stat_id' => $data['stat_id'],
-                'callinf' => $data['callinf'],
+                'job' => $data['job'],
+                'inittime' => $data['inittime'],
+                'endtime' => $data['endtime'],
             ]);
 
 //            $call->profile()->create([

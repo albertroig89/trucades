@@ -53,33 +53,33 @@
                     <div class="form-group">
                         <label for="inittime">Inici trucada:</label>
                         @if ($errors->has('inittime'))
-                            <input type="text" class="form-control is-invalid" value="{{ old('inittime') }}" id="inittime"/>
+                            <input type="text" class="form-control is-invalid" name="inittime" value="{{ old('inittime') }}" id="inittime"/>
                             <div class="invalid-feedback">
                                 {{ $errors->first('inittime') }}
                             </div>
                         @elseif ($errors->any())
-                            <input type="text" class="form-control is-valid" value="{{ old('inittime') }}" id="inittime"/>
+                            <input type="text" class="form-control is-valid" name="inittime" value="{{ old('inittime') }}" id="inittime"/>
                             <div class="valid-feedback">
                                 Correcte!
                             </div>
                         @else
-                            <input type="text" class="form-control" value="{{ old('inittime') }}" id="inittime"/>
+                            <input type="text" class="form-control" name="inittime" value="{{ old('inittime') }}" id="inittime"/>
                         @endif
                     </div>
                     <div class="form-group">
                         <label for="endtime">Final trucada:</label>
                         @if ($errors->has('endtime'))
-                            <input type="text" class="form-control is-invalid" value="{{ old('endtime') }}" id="endtime"/>
+                            <input type="text" class="form-control is-invalid" name="endtime" value="{{ old('endtime') }}" id="endtime"/>
                             <div class="invalid-feedback">
                                 {{ $errors->first('endtime') }}
                             </div>
                         @elseif ($errors->any())
-                            <input type="text" class="form-control is-valid" value="{{ old('endtime') }}" id="endtime"/>
+                            <input type="text" class="form-control is-valid" name="endtime" value="{{ old('endtime') }}" id="endtime"/>
                             <div class="valid-feedback">
                                 Correcte!
                             </div>
                         @else
-                            <input type="text" class="form-control" value="{{ old('endtime') }}" id="endtime"/>
+                            <input type="text" class="form-control" name="endtime" value="{{ old('endtime') }}" id="endtime"/>
                         @endif
                     </div>
                     <div class="form-group">
