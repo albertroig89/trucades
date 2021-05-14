@@ -102,9 +102,11 @@
                         <label for="user_id">Empleat:</label>
                         @if ($errors->has('user_id'))
                             <select class="form-control is-invalid" name="user_id" id="user_id">
-                                <option value="">Sel·lecciona empleat</option>
+                                <option value="{{ auth()->id() }}">{{ auth()->user()->name }}</option>
                                 @foreach ($users as $user)
-                                    <option class="form-control is-invalid" value="{{ ($user->id) }}">{{ $user->name }}</option>
+                                    @if (auth()->id() != $user->id))
+                                        <option class="form-control is-invalid" value="{{ ($user->id) }}">{{ $user->name }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                             <div class="invalid-feedback">
@@ -112,9 +114,11 @@
                             </div>
                         @elseif ($errors->any())
                             <select class="form-control is-valid" name="user_id" id="user_id">
-                                <option value="">Sel·lecciona empleat</option>
+                                <option value="{{ auth()->id() }}">{{ auth()->user()->name }}</option>
                                 @foreach ($users as $user)
-                                    <option class="form-control is-valid" value="{{ ($user->id) }}">{{ $user->name }}</option>
+                                    @if (auth()->id() != $user->id))
+                                        <option class="form-control is-valid" value="{{ ($user->id) }}">{{ $user->name }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                             <div class="valid-feedback">
@@ -122,9 +126,11 @@
                             </div>
                         @else
                             <select class="form-control" name="user_id" id="user_id">
-                                <option value="">Sel·lecciona empleat</option>
+                                <option value="{{ auth()->id() }}">{{ auth()->user()->name }}</option>
                                 @foreach ($users as $user)
-                                    <option class="form-control" value="{{ ($user->id) }}">{{ $user->name }}</option>
+                                    @if (auth()->id() != $user->id))
+                                        <option class="form-control" value="{{ ($user->id) }}">{{ $user->name }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         @endif
