@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Job;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class CreateJobRequest extends FormRequest
@@ -55,8 +56,8 @@ class CreateJobRequest extends FormRequest
                 'user_id' => $data['user_id'],
                 'client_id' => $data['client_id'],
                 'job' => $data['job'],
-                'inittime' => $data['datetimepicker_mask'],
-                'endtime' => $data['datetimepicker_mask2'],
+                'inittime' => $data['inittime'],
+                'endtime' => $data['endtime'],
             ]);
 
 //            $call->profile()->create([
@@ -74,20 +75,13 @@ class CreateJobRequest extends FormRequest
 
             $data = $this->validated();
 
-            $job = Job::create([
+            Job::create([
                 'user_id' => $data['user_id'],
                 'client_id' => $data['client_id'],
                 'job' => $data['job'],
-                'inittime' => $data['inittime'],
-                'endtime' => $data['endtime'],
+                'inittime' => Carbon::createFromFormat('d/m/Y H:m', $data['inittime'])->format('y/m/d H:m'),
+                'endtime' => Carbon::createFromFormat('d/m/Y H:m', $data['endtime'])->format('y/m/d H:m'),
             ]);
-
-//            $call->profile()->create([
-//                'bio' => $data['bio'],
-//                'twitter' => $data['twitter'],
-//            ]);
-
-//            dd($user);
         });
     }
 }

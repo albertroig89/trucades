@@ -44,12 +44,12 @@
                 <td>{{ $user->name }}</td>
             @endif
         @endforeach
-        <td><a class="btn btn-link" href="{{ route('calls.job', ['call' => $call]) }}"><span class="oi oi-plus"></span></a></td>
-        <td><a class="btn btn-link" href="{{ route('calls.edit', ['call' => $call]) }}"><span class="oi oi-pencil"></span></a></td>
+        <td><a href="{{ route('calls.job', ['call' => $call]) }}"><span class="oi oi-plus"></span></a></td>
+        <td><a href="{{ route('calls.edit', ['call' => $call]) }}"><span class="oi oi-pencil"></span></a></td>
         <td><form action="{{ route('calls.destroy', $call) }}" method="POST">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
-                <button class="btn btn-link" type="submit"><span class="oi oi-trash"></span></button>
+                <button class="btn btn-link" type="submit"><span class="oi oi-trash mt-0"></span></button>
             </form></td>
     </tr>
 @elseif ($call->stat->id === $pStat)
@@ -70,12 +70,12 @@
                 <td>{{ $user->name }}</td>
             @endif
         @endforeach
-        <td><a class="btn btn-link" href="{{ route('calls.job', ['call' => $call]) }}"><span class="oi oi-plus"></span></a></td>
-        <td><a class="btn btn-link" href="{{ route('calls.edit', ['call' => $call]) }}"><span class="oi oi-pencil"></span></a></td>
+        <td><a href="{{ route('calls.job', ['call' => $call]) }}"><span class="oi oi-plus"></span></a></td>
+        <td><a href="{{ route('calls.edit', ['call' => $call]) }}"><span class="oi oi-pencil"></span></a></td>
         <td><form action="{{ route('calls.destroy', $call) }}" method="POST">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
-                <button class="btn btn-link" type="submit"><span class="oi oi-trash"></span></button>
+                <button class="btn btn-link" type="submit"><span class="oi oi-trash mt-0"></span></button>
             </form></td>
     </tr>
 @endif
