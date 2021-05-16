@@ -28,10 +28,11 @@ class JobController extends Controller
     public function index() {
 
         $jobs = Job::all();
+        $users = User::all();
 
         $title = 'Feines';
 //        dd($users);
-        return view('jobs.index', compact('title', 'jobs'));
+        return view('jobs.index', compact('title', 'jobs', 'users'));
 
     }
 

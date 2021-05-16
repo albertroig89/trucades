@@ -21,10 +21,11 @@
                             <th scope="col">Empleat</th>
                             <th scope="col">Client</th>
                             <th scope="col">Nota</th>
-                            <th scope="col">Ates per</th>
-                            <th scope="col">Visualitzar detalls feina</th>
-                            <th scope="col">Editar detalls feina</th>
-                            <th scope="col">Eliminar feina</th>
+                            <th scope="col">Temps</th>
+{{--                            <th scope="col">Ates per</th>--}}
+{{--                            <th scope="col">Visualitzar detalls feina</th>--}}
+                            <th></th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -33,11 +34,13 @@
                                 <th scope="row">{{ $job->created_at }}</th>
                                 <td>{{ $job->user->name }}</td>
                                 <td>{{ $job->client->name }}</td>
-                                <td>{{ $user->department }}</td>
-                                <td><a href="{{ route('users.show', ['id' => $user->id]) }}"><span class="oi oi-eye"></span></a></td>
-                                <td><a href="{{ route('users.edit', ['id' => $user->id]) }}"><span class="oi oi-pencil"></span></a></td>
+                                <td>{{ $job->job }}</td>
+                                <td>{{}}</td>
+{{--                                <td>{{ $user->department }}</td>--}}
+{{--                                <td><a href="{{ route('users.show', ['id' => $job->id]) }}"><span class="oi oi-eye"></span></a></td>--}}
+                                <td><a href="{{ route('users.edit', ['id' => $job->id]) }}"><span class="oi oi-pencil"></span></a></td>
 
-                                <td><form action="{{ route('users.destroy', $user) }}" method="POST">
+                                <td><form action="{{ route('users.destroy', $job) }}" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
                                         <button class="btn btn-link" type="submit"><span class="oi oi-trash"></span></button>

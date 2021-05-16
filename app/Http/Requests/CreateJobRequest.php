@@ -75,12 +75,16 @@ class CreateJobRequest extends FormRequest
 
             $data = $this->validated();
 
+//            dd($data['inittime'], Carbon::createFromFormat('d/m/Y H:m', $data['inittime'])->format('Y/m/d H:m'), $data['endtime'], Carbon::createFromFormat('d/m/Y H:m', $data['endtime'])->format('Y/m/d H:m'));
+            $inittime = $data['inittime']->format('Y-m-d H:m');
+            dd($inittime);
+//            dd(Carbon::createFromFormat('d/m/Y H:m', $inittime));
             Job::create([
                 'user_id' => $data['user_id'],
                 'client_id' => $data['client_id'],
                 'job' => $data['job'],
-                'inittime' => Carbon::createFromFormat('d/m/Y H:m', $data['inittime'])->format('y/m/d H:m'),
-                'endtime' => Carbon::createFromFormat('d/m/Y H:m', $data['endtime'])->format('y/m/d H:m'),
+                'inittime' => Carbon::createFromFormat('d/m/Y H:m', $data['inittime'])->format('Y/m/d H:m'),
+                'endtime' => Carbon::createFromFormat('d/m/Y H:m', $data['endtime'])->format('Y/m/d H:m'),
             ]);
         });
     }
