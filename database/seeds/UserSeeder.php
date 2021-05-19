@@ -42,6 +42,12 @@ class UserSeeder extends Seeder
             'is_admin' => true,
         ]);
 
+        User::create([
+            'name' => 'Jordi Espinosa',
+            'email' => 'sat@microdelta.net',
+            'password' => bcrypt('MicAmposta43'),
+            'department_id' => $techId,
+        ]);
 
         User::create([
             'name' => 'Joel Valor',

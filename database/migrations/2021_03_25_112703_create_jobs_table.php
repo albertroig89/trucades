@@ -18,6 +18,7 @@ class CreateJobsTable extends Migration
             $table->string('job', 1000);
             $table->dateTime('inittime');
             $table->dateTime('endtime');
+            $table->integer('totalmin');
             $table->timestamps();
         });
     }

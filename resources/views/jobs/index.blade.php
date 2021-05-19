@@ -20,8 +20,10 @@
                             <th scope="col">Data</th>
                             <th scope="col">Empleat</th>
                             <th scope="col">Client</th>
-                            <th scope="col">Nota</th>
-                            <th scope="col">Temps</th>
+                            <th scope="col" class="nota">Nota</th>
+                            <th scope="col">Inici feina</th>
+                            <th scope="col">Final feina</th>
+                            <th scope="col">Temps empleat</th>
 {{--                            <th scope="col">Ates per</th>--}}
 {{--                            <th scope="col">Visualitzar detalls feina</th>--}}
                             <th></th>
@@ -31,13 +33,13 @@
                         <tbody>
                         @foreach ($jobs as $job)
                             <tr>
-                                <th scope="row">{{ $job->created_at }}</th>
+                                <th scope="row">{{ \Carbon\Carbon::parse($job->created_at)->format('d-m-y H:m') }}</th>
                                 <td>{{ $job->user->name }}</td>
                                 <td>{{ $job->client->name }}</td>
                                 <td>{{ $job->job }}</td>
-                                <td>{{}}</td>
-{{--                                <td>{{ $user->department }}</td>--}}
-{{--                                <td><a href="{{ route('users.show', ['id' => $job->id]) }}"><span class="oi oi-eye"></span></a></td>--}}
+                                <td>{{ \Carbon\Carbon::parse($job->inittime)->format('d-m-y H:m') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($job->endtime)->format('d-m-y H:m') }}</td>
+                                <td>{{ $job->totalmin }} min</td>
                                 <td><a href="{{ route('users.edit', ['id' => $job->id]) }}"><span class="oi oi-pencil"></span></a></td>
 
                                 <td><form action="{{ route('users.destroy', $job) }}" method="POST">

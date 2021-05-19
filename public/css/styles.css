@@ -99,3 +99,8 @@ td{
 .dropdown-item{
     active-color: #686868;;
 }
+/*estils logo*/
+.logo{
+    width: 15%;
+    height: 15%;
+}

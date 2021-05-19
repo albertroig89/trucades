@@ -3,8 +3,10 @@
 namespace App\Http\Requests;
 
 use App\Job;
+use Carbon\Carbon;
+use DateTime;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Carbon;
+
 use Illuminate\Support\Facades\DB;
 
 class CreateJobRequest extends FormRequest
@@ -52,7 +54,7 @@ class CreateJobRequest extends FormRequest
 
             $data = $this->validated();
 
-            $call = Call::create([
+            $call = Job::create([
                 'user_id' => $data['user_id'],
                 'client_id' => $data['client_id'],
                 'job' => $data['job'],
@@ -75,16 +77,19 @@ class CreateJobRequest extends FormRequest
 
             $data = $this->validated();
 
-//            dd($data['inittime'], Carbon::createFromFormat('d/m/Y H:m', $data['inittime'])->format('Y/m/d H:m'), $data['endtime'], Carbon::createFromFormat('d/m/Y H:m', $data['endtime'])->format('Y/m/d H:m'));
-            $inittime = $data['inittime']->format('Y-m-d H:m');
-            dd($inittime);
-//            dd(Carbon::createFromFormat('d/m/Y H:m', $inittime));
+//            $inittime = Carbon::parse($data['inittime'])->format('d-m-Y H:m');
+//            $endtime = Carbon::parse($data['endtime'])->format('d-m-Y H:m');
+
+            $inittime = Carbon::createFromFormat('d-m-Y H:m', $data['inittime']);
+            $endtime = Carbon::createFromFormat('d-m-Y H:m', $data['endtime']);
+
             Job::create([
                 'user_id' => $data['user_id'],
                 'client_id' => $data['client_id'],
                 'job' => $data['job'],
-                'inittime' => Carbon::createFromFormat('d/m/Y H:m', $data['inittime'])->format('Y/m/d H:m'),
-                'endtime' => Carbon::createFromFormat('d/m/Y H:m', $data['endtime'])->format('Y/m/d H:m'),
+                'inittime' => $inittime,
+                'endtime' => $endtime,
+                'totalmin' => $endtime->diffInMinutes($inittime),
             ]);
         });
     }
