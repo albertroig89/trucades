@@ -71,7 +71,33 @@ class JobController extends Controller
     public function jobfromcall(CreateJobToCallRequest $request)
     {
         $request->createJobFromCall();
+        return redirect()->route('jobs.index');
+    }
 
+    public function update(Call $call)
+    {
+        $data = request()->validate([
+            'user_id' => 'required',
+            'client_id' => 'required',
+            'user_id2' => 'required',
+            'stat_id' => 'required',
+            'callinf' => 'required',
+        ], [
+            'user_id.required' => 'Sel·lecciona un empleat',
+            'client_id.required' => 'Sel·lecciona un client',
+            'user_id2.required' => 'Sel·lecciona un empleat',
+            'stat_id' => 'required',
+            'callinf.required' => 'Omple l\'informació de la trucada'
+        ]);
+
+        $call->update($data);
+
+        return redirect()->route('home');
+    }
+
+    function destroy(Job $job)
+    {
+        $job->delete();
         return redirect()->route('jobs.index');
     }
 }

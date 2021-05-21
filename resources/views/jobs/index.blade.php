@@ -40,9 +40,9 @@
                                 <td>{{ \Carbon\Carbon::parse($job->inittime)->format('d-m-y H:m') }}</td>
                                 <td>{{ \Carbon\Carbon::parse($job->endtime)->format('d-m-y H:m') }}</td>
                                 <td>{{ $job->totalmin }} min</td>
-                                <td><a href="{{ route('users.edit', ['id' => $job->id]) }}"><span class="oi oi-pencil"></span></a></td>
+                                <td><a href="{{ route('jobs.edit', ['id' => $job->id]) }}"><span class="oi oi-pencil"></span></a></td>
 
-                                <td><form action="{{ route('users.destroy', $job) }}" method="POST">
+                                <td><form action="{{ route('jobs.destroy', $job) }}" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
                                         <button class="btn btn-link" type="submit"><span class="oi oi-trash"></span></button>
