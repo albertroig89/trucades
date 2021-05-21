@@ -8,7 +8,6 @@
         <div class="card-header"><h3>{{ $title }}</h3></div>
         <div class="card-body">
             <form method="POST" action="{{ url('/') }}">
-
                 {!! csrf_field() !!}
 
                 <div class="form-group">

@@ -53,6 +53,8 @@ Route::get('/trabajos/nuevo', 'JobController@create')
 
 Route::post('/trabajos', 'JobController@store');
 
+Route::post('/trabajos/{job}', 'JobController@jobfromcall');
+
 Route::get('/trabajos/{job}/editar', 'JobController@edit')
     ->where('id', '\d+')
     ->name('jobs.edit');
@@ -72,11 +74,8 @@ Route::get('/llamadas', 'CallController@index')
 Route::get('/llamadas/nuevo', 'CallController@create')
     ->name('calls.create');
 
-Route::get('/llamadas/{call}', 'CallController@show')
-    ->name('calls.show');
-
-Route::get('/llamadas/{call}', 'CallController@job')
-    ->name('calls.job');
+Route::get('/llamadas/{call}', 'CallController@jobfromcall')
+    ->name('calls.jobfromcall');
 
 Route::post('/', 'CallController@store');
 

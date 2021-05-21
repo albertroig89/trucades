@@ -5,20 +5,52 @@
 @section('content')
 
     <div class="card pl-0 pr-0 col-md-4 mt-2">
-        <div class="card-header"><h3>{{ $call->client->name }}</h3></div>
+        <div class="card-header"><h3>Feina {{ $call->client->name }}</h3></div>
         <div class="card-body">
-            <form method="POST" action="{{ url("llamadas/{$call->id}") }}">
-                {{ method_field('PUT') }}
+            <form method="POST" action="{{ url("trabajos/{$call->id}") }}">
                 {!! csrf_field() !!}
 
                 <div class="form-group">
                     <div class="form-group">
-                        <label for="datetimepicker_mask">Inici trucada:</label>
-                        <input type="text" class="form-control" value="" id="datetimepicker_mask"/>
+                        <label for="selector-clients">Client:</label>
+                        <select class='form-control selector-clients' name='client_id' id='client_id'>
+                            <option value="{{ $call->client->id }}">{{ $call->client->name }}</option>
+                            @foreach ($clients as $client)
+                                <option value="{{ ($client->id) }}">{{ $client->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label for="datetimepicker_mask2">Final trucada:</label>
-                        <input type="text" class="form-control" value="" id="datetimepicker_mask2"/>
+                        <label for="inittime">Inici trucada:</label>
+                        @if ($errors->has('inittime'))
+                            <input type="text" class="form-control is-invalid" name="inittime" value="{{ old('inittime') }}" id="inittime"/>
+                            <div class="invalid-feedback">
+                                {{ $errors->first('inittime') }}
+                            </div>
+                        @elseif ($errors->any())
+                            <input type="text" class="form-control is-valid" name="inittime" value="{{ old('inittime') }}" id="inittime"/>
+                            <div class="valid-feedback">
+                                Correcte!
+                            </div>
+                        @else
+                            <input type="text" class="form-control" name="inittime" value="{{ old('inittime') }}" id="inittime"/>
+                        @endif
+                    </div>
+                    <div class="form-group">
+                        <label for="endtime">Final trucada:</label>
+                        @if ($errors->has('endtime'))
+                            <input type="text" class="form-control is-invalid" name="endtime" value="{{ old('endtime') }}" id="endtime"/>
+                            <div class="invalid-feedback">
+                                {{ $errors->first('endtime') }}
+                            </div>
+                        @elseif ($errors->any())
+                            <input type="text" class="form-control is-valid" name="endtime" value="{{ old('endtime') }}" id="endtime"/>
+                            <div class="valid-feedback">
+                                Correcte!
+                            </div>
+                        @else
+                            <input type="text" class="form-control" name="endtime" value="{{ old('endtime') }}" id="endtime"/>
+                        @endif
                     </div>
                     <div class="form-group">
                         <label for="callinf">Informació trucada:</label>
@@ -36,9 +68,9 @@
                     <div class="form-group">
                         <label for="user_id">Empleat:</label>
                         <select class="form-control" name="user_id" id="user_id">
-                            <option value="{{ old('id', $call->user_id) }}">{{ old('name', $call->user->name) }}</option>
+                            <option value="{{ auth()->id() }}">{{ auth()->user()->name }}</option>
                             @foreach ($users as $user)
-                                @if (old('id', $call->user_id) != $user->id)
+                                @if (auth()->id() != $user->id)
                                     <option class="form-control" value="{{ ($user->id) }}">{{ $user->name }}</option>
                                 @endif
                             @endforeach

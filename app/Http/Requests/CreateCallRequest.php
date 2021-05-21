@@ -51,7 +51,7 @@ class CreateCallRequest extends FormRequest
 
             $data = $this->validated();
 
-            $call = Call::create([
+            Call::create([
                 'user_id' => $data['user_id'],
                 'client_id' => $data['client_id'],
                 'user_id2' => $data['user_id2'],
@@ -59,12 +59,6 @@ class CreateCallRequest extends FormRequest
                 'callinf' => $data['callinf'],
             ]);
 
-//            $call->profile()->create([
-//                'bio' => $data['bio'],
-//                'twitter' => $data['twitter'],
-//            ]);
-
-//            dd($user);
         });
     }
 }

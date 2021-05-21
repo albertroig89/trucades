@@ -102,5 +102,12 @@ td{
 /*estils logo*/
 .logo{
     width: 15%;
-    height: 15%;
+}
+.logolink{
+    /*padding-right: -25%;*/
+    margin-right: -48%;
+}ss
+
+.login{
+    margin-left:60%;
 }

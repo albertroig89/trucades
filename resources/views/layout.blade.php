@@ -37,7 +37,7 @@
   <!-- Fixed navbar -->
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="{{ route('home') }}"><img class="logo" src="/images/logo.png"/></a>
+      <a class="navbar-brand logolink" href="{{ route('home') }}"><img class="logo" src="/images/logo.png"/></a>
 {{--        <a class="navbar-brand logo" href="{{ route('home') }}">Microdelta trucades</a>--}}
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -93,7 +93,7 @@
                 &nbsp;
             </ul>
             <!-- Right Side Of Navbar -->
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav login">
                 <!-- Authentication Links -->
                 @guest
                     <li><a href="{{ route('login') }}">Login</a></li>

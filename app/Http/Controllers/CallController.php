@@ -31,15 +31,6 @@ class CallController extends Controller
         return view('calls.show', compact('title', 'call'));
     }
 
-    public function job(Call $call)
-    {
-        $clients = Client::all();
-        $users = User::all();
-        $stats = Stat::all();
-
-        return view('calls.jobfromcall', compact( 'call', 'clients', 'users', 'stats'));
-    }
-
     public function create()
     {
         $title = 'Nova trucada';
@@ -48,6 +39,15 @@ class CallController extends Controller
         $stats = Stat::all();
 
         return view('calls.create', compact('title', 'clients', 'users', 'stats'));
+    }
+
+    public function jobfromcall(Call $call)
+    {
+        $clients = Client::all();
+        $users = User::all();
+        $stats = Stat::all();
+
+        return view('calls.jobfromcall', compact( 'call', 'clients', 'users', 'stats'));
     }
 
     public function edit(Call $call)
