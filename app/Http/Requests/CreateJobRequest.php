@@ -53,8 +53,8 @@ class CreateJobRequest extends FormRequest
 
             $data = $this->validated();
 
-            $inittime = Carbon::createFromFormat('d-m-Y H:m', $data['inittime']);
-            $endtime = Carbon::createFromFormat('d-m-Y H:m', $data['endtime']);
+            $inittime = Carbon::createFromFormat('d-m-Y H:i', $data['inittime']);
+            $endtime = Carbon::createFromFormat('d-m-Y H:i', $data['endtime']);
 
 //            dd($data['inittime'], $inittime, $data['endtime'], $endtime);
 

@@ -77,14 +77,14 @@
                         </select>
                         <div class="invalid-feedback">Example invalid custom select feedback</div>
                     </div>
-                    <div class="form-group">
-                        <label for="stat_id">Estat:</label>
-                        <select class='form-control' name='stat_id' id='stat_id'>
-                            @foreach ($stats as $stat)
-                                <option value="{{ ($stat->id) }}">{{ $stat->title }}</option>
-                            @endforeach
-                        </select>
-                    </div>
+{{--                    <div class="form-group">--}}
+{{--                        <label for="stat_id">Estat:</label>--}}
+{{--                        <select class='form-control' name='stat_id' id='stat_id'>--}}
+{{--                            @foreach ($stats as $stat)--}}
+{{--                                <option value="{{ ($stat->id) }}">{{ $stat->title }}</option>--}}
+{{--                            @endforeach--}}
+{{--                        </select>--}}
+{{--                    </div>--}}
                 </div>
                 <button type="submit" class="btn btn-primary">Afegir feina</button>
                 <a href="{{ route('home') }}" class="btn btn-default float-right">Tornar a les trucades</a>

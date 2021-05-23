@@ -37,8 +37,8 @@
                                 <td>{{ $job->user->name }}</td>
                                 <td>{{ $job->client->name }}</td>
                                 <td>{{ $job->job }}</td>
-                                <td>{{ \Carbon\Carbon::parse($job->inittime)->format('d-m-y H:m') }}</td>
-                                <td>{{ \Carbon\Carbon::parse($job->endtime)->format('d-m-y H:m') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($job->inittime)->format('d-m-y H:i') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($job->endtime)->format('d-m-y H:i') }}</td>
                                 <td>{{ $job->totalmin }} min</td>
                                 <td><a href="{{ route('jobs.edit', ['id' => $job->id]) }}"><span class="oi oi-pencil"></span></a></td>
 

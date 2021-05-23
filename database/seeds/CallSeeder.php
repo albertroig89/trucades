@@ -16,7 +16,7 @@ class CallSeeder extends Seeder
             'user_id' => 1,
             'client_id' => 2,
             'stat_id' => 1,
-            'user_id2' => 5,
+            'user_id2' => 6,
             'callinf' =>'Activar office 2019',
         ]);
 
@@ -24,7 +24,7 @@ class CallSeeder extends Seeder
             'user_id' => 3,
             'client_id' => 3,
             'stat_id' => 2,
-            'user_id2' => 5,
+            'user_id2' => 6,
             'callinf' =>'Instal·lar client microgestio',
         ]);
 
@@ -32,7 +32,7 @@ class CallSeeder extends Seeder
             'user_id' => 4,
             'client_id' => 1,
             'stat_id' => 3,
-            'user_id2' => 5,
+            'user_id2' => 6,
             'callinf' =>'Activar windows 10',
         ]);
 
@@ -48,7 +48,7 @@ class CallSeeder extends Seeder
             'user_id' => 1,
             'client_id' => 2,
             'stat_id' => 2,
-            'user_id2' => 5,
+            'user_id2' => 6,
             'callinf' =>'No poden imprimir',
         ]);
 
@@ -56,7 +56,7 @@ class CallSeeder extends Seeder
             'user_id' => 2,
             'client_id' => 2,
             'stat_id' => 1,
-            'user_id2' => 5,
+            'user_id2' => 6,
             'callinf' =>'Revisar error microgestio',
         ]);
 
@@ -64,7 +64,7 @@ class CallSeeder extends Seeder
             'user_id' => 2,
             'client_id' => 3,
             'stat_id' => 1,
-            'user_id2' => 5,
+            'user_id2' => 6,
             'callinf' =>'No connecta microgestio client',
         ]);
 
@@ -72,7 +72,7 @@ class CallSeeder extends Seeder
             'user_id' => 7,
             'client_id' => 1,
             'stat_id' => 2,
-            'user_id2' => 5,
+            'user_id2' => 6,
             'callinf' =>'Actualitzar Microgestio',
         ]);
 
@@ -80,7 +80,7 @@ class CallSeeder extends Seeder
             'user_id' => 3,
             'client_id' => 4,
             'stat_id' => 3,
-            'user_id2' => 5,
+            'user_id2' => 6,
             'callinf' =>'Revisar copia de seguretat',
         ]);
 
