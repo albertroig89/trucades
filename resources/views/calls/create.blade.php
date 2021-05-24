@@ -65,7 +65,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Afegir trucada</button>
-                <a href="{{ route('home') }}" class="btn btn-default float-right">Tornar a les trucades</a>
+                <a href="{{ route('home') }}" class="btn btn-default">Tornar a les trucades</a>
             </form>
 
             @if ($errors->any())

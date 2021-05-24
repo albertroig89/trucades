@@ -55,9 +55,9 @@
                                     Accedeix
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Has olvidat la contrasenya?
-                                </a>
+{{--                                <a class="btn btn-link" href="{{ route('password.request') }}">--}}
+{{--                                    Has olvidat la contrasenya?--}}
+{{--                                </a>--}}
                             </div>
                         </div>
                     </form>

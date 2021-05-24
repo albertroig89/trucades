@@ -7,7 +7,6 @@
 }
 .pendingState {
     background-color: #aed7ff;
-    /*background-color: #aed7ff;*/
 }
 .table {
     font-size: small;
@@ -104,10 +103,18 @@ td{
     width: 15%;
 }
 .logolink{
-    /*padding-right: -25%;*/
-    margin-right: -48%;
-}ss
-
+    margin-right: -900px;
+}
+.loginlink{
+    margin-right: 0px;
+}
 .login{
     margin-left:60%;
+}
+.card{
+    /*float:center;*/
+}
+
+.btn-default{
+    float: right;
 }
