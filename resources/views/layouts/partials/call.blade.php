@@ -46,11 +46,33 @@
         @endforeach
         <td><a href="{{ route('calls.jobfromcall', ['call' => $call]) }}"><span class="oi oi-plus"></span></a></td>
         <td><a href="{{ route('calls.edit', ['call' => $call]) }}"><span class="oi oi-pencil"></span></a></td>
+
         <td><form action="{{ route('calls.destroy', $call) }}" method="POST">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
                 <button class="btn btn-link" type="submit"><span class="oi oi-trash mt-0"></span></button>
-            </form></td>
+        </form></td>
+
+
+{{--        <!------ ESTE ES EL MODAL QUE SE MUESTRA AL DAR CLICK EN EL BOTON "ELIMINAR" ------>--}}
+{{--        <div class="modal fade" id="ModalCenter{{$call->id}}" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">--}}
+{{--            <div class="modal-dialog modal-dialog-centered" role="document">--}}
+{{--                <div class="modal-content">--}}
+{{--                    <div class="modal-header d-flex justify-content-center">--}}
+{{--                    </div>--}}
+{{--                    <div class="modal-body">--}}
+{{--                        <p class="text-center">Estás segur de eliminar la trucada {{$call->client->name}} / {{$call->client_id}}?</p>--}}
+{{--                    </div>--}}
+{{--                    <div class="modal-footer d-flex justify-content-center">--}}
+{{--                        <button type="button" class="btn btn-secondary btn-default" data-dismiss="modal">Cancelar</button>--}}
+{{--                        {!! Form::open(['method'=>'DELETE', 'action'=>['CallController@destroy', $call->id]]) !!}--}}
+{{--                        {!! Form:: submit('Eliminar', ['class'=>'btn btn-danger btn-default'])!!}--}}
+{{--                        {!! Form::close() !!}--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div><!--fin modal-->--}}
+
     </tr>
 @elseif ($call->stat->id === $pStat)
     <tr class="pendingState">
