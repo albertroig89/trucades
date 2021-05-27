@@ -15,13 +15,6 @@ use Illuminate\Http\Request;
 class JobController extends Controller
 {
 
-//    public function index($name)
-//    {
-//        $nickname=null;
-//        $name = ucfirst($name);
-//        $title = 'Pagina de bienvenida Usuarios';
-//        return view('saludo', compact('name', 'nickname', 'title'));
-//    }
 
     public function __construct()
     {
@@ -34,7 +27,7 @@ class JobController extends Controller
         $users = User::all();
 
         $title = 'Feines';
-//        dd($users);
+
         return view('jobs.index', compact('title', 'jobs', 'users'));
 
     }
@@ -92,14 +85,11 @@ class JobController extends Controller
         $inittime = Carbon::createFromFormat('d-m-Y H:i', $data['inittime']);
         $endtime = Carbon::createFromFormat('d-m-Y H:i', $data['endtime']);
 
-        Job::update([
-            'user_id' => $data['user_id'],
-            'client_id' => $data['client_id'],
-            'job' => $data['job'],
-            'inittime' => $inittime,
-            'endtime' => $endtime,
-            'totalmin' => $endtime->diffInMinutes($inittime),
-        ]);
+        $data['inittime'] = $inittime;
+        $data['endtime'] = $endtime;
+        $data['totalmin'] = $endtime->diffInMinutes($inittime);
+
+        $job->update($data);
 
         return redirect()->route('jobs.index');
     }

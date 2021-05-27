@@ -76,8 +76,8 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Editar usuario</button>
-                <a href="{{ route('users.index') }}" class="btn btn-default float-right">Regresar al listado de usuarios</a>
+                <button type="submit" class="btn btn-primary">Editar usuari</button>
+                <a href="{{ route('users.index') }}" class="btn btn-default float-right">Tornar al llistat d'usuaris</a>
             </form>
 
             @if ($errors->any())
@@ -85,11 +85,6 @@
                 <div class="form-group">
                     <div class="alert alert-danger">
                         <h5>Por favor corrige los errores mencionados arriba</h5>
-                        {{--                    <ul>--}}
-                        {{--                        @foreach ($errors->all() as $error)--}}
-                        {{--                            <li>{{ $error }}</li>--}}
-                        {{--                        @endforeach--}}
-                        {{--                    </ul>--}}
                     </div>
                 </div>
             @endif

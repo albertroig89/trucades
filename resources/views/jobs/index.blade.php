@@ -33,7 +33,7 @@
                         <tbody>
                         @foreach ($jobs as $job)
                             <tr>
-                                <th scope="row">{{ \Carbon\Carbon::parse($job->created_at)->format('d-m-y H:m') }}</th>
+                                <th scope="row">{{ \Carbon\Carbon::parse($job->created_at)->format('d-m-y H:i') }}</th>
                                 <td>{{ $job->user->name }}</td>
                                 <td>{{ $job->client->name }}</td>
                                 <td>{{ $job->job }}</td>

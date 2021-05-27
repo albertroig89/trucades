@@ -26,33 +26,33 @@
                     <div class="form-group">
                         <label for="inittime">Inici trucada:</label>
                         @if ($errors->has('inittime'))
-                            <input type="text" class="form-control is-invalid" name="inittime" value="{{ old('inittime', $job->inittime) }}" id="inittime"/>
+                            <input type="text" class="form-control is-invalid" name="inittime" value="{{ old('inittime', \Carbon\Carbon::parse($job->inittime)->format('d-m-y H:i')) }}" id="inittime2"/>
                             <div class="invalid-feedback">
                                 {{ $errors->first('inittime') }}
                             </div>
                         @elseif ($errors->any())
-                            <input type="text" class="form-control is-valid" name="inittime" value="{{ old('inittime', $job->inittime) }}" id="inittime"/>
+                            <input type="text" class="form-control is-valid" name="inittime" value="{{ old('inittime', \Carbon\Carbon::parse($job->inittime)->format('d-m-y H:i')) }}" id="inittime2"/>
                             <div class="valid-feedback">
                                 Correcte!
                             </div>
                         @else
-                            <input type="text" class="form-control" name="inittime" value="{{ old('inittime', $job->inittime) }}" id="inittime"/>
+                            <input type="text" class="form-control" name="inittime" value="{{ old('inittime', \Carbon\Carbon::parse($job->inittime)->format('d-m-y H:i')) }}" id="inittime2"/>
                         @endif
                     </div>
                     <div class="form-group">
                         <label for="endtime">Final trucada:</label>
                         @if ($errors->has('endtime'))
-                            <input type="text" class="form-control is-invalid" name="endtime" value="{{ old('endtime', $job->endtime) }}" id="endtime"/>
+                            <input type="text" class="form-control is-invalid" name="endtime" value="{{ old('endtime', \Carbon\Carbon::parse($job->endtime)->format('d-m-y H:i')) }}" id="endtime2"/>
                             <div class="invalid-feedback">
                                 {{ $errors->first('endtime') }}
                             </div>
                         @elseif ($errors->any())
-                            <input type="text" class="form-control is-valid" name="endtime" value="{{ old('endtime', $job->endtime) }}" id="endtime"/>
+                            <input type="text" class="form-control is-valid" name="endtime" value="{{ old('endtime', \Carbon\Carbon::parse($job->endtime)->format('d-m-y H:i')) }}" id="endtime2"/>
                             <div class="valid-feedback">
                                 Correcte!
                             </div>
                         @else
-                            <input type="text" class="form-control" name="endtime" value="{{ old('endtime', $job->endtime) }}" id="endtime"/>
+                            <input type="text" class="form-control" name="endtime" value="{{ old('endtime', \Carbon\Carbon::parse($job->endtime)->format('d-m-y H:i')) }}" id="endtime2"/>
                         @endif
                     </div>
                     <div class="form-group">
@@ -78,11 +78,10 @@
                                 @endif
                             @endforeach
                         </select>
-                        <div class="invalid-feedback">Example invalid custom select feedback</div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Afegir feina</button>
-                <a href="{{ route('home') }}" class="btn btn-default float-right">Tornar a l'inici</a>
+                <button type="submit" class="btn btn-primary">Editar feina</button>
+                <a href="{{ route('jobs.index') }}" class="btn btn-default float-right">Tornar a les feines</a>
             </form>
 
             @if ($errors->any())

@@ -71,8 +71,8 @@
                         @endif
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Crear usuario</button>
-                <a href="{{ route('users.index') }}" class="btn btn-default float-right">Regresar al listado de usuarios</a>
+                <button type="submit" class="btn btn-primary">Crear usuari</button>
+                <a href="{{ route('users.index') }}" class="btn btn-default float-right">Tornar al llistat d'usuaris</a>
             </form>
 
             @if ($errors->any())

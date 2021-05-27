@@ -10,24 +10,23 @@
     <title>@yield('title') - Microdelta</title>
 
       <!-- Bootstrap core CSS -->
-
-
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" integrity="sha256-BJ/G+e+y7bQdrYkS2RBTyNfBHpA9IuGaPmf9htub5MQ=" crossorigin="anonymous" />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css"/>
-      <link rel="stylesheet" type="text/css" href="/css/styles.css" media="screen" /> <!--ESTILS PROPIS-->
       <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
-      <link  rel="icon"   href="../images/favicon.png" type="image/png" />
+
+      <link rel="stylesheet" href="sweetalert2.min.css">
+
+{{--      <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/alertify.min.css"/>--}}
+
       <!-- Bootstrap core CSS END-->
 
-    <!-- Favicons -->
-{{--    <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">--}}
-{{--    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">--}}
-{{--    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">--}}
-{{--    <link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">--}}
-{{--    <link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">--}}
-{{--    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">--}}
-{{--    <meta name="theme-color" content="#7952b3">--}}
+      <!--ESTILS PROPIS-->
+      <link rel="stylesheet" type="text/css" href="/css/styles.css" media="screen" />
+
+      <!-- Favicons -->
+      <link  rel="icon"   href="../images/favicon.png" type="image/png" />
+
 
   </head>
   <body class="d-flex flex-column h-100">
@@ -133,20 +132,6 @@
            @yield('content')
 
         </div>
-{{--        <div class="mt-3 col-2">--}}
-
-{{--                @section('sidebar')--}}
-{{--                    <th><h2>Menu</h2></th>--}}
-{{--                @show--}}
-{{--                <table>--}}
-{{--                    <tr><td><a href="{{ route('jobs.jobs') }}">Feines</a></td></tr>--}}
-{{--                    <tr><td><a href="{{ route('home') }}">Trucades</a></td></tr>--}}
-{{--                    <tr><td><a href="{{ route('calls.create') }}">Afegir trucada</a></td></tr>--}}
-{{--                    <tr><td><a href="{{ route('users.index') }}">Mostrar usuaris</a></td></tr>--}}
-{{--                    <tr><td><a href="{{ route('users.create') }}">Crear usuaris</a></td></tr>--}}
-{{--                </table>--}}
-
-{{--        </div>--}}
 </main>
 
 <footer class="footer mt-auto py-3 bg-light">
@@ -164,7 +149,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.8/push.min.js"></script>
 
-{{--  script notificacions--}}
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="sweetalert2.all.min.js"></script>
+
+{{--  <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/alertify.min.js"></script>--}}
+
+  {{--  script notificacions--}}
 {{--  <script>--}}
 {{--      window.onload = function() {--}}
 {{--          Push.Permission.request();--}}
@@ -195,40 +185,40 @@
           });
       });
   </script>
-  <script>/*
-window.onerror = function(errorMsg) {
-	$('#console').html($('#console').html()+'<br>'+errorMsg)
-}*/
+  <script>
       $.datetimepicker.setLocale('es');
 
-      // $('#datetimepicker_format').datetimepicker({value:'15/04/2015 05:03', format: $("#datetimepicker_format_value").val()});
-      // console.log($('#datetimepicker_format').datetimepicker('getValue'));
-      //
-      // $("#datetimepicker_format_change").on("click", function(e){
-      //     $("#datetimepicker_format").data('xdsoft_datetimepicker').setOptions({format: $("#datetimepicker_format_value").val()});
-      // });
-      // $("#datetimepicker_format_locale").on("change", function(e){
-      //     $.datetimepicker.setLocale($(e.currentTarget).val());
-      // });
-      //
-      // $('#datetimepicker').datetimepicker({
-      //     dayOfWeekStart : 1,
-      //     lang:'en',
-      //     disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
-      //     startDate:	'1986/01/05'
-      // });
-      // $('#datetimepicker').datetimepicker({value:'2015/04/15 05:03', step:10});
-      //
-      // $('.some_class').datetimepicker();
-
       $('#inittime').datetimepicker({
-          format:'d-m-Y H:i',
-          mask:'39-19-9999 29:59'
+          format:'d-m-y H:i',
+          mask:'39-19-99 29:59'
       });
 
       $('#endtime').datetimepicker({
-          format:'d-m-Y H:i',
-          mask:'39-19-9999 29:59'
+          format:'d-m-y H:i',
+          mask:'39-19-99 29:59'
+      });
+
+      $('#inittime2').datetimepicker({
+          format:'d-m-y H:i',
+      });
+
+      $('#endtime2').datetimepicker({
+          format:'d-m-y H:i',
       });
   </script>
+{{--  <script>--}}
+{{--      $(document).on('submit', 'form', function(e){--}}
+
+{{--          alertify.confirm('ALERTA','Segur que vols eliminar el registre?',--}}
+{{--              function(){--}}
+{{--                  //submit--}}
+{{--                  document.eliminarn.submit();--}}
+{{--                  alertify.success('Registre eliminat')--}}
+{{--              },--}}
+{{--              function(){--}}
+{{--                  alertify.error('Cancelat per l\'usuari')--}}
+
+{{--              });--}}
+{{--      });--}}
+{{--  </script>--}}
 </html>
