@@ -39,6 +39,38 @@ class ClientController extends Controller
         return redirect()->route('clients.index');
     }
 
+    public function update(Client $client)
+    {
+        $data = request()->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email'.$client->id,
+            'phone' => 'required',
+            'phones' => '',
+        ], [
+            'name.required' => 'Introdueix un nom per al client',
+            'email.required' => 'Introdueix un correu electronic',
+            'email.email' => 'Introdueix un correu electronic correcte',
+            'email.unique' => 'El correu introduit ja exiteix',
+            'phone.required' => 'Introdueix un telefon'
+        ]);
+
+        $client->update($data);
+
+        $client->phone()->update([
+            'phone' => $data['phone'],
+        ]);
+
+        $phones = $data['phones'];
+
+        foreach($phones as $phone){
+            $client->phone()->update([
+                'phone' => $phone,
+            ]);
+        }
+
+        return redirect()->route('clients.index', ['client' => $client]);
+    }
+
     function destroy(Client $client)
     {
         $client->delete();

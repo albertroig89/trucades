@@ -59,8 +59,8 @@
                                 Correcte!
                             </div>
                         @else
-                            <input type="text" name="phone" class="form-control" id="phone" aria-describedby="clientHelp" placeholder="977 70 70 70" value="{{ old('phone') }}">
-                            <small id="phoneHelp" class="form-text text-muted">Escriu el telefon del client.</small>
+                            <div><input type="text" name="phone" class="form-control" id="phone" aria-describedby="clientHelp" placeholder="977 70 70 70" value="{{ old('phone') }}">
+                            <small id="phoneHelp" class="form-text text-muted">Escriu el telefon del client.</small></div>
                             <div class="button">
                                 <button type="button" id="add_phone" class="btn btn-default">Afegir telèfon</button>
                             </div>

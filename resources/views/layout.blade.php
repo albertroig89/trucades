@@ -15,10 +15,6 @@
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css"/>
       <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
 
-{{--      <link rel="stylesheet" href="sweetalert2.min.css">--}}
-
-{{--      <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/alertify.min.css"/>--}}
-
       <!-- Bootstrap core CSS END-->
 
       <!--ESTILS PROPIS-->
@@ -37,7 +33,6 @@
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand logolink" href="{{ route('home') }}"><img class="logo" src="/images/logo.png"/></a>
-{{--        <a class="navbar-brand logo" href="{{ route('home') }}">Microdelta trucades</a>--}}
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -147,26 +142,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.8/push.min.js"></script>
+{{--  <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.8/push.min.js"></script>--}}
 
-  <script src="sweetalert2.all.min.js"></script>
-
-{{--  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>--}}
-{{--  <script src="sweetalert2.all.min.js"></script>--}}
-
-{{--  <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/alertify.min.js"></script>--}}
-
-  {{--  script notificacions--}}
-{{--  <script>--}}
-{{--      window.onload = function() {--}}
-{{--          Push.Permission.request();--}}
-{{--      }--}}
-
-{{--      Push.create("Trucada", {--}}
-{{--          body: "Aixo es lo cos de la notificació",--}}
-{{--          icon: '/public/images/logo.jpg',--}}
-{{--      });--}}
-{{--  </script>--}}
 
   <script>
       jQuery(document).ready(function($){
@@ -208,19 +185,4 @@
           format:'d-m-y H:i',
       });
   </script>
-{{--  <script>--}}
-{{--      $(document).on('submit', 'form', function(e){--}}
-
-{{--          alertify.confirm('ALERTA','Segur que vols eliminar el registre?',--}}
-{{--              function(){--}}
-{{--                  //submit--}}
-{{--                  document.eliminarn.submit();--}}
-{{--                  alertify.success('Registre eliminat')--}}
-{{--              },--}}
-{{--              function(){--}}
-{{--                  alertify.error('Cancelat per l\'usuari')--}}
-
-{{--              });--}}
-{{--      });--}}
-{{--  </script>--}}
 </html>

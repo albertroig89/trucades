@@ -5,7 +5,18 @@
 @section('content')
 
     <div class="card pl-0 pr-0 col-md-12 mt-2" >
-        <div class="card-header"><h3>{{ $title }}</h3></div>
+        <div class="card-header">
+            <h3>{{ $title }}
+                <form class="float-right" method="POST" action="{{ url('llamadas') }}">
+                    <select class="form-control" name="user_id" id="user_id">
+                        <option value="0">Totes les trucades</option>
+                        @foreach ($users as $user)
+                            <option class="form-control" value="{{ ($user->id) }}">{{ $user->name }}</option>
+                        @endforeach
+                    </select>
+                </form>
+            </h3>
+        </div>
         <div class="card-body">
             @if (session('status'))
                 <div class="alert alert-success">
@@ -26,9 +37,6 @@
                             <th></th>
                             <th></th>
                             <th></th>
-{{--                            <th scope="col">Comensar feina</th>--}}
-{{--                            <th scope="col">Editar trucada</th>--}}
-{{--                            <th scope="col">Eliminar trucada</th>--}}
                         </tr>
                         </thead>
                         <tbody>

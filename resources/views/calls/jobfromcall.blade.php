@@ -77,6 +77,10 @@
                         </select>
                         <div class="invalid-feedback">Example invalid custom select feedback</div>
                     </div>
+                    <div class="form-group">
+                        <input type="checkbox" value="delete" id="delete" name="delete" checked>
+                        <label for="delete">Borrar trucada</label>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Afegir feina</button>
                 <a href="{{ route('home') }}" class="btn btn-default float-right">Tornar a les trucades</a>

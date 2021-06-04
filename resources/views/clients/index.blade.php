@@ -43,7 +43,7 @@
                                     <td><form action="{{ route('clients.destroy', $client) }}" method="POST">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
-                                            <button class="btn btn-link" type="submit"><span class="oi oi-trash"></span></button>
+                                            <button class="btn btn-link" onclick="return confirm('Segur que vols eliminar el client?')" type="submit"><span class="oi oi-trash"></span></button>
                                         </form></td>
                                 </tr>
                         @endforeach

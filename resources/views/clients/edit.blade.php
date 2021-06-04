@@ -7,10 +7,13 @@
     <div class="card pl-0 pr-0 col-md-4 mt-2">
         <div class="card-header"><h3>{{ $client->name }}</h3></div>
         <div class="card-body">
-            <form method="POST" action="{{ url('clientes') }}">
-
+            <form method="POST" action="{{ url("clientes/{$client->id}") }}">
+                {{ method_field('PUT') }}
                 {!! csrf_field() !!}
 
+                @php
+                    $first = 0;
+                @endphp
                 <div class="form-group">
                     <div class="form-group">
                         <label for="clientName">Nom client:</label>
@@ -44,25 +47,43 @@
                         @endif
                     </div>
                     <div class="form-group">
-                        <label for="phone">Telefon:</label>
+{{--                        <label for="phone1">Telèfon:</label>--}}
                         @if ($errors->has('phone'))
-                            <input type="text" name="phone" class="form-control is-invalid" id="phone" aria-describedby="clientHelp" placeholder="example@example.com" value="{{ old('phone', $client->phone) }}">
+                            <input type="text" name="phone" class="form-control is-invalid" id="phone" aria-describedby="clientHelp" placeholder="example@example.com" value="{{ old('phone') }}">
+                            <div class="button">
+                                <button type="button" id="add_phone" class="btn btn-default">Afegir telèfon</button>
+                            </div>
                         @elseif ($errors->any())
-                            <input type="text" name="phone" class="form-control is-invalid" id="phone" aria-describedby="clientHelp" placeholder="example@example.com" value="{{ old('phone', $client->phone) }}">
+                            <input type="text" name="phone" class="form-control is-valid" id="phone" aria-describedby="clientHelp" placeholder="example@example.com" value="{{ old('phone') }}">
+                            <div class="button">
+                                <button type="button" id="add_phone" class="btn btn-default">Afegir telèfon</button>
+                            </div>
                             <div class="valid-feedback">
                                 Correcte!
                             </div>
                         @else
                             @foreach ($phones as $phone)
                                 @if ($phone->client_id == old('name', $client->id))
-                                    <input type="text" name="phone" class="form-control" id="phone" aria-describedby="clientHelp" placeholder="977 70 70 70" value="{{ $phone->phone }}">
-                                    <small id="phoneHelp" class="form-text text-muted">Escriu el telefon del client.</small>
+
+                                    @php
+                                        $first = $first +1;
+                                    @endphp
+
+                                    @if ($first === 1)
+                                        <div><input type="text" name="phone" class="form-control" id="phone" aria-describedby="clientHelp" placeholder="977 70 70 70" value="{{ $phone->phone }}"></div><br>
+                                    @else
+                                        <div><label for="phones'+ contador +'">Telèfon:</label><input type="text" class="form-control" aria-describedby="clientHelp" placeholder="977 70 70 70" value="{{ $phone->phone }}" id="phones'+ contador +'" name="phones[]"/><br><button type="button" class="btn btn-default delete_phone float-right">Borrar telèfon</button></div>
+                                    @endif
+                                        {{--                                    <small id="phoneHelp" class="form-text text-muted">Escriu el telefon del client.</small>--}}
                                 @endif
                             @endforeach
+                                <div class="button">
+                                    <button type="button" id="add_phone" class="btn btn-default">Afegir telèfon</button>
+                                </div>
                         @endif
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Afegir client</button>
+                <button type="submit" class="btn btn-primary">Editar client</button>
                 <a href="{{ route('clients.index') }}" class="btn btn-default float-right">Tornar als clients</a>
             </form>
 

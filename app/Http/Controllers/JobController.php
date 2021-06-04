@@ -60,7 +60,7 @@ class JobController extends Controller
         return redirect()->route('jobs.index');
     }
 
-    public function jobfromcall(CreateJobToCallRequest $request)
+    public function jobfromcall(CreateJobFromCallRequest $request)
     {
         $request->createJobFromCall();
         return redirect()->route('jobs.index');
