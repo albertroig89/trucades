@@ -69,15 +69,11 @@ class JobController extends Controller
         }else{
             $request->createJobFromCall();
             foreach ($calls as $call){
-                if ($call->id === $request->delete){
+                if ($call->id === (int)$request->delete){
                     $call->delete();
-
                 }
             }
         }
-
-        $request->createJobFromCall();
-
         return redirect()->route('jobs.index');
     }
 
