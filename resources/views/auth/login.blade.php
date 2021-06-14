@@ -43,7 +43,7 @@
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Recarda'm
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Recorda'm
                                     </label>
                                 </div>
                             </div>

@@ -16,7 +16,6 @@
                           <th scope="col">Nom</th>
                           <th scope="col">Email</th>
                           <th scope="col">Departament</th>
-                          <th scope="col">Visualitzar detalls d'usuari</th>
                           <th scope="col">Editar detalls d'usuari</th>
                           <th scope="col">Eliminar usuari</th>
                         </tr>
@@ -32,8 +31,6 @@
                               @else
                               <td>{{ $user->department->title }}</td>
                               @endempty
-
-                            <td><a href="{{ route('users.show', ['id' => $user->id]) }}"><span class="oi oi-eye"></span></a></td>
                             <td><a href="{{ route('users.edit', ['id' => $user->id]) }}"><span class="oi oi-pencil"></span></a></td>
 
                             <td><form action="{{ route('users.destroy', $user) }}" method="POST">
