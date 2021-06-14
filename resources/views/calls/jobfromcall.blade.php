@@ -78,7 +78,7 @@
                         <div class="invalid-feedback">Example invalid custom select feedback</div>
                     </div>
                     <div class="form-group">
-                        <input type="checkbox" value="delete" id="delete" name="delete" checked>
+                        <input type="checkbox" value="{{ $call->id }}" id="delete" name="delete" checked>
                         <label for="delete">Borrar trucada</label>
                     </div>
                 </div>

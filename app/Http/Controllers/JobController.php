@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Call;
 use App\Client;
 use App\Http\Requests\CreateJobRequest;
-use App\Http\Requests\CreateJobToCallRequest;
+use App\Http\Requests\CreateJobFromCallRequest;
 use App\Job;
 use App\Stat;
 use App\User;
@@ -62,7 +62,22 @@ class JobController extends Controller
 
     public function jobfromcall(CreateJobFromCallRequest $request)
     {
+        $calls = Call::all();
+
+        if (empty($request->delete)){
+            $request->createJobFromCall();
+        }else{
+            $request->createJobFromCall();
+            foreach ($calls as $call){
+                if ($call->id === $request->delete){
+                    $call->delete();
+
+                }
+            }
+        }
+
         $request->createJobFromCall();
+
         return redirect()->route('jobs.index');
     }
 

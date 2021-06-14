@@ -54,7 +54,6 @@ class CreateJobFromCallRequest extends FormRequest
             $inittime = Carbon::createFromFormat('d-m-Y H:i', $data['inittime']);
             $endtime = Carbon::createFromFormat('d-m-Y H:i', $data['endtime']);
 
-
             Job::create([
                 'user_id' => $data['user_id'],
                 'client_id' => $data['client_id'],
