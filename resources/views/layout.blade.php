@@ -76,6 +76,7 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('clients.index') }}">Mostrar clients</a>
                     <a class="dropdown-item" href="{{ route('clients.create') }}">Nou client</a>
+                    <a class="dropdown-item" href="{{ route('clients.import') }}">Importar Clients</a>
                 </div>
             </li>
 

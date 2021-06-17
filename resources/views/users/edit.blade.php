@@ -48,11 +48,33 @@
                         @endif
                     </div>
                     <div class="form-group">
+
+
+{{--                        <select class="form-control" name="user_id2" id="user_id2">--}}
+{{--                            @foreach ($users as $user)--}}
+{{--                                @if ($user->id === old('id2', $call->user_id2))--}}
+{{--                                    <option class="form-control" value="{{ old('id2', $call->user_id2) }}">{{ $user->name }}</option>--}}
+{{--                                @endif--}}
+{{--                            @endforeach--}}
+{{--                            @foreach ($users as $user)--}}
+{{--                                @if (old('id2', $call->user_id2) != $user->id)--}}
+{{--                                    <option class="form-control" value="{{ ($user->id) }}">{{ $user->name }}</option>--}}
+{{--                                @endif--}}
+{{--                            @endforeach--}}
+{{--                        </select>--}}
+
+
                         <label for="department_id">Departament:</label>
                         <select class="form-control" name="department_id" id="department_id">
-                            <option value="">Sel·lecciona el teu departament</option>
+                            @foreach($departments as $department)
+                                @if($department->id === old('id', $user->department->id))
+                                    <option value="{{ old('id', $user->department->id) }}">{{ $department->title }}</option>
+                                @endif
+                            @endforeach
                             @foreach ($departments as $department)
-                                <option class="form-control" value="{{ ($department->id) }}">{{ $department->title }}</option>
+                                @if($department->id != old('id', $user->department->id))
+                                    <option class="form-control" value="{{ ($department->id) }}">{{ $department->title }}</option>
+                                @endif
                             @endforeach
                         </select>
                         <div class="invalid-feedback">Example invalid custom select feedback</div>

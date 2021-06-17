@@ -107,3 +107,6 @@ Route::put('/llamadas/{client}', 'ClientController@update');
 
 Route::delete('/clientes/{client}', 'ClientController@destroy')
     ->name('clients.destroy');
+
+Route::get('/clientes/importacion', 'ImportController@import')
+    ->name('clients.import');
