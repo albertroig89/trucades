@@ -19,6 +19,7 @@ class CreateJobsTable extends Migration
             $table->dateTime('inittime');
             $table->dateTime('endtime');
             $table->integer('totalmin');
+            $table->string('clientname')->nullable();
             $table->timestamps();
         });
     }

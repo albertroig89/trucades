@@ -23,6 +23,9 @@
                             @endforeach
                         </select>
                     </div>
+                    <div>
+                        <input class="form-control" name="clientname" id="clientname" value="{{ old('job', $job->clientname) }}">
+                    </div>
                     <div class="form-group">
                         <label for="inittime">Inici trucada:</label>
                         @if ($errors->has('inittime'))

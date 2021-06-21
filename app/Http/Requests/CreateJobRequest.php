@@ -29,10 +29,12 @@ class CreateJobRequest extends FormRequest
     {
         return [
             'user_id' => 'required',
-            'client_id' => 'required',
+            'client_id' => '',
             'job' => 'required',
             'inittime' => 'required',
             'endtime' => 'required',
+            'clientname' => '',
+            'clientphone' => '',
         ];
     }
 
@@ -56,14 +58,37 @@ class CreateJobRequest extends FormRequest
             $inittime = Carbon::createFromFormat('d-m-Y H:i', $data['inittime']);
             $endtime = Carbon::createFromFormat('d-m-Y H:i', $data['endtime']);
 
-            Job::create([
-                'user_id' => $data['user_id'],
-                'client_id' => $data['client_id'],
-                'job' => $data['job'],
-                'inittime' => $inittime,
-                'endtime' => $endtime,
-                'totalmin' => $endtime->diffInMinutes($inittime),
-            ]);
+            if (empty($data['clientname'])){
+                Job::create([
+                    'user_id' => $data['user_id'],
+                    'client_id' => $data['client_id'],
+                    'job' => $data['job'],
+                    'inittime' => $inittime,
+                    'endtime' => $endtime,
+                    'totalmin' => $endtime->diffInMinutes($inittime),
+                ]);
+            }elseif (!empty($data['clientname']) and (!empty($data['client_id']))){
+                Job::create([
+                    'user_id' => $data['user_id'],
+                    'client_id' => $data['client_id'],
+                    'job' => $data['job'],
+                    'inittime' => $inittime,
+                    'endtime' => $endtime,
+                    'totalmin' => $endtime->diffInMinutes($inittime),
+                    'clientname' => $data['clientname'],
+                ]);
+            }else {
+                Job::create([
+                    'user_id' => $data['user_id'],
+                    'job' => $data['job'],
+                    'inittime' => $inittime,
+                    'endtime' => $endtime,
+                    'totalmin' => $endtime->diffInMinutes($inittime),
+                    'clientname' => $data['clientname'],
+                ]);
+            }
+
+
         });
     }
 }

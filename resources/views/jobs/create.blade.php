@@ -13,43 +13,19 @@
 
                 <div class="form-group">
 
-                    @if ($errors->has('client_id'))
-                        <div class="form-group is-invalid">
-                            <label for="selector-clients">Client:</label>
-                            <select class='form-control selector-clients' name='client_id' id='client_id'>
-                                <option value="">Selecciona un client</option>
-                                @foreach ($clients as $client)
-                                    <option value="{{ ($client->id) }}">{{ $client->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="invalid-feedback">
-                            {{ $errors->first('client_id') }}
-                        </div>
-                    @elseif ($errors->any())
-                        <div class="form- is-valid">
-                            <label for="selector-clients">Client:</label>
-                            <select class='form-control selector-clients' name='client_id' id='client_id'>
-                                <option value="">Selecciona un client</option>
-                                @foreach ($clients as $client)
-                                    <option value="{{ ($client->id) }}">{{ $client->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="valid-feedback">
-                            Correcte!
-                        </div>
-                    @else
-                        <div class="form-group">
-                            <label for="selector-clients">Client:</label>
-                            <select class='form-control selector-clients' name='client_id' id='client_id'>
-                                <option value="">Selecciona un client</option>
-                                @foreach ($clients as $client)
-                                    <option value="{{ ($client->id) }}">{{ $client->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    @endif
+                    <div class="form-group">
+                        <label for="selector-clients">Client:</label>
+                        <select class='form-control select2' name='client_id' id='client_id'>
+                            <option></option>
+                            @foreach ($clients as $client)
+                                <option value="{{ ($client->id) }}">{{ $client->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div>
+                        <input class="form-control" name="clientname" id="clientname">
+                    </div>
+
                     <div class="form-group">
                         <label for="inittime">Inici trucada:</label>
                         @if ($errors->has('inittime'))

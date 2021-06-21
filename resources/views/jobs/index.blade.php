@@ -35,7 +35,11 @@
                             <tr>
                                 <th scope="row">{{ \Carbon\Carbon::parse($job->created_at)->format('d-m-y H:i') }}</th>
                                 <td>{{ $job->user->name }}</td>
-                                <td>{{ $job->client->name }}</td>
+                                @if(empty($job->clientname))
+                                    <td>{{ $job->client->name }}</td>
+                                @else
+                                    <td>{{ $job->clientname }}</td>
+                                @endif
                                 <td>{{ $job->job }}</td>
                                 <td>{{ \Carbon\Carbon::parse($job->inittime)->format('d-m-y H:i') }}</td>
                                 <td>{{ \Carbon\Carbon::parse($job->endtime)->format('d-m-y H:i') }}</td>

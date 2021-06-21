@@ -19,7 +19,7 @@
                         <thead>
                         <tr>
                             <th scope="col">Client</th>
-                            <th scope="col">Telèfon</th>
+                            <th scope="col">Telèfons</th>
                             <th scope="col">Correu electronic</th>
                             <th scope="col">Editar client</th>
                             <th scope="col">Eliminar client</th>
@@ -49,8 +49,9 @@
                         @endforeach
                         </tbody>
                     </table>
+                    {{ $clients->links() }}
                 @else
-                    <li>No hi ha trucades pendents</li>
+                    <li>No hi ha clients a la base de dades</li>
                 @endif
             </ul>
         </div>

@@ -7,12 +7,14 @@ use App\Http\Requests\CreateClientRequest;
 use App\Phone;
 use App\User;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ClientController extends Controller
 {
     public function index()
     {
-        $clients = Client::all();
+        $builder = Client::orderBy("name");
+        $clients = $builder->paginate(50);
         $phones = Phone::all();
         $title = 'Clients';
         return view('clients.index', compact('title', 'clients', 'phones'));
@@ -76,4 +78,70 @@ class ClientController extends Controller
         $client->delete();
         return redirect()->route('clients.index');
     }
+
+
+    public function showimport()
+    {
+        $title = 'Importar clients desde xlsx';
+        return view('clients.import', compact('title'));
+    }
+
+
+    public function import()
+    {
+        //para recibir datos en formato json
+//        $data = $request->json()->all();
+        //variable que recogerá la url
+//        $url = $data['url'];
+
+        //función para importar los datos
+//        Excel::load($url, function($reader) {
+        Excel::load('clients.xlsx', function($reader) {
+
+            foreach ($reader->get() as $cliente) {
+                if (!empty($cliente->phone1)){
+                    $client = Client::create([
+                        'name' => $cliente->name,
+                        'email' =>$cliente->email,
+                    ]);
+
+                    $client->phone()->create([
+                        'phone' => $cliente->phone1,
+                    ]);
+                }
+                if (!empty($cliente->phone2)){
+                    $client->phone()->create([
+                        'phone' => $cliente->phone2,
+                    ]);
+                }
+
+                if (empty($cliente->name)){
+                    break;
+                }
+
+//                $client->phone()->create([
+//                    'phone' => $cliente->phone2,
+//                ]);
+            }
+        });
+//retornar toda la información de la tabla para verificar que las inserciones que hayan realizado con éxito
+        return Client::all();
+    }
+
+//    public function import()
+//    {
+//        Excel::load('clientes.csv', function($reader) {
+//            foreach ($reader->get() as $client) {
+//                Client::create([
+//                    'name' => $client->name,
+//                    'email' =>$client->email,
+//                ]);
+//            phone()->create([
+//                'phone' => $client->phone,
+//            ]);
+//            }
+//        });
+//        return Client::all();
+//    }
+
 }

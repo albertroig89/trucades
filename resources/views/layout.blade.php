@@ -154,6 +154,18 @@
       });
   </script>
   <script>
+      $(function(){
+          // turn the element to select2 select style
+          $('.select2').select2({
+              placeholder: "Selecciona un client o escriu-lo"
+          }).on('change', function(e) {
+              var data = $(".select2 option:selected").text();
+              $("#clientname").val(data);
+          });
+
+      });
+  </script>
+  <script>
       $(document).ready(function() {
           $("#add_phone").click(function(){
               var contador = $("input[type='text']").length;
