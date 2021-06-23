@@ -27,21 +27,24 @@ class CreateCallRequest extends FormRequest
     {
         return [
             'user_id' => 'required',
-            'client_id' => 'required',
+            'client_id' => '',
             'user_id2' => 'required',
             'stat_id' => 'required',
             'callinf' => 'required',
+            'clientname' => 'required',
+            'clientphone' => '',
         ];
     }
 
     public function  messages()
     {
         return [
-            'user_id.required' => 'Sel·lecciona un empleat',
-            'client_id.required' => 'Sel·lecciona un client',
-            'user_id2.required' => 'Sel·lecciona un empleat',
+            'user_id.required' => 'Selecciona un empleat',
+            'client_id.required' => 'Selecciona un client',
+            'user_id2.required' => 'Selecciona un empleat',
             'stat_id' => 'required',
-            'callinf.required' => 'Omple l\'informació de la trucada'
+            'callinf.required' => 'Omple l\'informació de la trucada',
+            'clientname.required' => 'Selecciona un client o escriu-ne un'
         ];
     }
 
@@ -51,13 +54,26 @@ class CreateCallRequest extends FormRequest
 
             $data = $this->validated();
 
-            Call::create([
-                'user_id' => $data['user_id'],
-                'client_id' => $data['client_id'],
-                'user_id2' => $data['user_id2'],
-                'stat_id' => $data['stat_id'],
-                'callinf' => $data['callinf'],
-            ]);
+            if (!empty($data['clientname']) and (!empty($data['client_id']))){
+                Call::create([
+                    'user_id' => $data['user_id'],
+                    'client_id' => $data['client_id'],
+                    'user_id2' => $data['user_id2'],
+                    'stat_id' => $data['stat_id'],
+                    'callinf' => $data['callinf'],
+                    'clientname' => $data['clientname'],
+                ]);
+            }else {
+                Call::create([
+                    'user_id' => $data['user_id'],
+                    'user_id2' => $data['user_id2'],
+                    'stat_id' => $data['stat_id'],
+                    'callinf' => $data['callinf'],
+                    'clientname' => $data['clientname'],
+                    'clientphone' => $data['clientphone'],
+                ]);
+            }
+
 
         });
     }

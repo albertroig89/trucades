@@ -24,8 +24,6 @@
                             <th scope="col">Inici feina</th>
                             <th scope="col">Final feina</th>
                             <th scope="col">Temps empleat</th>
-{{--                            <th scope="col">Ates per</th>--}}
-{{--                            <th scope="col">Visualitzar detalls feina</th>--}}
                             <th></th>
                             <th></th>
                         </tr>
@@ -35,11 +33,7 @@
                             <tr>
                                 <th scope="row">{{ \Carbon\Carbon::parse($job->created_at)->format('d-m-y H:i') }}</th>
                                 <td>{{ $job->user->name }}</td>
-                                @if(empty($job->clientname))
-                                    <td>{{ $job->client->name }}</td>
-                                @else
-                                    <td>{{ $job->clientname }}</td>
-                                @endif
+                                <td>{{ $job->clientname }}</td>
                                 <td>{{ $job->job }}</td>
                                 <td>{{ \Carbon\Carbon::parse($job->inittime)->format('d-m-y H:i') }}</td>
                                 <td>{{ \Carbon\Carbon::parse($job->endtime)->format('d-m-y H:i') }}</td>

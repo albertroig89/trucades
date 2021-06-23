@@ -22,7 +22,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div>
+                    <div class="form-group">
                         <input class="form-control" name="clientname" id="clientname">
                     </div>
 

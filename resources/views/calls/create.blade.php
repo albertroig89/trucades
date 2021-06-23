@@ -11,14 +11,30 @@
                 {!! csrf_field() !!}
 
                 <div class="form-group">
+{{--                    <div class="form-group">--}}
+{{--                        <label for="selector-clients">Client:</label>--}}
+{{--                        <select class='form-control selector-clients' name='client_id' id='client_id'>--}}
+{{--                            <option value="">Selecciona un client</option>--}}
+{{--                            @foreach ($clients as $client)--}}
+{{--                                <option value="{{ ($client->id) }}">{{ $client->name }}</option>--}}
+{{--                            @endforeach--}}
+{{--                        </select>--}}
+{{--                    </div>--}}
                     <div class="form-group">
                         <label for="selector-clients">Client:</label>
-                        <select class='form-control selector-clients' name='client_id' id='client_id'>
-                            <option value="">Selecciona un client</option>
+                        <select class='form-control select2' name='client_id' id='client_id'>
+                            <option></option>
                             @foreach ($clients as $client)
                                 <option value="{{ ($client->id) }}">{{ $client->name }}</option>
                             @endforeach
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" name="clientname" id="clientname">
+                    </div>
+                    <div class="form-group">
+                        <label for="clientphone">Telefon:</label>
+                        <input class="form-control" name="clientphone" id="clientphone">
                     </div>
                     <div class="form-group">
                         <label for="user_id2">Ates per:</label>

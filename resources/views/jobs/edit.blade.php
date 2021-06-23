@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="card pl-0 pr-0 col-md-4 mt-2">
-        <div class="card-header"><h3>@if(empty($job->client->name)){{ $job->clientname }}@else {{ $job->client->name }} @endif</h3></div>
+        <div class="card-header"><h3>@if(empty($job->client->name)) {{ $job->clientname }} @else {{ $job->client->name }} @endif</h3></div>
         <div class="card-body">
             <form method="POST" action="{{ url("trabajos/{$job->id}") }}">
                 {{ method_field('PUT') }}
@@ -14,7 +14,7 @@
                 <div class="form-group">
                     <div class="form-group">
                         <label for="selector-clients">Client:</label>
-                        @if(empty($job->client->name))
+                        @if(empty($job->client))
                             <select class='form-control select2' name='client_id' id='client_id'>
                                 <option></option>
                                 @foreach ($clients as $client)

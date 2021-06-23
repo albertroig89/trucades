@@ -34,15 +34,14 @@ class CreateJobRequest extends FormRequest
             'inittime' => 'required',
             'endtime' => 'required',
             'clientname' => 'required',
-            'clientphone' => '',
         ];
     }
 
     public function  messages()
     {
         return [
-            'user_id.required' => 'Sel·lecciona un empleat',
-            'clientname.required' => 'Sel·lecciona un client o escriu-ne un',
+            'user_id.required' => 'Selecciona un empleat',
+            'clientname.required' => 'Selecciona un client o escriu-ne un',
             'job.required' => 'Introdueix la feina que has fet',
             'inittime.required' => 'Introdueix comensament de feina',
             'endtime.required' => 'Introdueix final de feina'

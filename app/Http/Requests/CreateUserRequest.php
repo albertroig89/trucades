@@ -36,13 +36,13 @@ class CreateUserRequest extends FormRequest
     public function  messages()
     {
         return [
-            'name.required' => 'El campo nombre es obligatorio',
-            'email.required' => 'Introduce un correo electronico',
-            'email.email' => 'Introduce un correo electronico correcto',
-            'email.unique' => 'El correo introducido ya existe',
-            'password.required' => 'Especifica una contraseña',
-            'password.min' => 'La contraseña debe contener almenos 6 caracteres',
-            'department_id.required' => 'El departamento es obligatorio'
+            'name.required' => 'El nom es obligatori',
+            'email.required' => 'Introdueix un correu electronic',
+            'email.email' => 'Introdueix un correu electronic correcte',
+            'email.unique' => 'El correu electronic ja existeix',
+            'password.required' => 'Especifica una contrasenya',
+            'password.min' => 'La contrasenya a de tenir almenys 6 caracters',
+            'department_id.required' => 'El departament es obligatori'
         ];
     }
 

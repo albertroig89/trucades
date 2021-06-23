@@ -7,10 +7,8 @@ use App\Client;
 use App\Http\Requests\CreateJobRequest;
 use App\Http\Requests\CreateJobFromCallRequest;
 use App\Job;
-use App\Stat;
 use App\User;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
@@ -87,11 +85,11 @@ class JobController extends Controller
             'endtime' => 'required',
             'clientname' => 'required',
         ], [
-            'user_id.required' => 'Sel·lecciona un empleat',
-            'clientname.required' => 'Sel·lecciona un client o escriu-ne un',
+            'user_id.required' => 'Selecciona un empleat',
+            'clientname.required' => 'Selecciona un client o escriu-ne un',
             'job.required' => 'Introdueix la feina que has fet',
             'inittime.required' => 'Introdueix comensament de feina',
-            'endtime.required' => 'Introdueix final de feina'
+            'endtime.required' => 'Introdueix final de feina',
         ]);
 
         $inittime = Carbon::createFromFormat('d-m-Y H:i', $data['inittime']);

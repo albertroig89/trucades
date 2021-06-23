@@ -68,14 +68,16 @@ class CallController extends Controller
     {
         $data = request()->validate([
             'user_id' => 'required',
-            'client_id' => 'required',
+            'client_id' => '',
             'user_id2' => 'required',
             'stat_id' => 'required',
             'callinf' => 'required',
+            'clientname' => 'required',
+            'clientphone' => '',
         ], [
-            'user_id.required' => 'Sel·lecciona un empleat',
-            'client_id.required' => 'Sel·lecciona un client',
-            'user_id2.required' => 'Sel·lecciona un empleat',
+            'user_id.required' => 'Selecciona un empleat',
+            'clientname.required' => 'Selecciona un client o escriu-ne un',
+            'user_id2.required' => 'Selecciona un empleat',
             'stat_id' => 'required',
             'callinf.required' => 'Omple l\'informació de la trucada'
         ]);

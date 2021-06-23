@@ -17,7 +17,7 @@ class CreateCallsTable extends Migration
             $table->increments('id');
             $table->string('callinf',1000);
             $table->timestamps();
-            $table->string('clientname')->nullable();
+            $table->string('clientname');
             $table->string('clientphone')->nullable();
         });
     }
