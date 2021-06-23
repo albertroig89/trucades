@@ -81,13 +81,14 @@ class JobController extends Controller
     {
         $data = request()->validate([
             'user_id' => 'required',
-            'client_id' => 'required',
+            'client_id' => '',
             'job' => 'required',
             'inittime' => 'required',
             'endtime' => 'required',
+            'clientname' => 'required',
         ], [
             'user_id.required' => 'Sel·lecciona un empleat',
-            'client_id.required' => 'Sel·lecciona un client',
+            'clientname.required' => 'Sel·lecciona un client o escriu-ne un',
             'job.required' => 'Introdueix la feina que has fet',
             'inittime.required' => 'Introdueix comensament de feina',
             'endtime.required' => 'Introdueix final de feina'

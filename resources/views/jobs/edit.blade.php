@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="card pl-0 pr-0 col-md-4 mt-2">
-        <div class="card-header"><h3>{{ $job->client->name }}</h3></div>
+        <div class="card-header"><h3>@if(empty($job->client->name)){{ $job->clientname }}@else {{ $job->client->name }} @endif</h3></div>
         <div class="card-body">
             <form method="POST" action="{{ url("trabajos/{$job->id}") }}">
                 {{ method_field('PUT') }}
@@ -14,14 +14,24 @@
                 <div class="form-group">
                     <div class="form-group">
                         <label for="selector-clients">Client:</label>
-                        <select class='form-control selector-clients' name='client_id' id='client_id'>
-                            <option value="{{ old('id', $job->client_id) }}">{{ old('name', $job->client->name) }}</option>
-                            @foreach ($clients as $client)
-                                @if (old('id', $job->client_id) != $client->id)
+                        @if(empty($job->client->name))
+                            <select class='form-control select2' name='client_id' id='client_id'>
+                                <option></option>
+                                @foreach ($clients as $client)
                                     <option value="{{ ($client->id) }}">{{ $client->name }}</option>
-                                @endif
-                            @endforeach
-                        </select>
+                                @endforeach
+                            </select>
+                        @else
+                            <select class='form-control selector-clients' name='client_id' id='client_id'>
+                                <option value="{{ old('id', $job->client_id) }}">{{ old('name', $job->client->name) }}</option>
+                                <option value="">Sense client BD</option>
+                                @foreach ($clients as $client)
+                                    @if (old('id', $job->client_id) != $client->id)
+                                        <option value="{{ ($client->id) }}">{{ $client->name }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        @endif
                     </div>
                     <div>
                         <input class="form-control" name="clientname" id="clientname" value="{{ old('job', $job->clientname) }}">

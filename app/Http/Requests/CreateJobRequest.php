@@ -33,7 +33,7 @@ class CreateJobRequest extends FormRequest
             'job' => 'required',
             'inittime' => 'required',
             'endtime' => 'required',
-            'clientname' => '',
+            'clientname' => 'required',
             'clientphone' => '',
         ];
     }
@@ -42,7 +42,7 @@ class CreateJobRequest extends FormRequest
     {
         return [
             'user_id.required' => 'Sel·lecciona un empleat',
-            'client_id.required' => 'Sel·lecciona un client',
+            'clientname.required' => 'Sel·lecciona un client o escriu-ne un',
             'job.required' => 'Introdueix la feina que has fet',
             'inittime.required' => 'Introdueix comensament de feina',
             'endtime.required' => 'Introdueix final de feina'
@@ -58,16 +58,8 @@ class CreateJobRequest extends FormRequest
             $inittime = Carbon::createFromFormat('d-m-Y H:i', $data['inittime']);
             $endtime = Carbon::createFromFormat('d-m-Y H:i', $data['endtime']);
 
-            if (empty($data['clientname'])){
-                Job::create([
-                    'user_id' => $data['user_id'],
-                    'client_id' => $data['client_id'],
-                    'job' => $data['job'],
-                    'inittime' => $inittime,
-                    'endtime' => $endtime,
-                    'totalmin' => $endtime->diffInMinutes($inittime),
-                ]);
-            }elseif (!empty($data['clientname']) and (!empty($data['client_id']))){
+
+            if (!empty($data['clientname']) and (!empty($data['client_id']))){
                 Job::create([
                     'user_id' => $data['user_id'],
                     'client_id' => $data['client_id'],
