@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="card pl-0 pr-0 col-md-4 mt-2">
-        <div class="card-header"><h3>@if(empty($call->client->name)) {{ $call->clientname }} @else {{ $call->client->name }} @endif</h3></div>
+        <div class="card-header"><h3>{{ $call->clientname }}</h3></div>
         <div class="card-body">
             <form method="POST" action="{{ url("llamadas/{$call->id}") }}">
                 {{ method_field('PUT') }}

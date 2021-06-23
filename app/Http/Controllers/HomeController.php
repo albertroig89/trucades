@@ -36,8 +36,12 @@ class HomeController extends Controller
         $uStat = Stat::where('title', 'Urgent')->value('id');
         $pStat = Stat::where('title', 'Pendent')->value('id');
 
+        $globalId = User::where('name', 'Global')->value('id');
+        $globalCalls = Call::where('user_id', $globalId);
+        $userCalls = Call::where('user_id', auth()->id());
+
         $title = 'Trucades';
-        return view('home', compact('title', 'calls', 'users', 'phones', 'techId', 'globId', 'nStat', 'uStat', 'pStat'));
+        return view('home', compact('title', 'calls', 'users', 'phones', 'techId', 'globId', 'nStat', 'uStat', 'pStat', 'userCalls', 'globalCalls'));
     }
 
 }

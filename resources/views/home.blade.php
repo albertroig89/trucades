@@ -12,7 +12,7 @@
                 </div>
             @endif
             <ul>
-                @if ($calls->count())
+                @if($userCalls->count() or $globalCalls->count())
                     <table class="table">
                         <thead>
                         <tr>
@@ -25,35 +25,31 @@
                             <th></th>
                             <th></th>
                             <th></th>
-{{--                            <th scope="col">Comensar feina</th>--}}
-{{--                            <th scope="col">Editar trucada</th>--}}
-{{--                            <th scope="col">Eliminar trucada</th>--}}
                         </tr>
                         </thead>
                         <tbody>
-                        @if (auth()->user()->department_id === $techId)
-                            @foreach ($calls as $call)
-                                @if (auth()->id() === $call->user_id)
-                                    @include('layouts.partials.call')
-                                @endif
-                            @endforeach
-                            @foreach ($calls as $call)
-                                @if ($globId === $call->user->department_id)
-                                    @include('layouts.partials.call')
-                                @endif
-                            @endforeach
-                        @else
-                            @foreach ($calls as $call)
-                                @if (auth()->id() === $call->user_id)
-                                    @include('layouts.partials.call')
-                                @endif
-                            @endforeach
-                        @endif
-
+                            @if (auth()->user()->department_id === $techId)
+                                @foreach ($calls as $call)
+                                    @if (auth()->id() === $call->user_id)
+                                        @include('layouts.partials.call')
+                                    @endif
+                                @endforeach
+                                @foreach ($calls as $call)
+                                    @if ($globId === $call->user->department_id)
+                                        @include('layouts.partials.call')
+                                    @endif
+                                @endforeach
+                            @else
+                                @foreach ($calls as $call)
+                                    @if (auth()->id() === $call->user_id)
+                                        @include('layouts.partials.call')
+                                    @endif
+                                @endforeach
+                            @endif
                         </tbody>
                     </table>
                 @else
-                    <li>No hi ha trucades pendents</li>
+                    <li>No tens trucades pendents</li>
                 @endif
             </ul>
         </div>

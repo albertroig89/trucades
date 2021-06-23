@@ -28,10 +28,11 @@ class CreateJobFromCallRequest extends FormRequest
     {
         return [
             'user_id' => 'required',
-            'client_id' => 'required',
+            'client_id' => '',
             'callinf' => 'required',
             'inittime' => 'required',
             'endtime' => 'required',
+            'clientname' => 'required',
         ];
     }
 
@@ -41,7 +42,8 @@ class CreateJobFromCallRequest extends FormRequest
             'user_id.required' => 'Sel·lecciona un empleat',
             'callinf.required' => 'Introdueix la feina que has fet',
             'inittime.required' => 'Introdueix comensament de feina',
-            'endtime.required' => 'Introdueix final de feina'
+            'endtime.required' => 'Introdueix final de feina',
+            'clientname.required' => 'Selecciona un client o escriu-ne un',
         ];
     }
 
@@ -54,14 +56,27 @@ class CreateJobFromCallRequest extends FormRequest
             $inittime = Carbon::createFromFormat('d-m-Y H:i', $data['inittime']);
             $endtime = Carbon::createFromFormat('d-m-Y H:i', $data['endtime']);
 
-            Job::create([
-                'user_id' => $data['user_id'],
-                'client_id' => $data['client_id'],
-                'job' => $data['callinf'],
-                'inittime' => $inittime,
-                'endtime' => $endtime,
-                'totalmin' => $endtime->diffInMinutes($inittime),
-            ]);
+            if (!empty($data['clientname']) and (!empty($data['client_id']))){
+                Job::create([
+                    'user_id' => $data['user_id'],
+                    'client_id' => $data['client_id'],
+                    'job' => $data['callinf'],
+                    'inittime' => $inittime,
+                    'endtime' => $endtime,
+                    'totalmin' => $endtime->diffInMinutes($inittime),
+                    'clientname' => $data['clientname'],
+                ]);
+            }else {
+                Job::create([
+                    'user_id' => $data['user_id'],
+                    'job' => $data['callinf'],
+                    'inittime' => $inittime,
+                    'endtime' => $endtime,
+                    'totalmin' => $endtime->diffInMinutes($inittime),
+                    'clientname' => $data['clientname'],
+                ]);
+            }
+
 
         });
     }
