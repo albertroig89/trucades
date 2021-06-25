@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="es">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,12 +23,12 @@
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+{{--                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">--}}
+{{--                        <span class="sr-only">Toggle Navigation</span>--}}
+{{--                        <span class="icon-bar"></span>--}}
+{{--                        <span class="icon-bar"></span>--}}
+{{--                        <span class="icon-bar"></span>--}}
+{{--                    </button>--}}
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
