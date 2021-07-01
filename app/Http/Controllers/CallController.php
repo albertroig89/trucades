@@ -87,12 +87,6 @@ class CallController extends Controller
         return redirect()->route('home');
     }
 
-//    function destroy($id)
-//    {
-//        Call::query()->findOrFail($id)->delete();
-//        return redirect()->route('home');
-//    }
-
     function destroy(Call $call)
     {
         $call->delete();

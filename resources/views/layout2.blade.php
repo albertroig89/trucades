@@ -60,8 +60,8 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('jobs.index') }}">Mostrar feines</a>
                             <a class="dropdown-item" href="{{ route('jobs.create') }}">Nova feina</a>
-                            {{--                    <div class="dropdown-divider"></div>--}}
-                            {{--                    <a class="dropdown-item" href="{{ route('jobs.index') }}">Mostrar totes les feines</a>--}}
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ route('jobs.histjobs') }}">Mostrar feines del historic</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">

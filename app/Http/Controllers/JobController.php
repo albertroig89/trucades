@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Call;
 use App\Client;
+use App\HistJob;
 use App\Http\Requests\CreateJobRequest;
 use App\Http\Requests\CreateJobFromCallRequest;
 use App\Job;
@@ -104,8 +105,27 @@ class JobController extends Controller
         return redirect()->route('jobs.index');
     }
 
+    public function histjob()
+    {
+        $histjobs = HistJob::all();
+        $title = "Historic de feines";
+
+        return view('jobs.histjobs', compact('title', 'histjobs'));
+
+    }
+
+
     function destroy(Job $job)
     {
+        HistJob::create([
+            'username' => $job->user->name,
+            'job' => $job->job,
+            'inittime' => $job->inittime,
+            'endtime' => $job->endtime,
+            'totalmin' => $job->totalmin,
+            'clientname' => $job->clientname,
+        ]);
+
         $job->delete();
         return redirect()->route('jobs.index');
     }

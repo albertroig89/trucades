@@ -20,10 +20,10 @@
 
       <!--ESTILS PROPIS-->
       <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-      <link rel="stylesheet" type="text/css" href="/css/styles.css" media="screen" />
+      <link rel="stylesheet" type="text/css" href="{{ asset('/css/styles.css') }}" media="screen" />
 
       <!-- Favicons -->
-      <link  rel="icon"   href="/images/favicon.png" type="image/png" />
+      <link  rel="icon"   href="{{ asset('/images/favicon.png') }}" type="image/png" />
 
 
 
@@ -60,8 +60,8 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('jobs.index') }}">Mostrar feines</a>
                     <a class="dropdown-item" href="{{ route('jobs.create') }}">Nova feina</a>
-{{--                    <div class="dropdown-divider"></div>--}}
-{{--                    <a class="dropdown-item" href="{{ route('jobs.index') }}">Mostrar totes les feines</a>--}}
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ route('jobs.histjobs') }}">Mostrar feines del historic</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
