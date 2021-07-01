@@ -19,11 +19,11 @@
       <!-- Bootstrap core CSS END-->
 
       <!--ESTILS PROPIS-->
-      <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+      <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
       <link rel="stylesheet" type="text/css" href="/css/styles.css" media="screen" />
 
       <!-- Favicons -->
-      <link  rel="icon"   href="../images/favicon.png" type="image/png" />
+      <link  rel="icon"   href="/images/favicon.png" type="image/png" />
 
 
 
@@ -36,7 +36,7 @@
   <!-- Fixed navbar -->
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand logolink" href="{{ route('home') }}"><img class="logo" src="/images/logo.png"/></a>
+      <a class="navbar-brand logolink" href="{{ route('home') }}"><img class="logo" src="../images/logo.png"/></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
