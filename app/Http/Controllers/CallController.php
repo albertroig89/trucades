@@ -60,6 +60,7 @@ class CallController extends Controller
     }
     public function store(CreateCallRequest $request)
     {
+        dd($request);
         $request->createCall();
         return redirect()->route('home');
     }
