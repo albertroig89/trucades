@@ -39,15 +39,24 @@
     <tr class="urgentState">
         <th scope="row">{{ \Carbon\Carbon::parse($call->created_at)->format('d-m-y H:i') }}</th>
         <td>{{ $call->user->name }}</td>
-        <td>{{ $call->client->name }}</td>
-        <td>{{ $call->callinf }}</td>
-        <td>
-            @foreach ($phones as $phone)
-                @if ($phone->client_id === $call->client->id)
-                    {{ $phone->phone }}
+        <td>{{ $call->clientname }}</td>
+        <td class="nota">{{ $call->callinf }}</td>
+        @if (!empty($call->clientphone))
+            <td>{{ $call->clientphone }}</td>
+        @else
+            <td>
+                @if (!empty($call->client))
+                    @foreach ($phones as $phone)
+
+                        @if ($phone->client_id === $call->client->id)
+                            {{ $phone->phone }}
+                        @endif
+                    @endforeach
+                @else
+                    No hi ha telefon
                 @endif
-            @endforeach
-        </td>
+            </td>
+        @endif
         @foreach ($users as $user)
             @if ($user->id === $call->user_id2)
                 <td>{{ $user->name }}</td>
@@ -69,15 +78,24 @@
     <tr class="pendingState">
         <th scope="row">{{ \Carbon\Carbon::parse($call->created_at)->format('d-m-y H:i') }}</th>
         <td>{{ $call->user->name }}</td>
-        <td>{{ $call->client->name }}</td>
-        <td>{{ $call->callinf }}</td>
-        <td>
-            @foreach ($phones as $phone)
-                @if ($phone->client_id === $call->client->id)
-                    {{ $phone->phone }}
+        <td>{{ $call->clientname }}</td>
+        <td class="nota">{{ $call->callinf }}</td>
+        @if (!empty($call->clientphone))
+            <td>{{ $call->clientphone }}</td>
+        @else
+            <td>
+                @if (!empty($call->client))
+                    @foreach ($phones as $phone)
+
+                        @if ($phone->client_id === $call->client->id)
+                            {{ $phone->phone }}
+                        @endif
+                    @endforeach
+                @else
+                    No hi ha telefon
                 @endif
-            @endforeach
-        </td>
+            </td>
+        @endif
         @foreach ($users as $user)
             @if ($user->id === $call->user_id2)
                 <td>{{ $user->name }}</td>

@@ -12,7 +12,7 @@
     <title>Trucades - Microdelta</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="/css/styles.css" media="screen" /> <!--ESTILS PROPIS-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') }}" media="screen" /> <!--ESTILS PROPIS-->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link  rel="icon"   href="/images/favicon.png" type="image/png" />
 </head>

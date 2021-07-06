@@ -54,8 +54,6 @@ class CreateCallRequest extends FormRequest
 
             $data = $this->validated();
 
-            dd($data['user_id'], $data['client_id'], $data['user_id2'], $data['stat_id'], $data['callinf'], $data['clientname']);
-
             if (!empty($data['clientname']) and (!empty($data['client_id']))){
                 Call::create([
                     'user_id' => $data['user_id'],
@@ -65,7 +63,7 @@ class CreateCallRequest extends FormRequest
                     'callinf' => $data['callinf'],
                     'clientname' => $data['clientname'],
                 ]);
-                dd($data['user_id'], $data['client_id'], $data['user_id2'], $data['stat_id'], $data['callinf'], $data['clientname']);
+
             }else {
                 Call::create([
                     'user_id' => $data['user_id'],
@@ -75,7 +73,6 @@ class CreateCallRequest extends FormRequest
                     'clientname' => $data['clientname'],
                     'clientphone' => $data['clientphone'],
                 ]);
-                dd($data['user_id'], $data['client_id'], $data['user_id2'], $data['stat_id'], $data['callinf'], $data['clientname']);
             }
 
 

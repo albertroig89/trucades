@@ -23,9 +23,9 @@
 Route::get('/usuarios', 'UserController@index')
     ->name('users.index');
 
-Route::get('/usuarios/{user}', 'UserController@show')
-    ->where('user', '[0-9]+')
-    ->name('users.show');
+//Route::get('/usuarios/{user}', 'UserController@show')
+//    ->where('user', '[0-9]+')
+//    ->name('users.show');
 
 Route::get('/usuarios/nuevo', 'UserController@create')
     ->name('users.create');
@@ -68,6 +68,8 @@ Route::delete('/trabajos/{job}', 'JobController@destroy')
     ->name('jobs.destroy');
 //----------------------------------------------------------------------------------------------CALLS
 
+
+
 Route::get('/', 'HomeController@index')
     ->name('home');
 
@@ -77,10 +79,10 @@ Route::get('/llamadas', 'CallController@index')
 Route::get('/llamadas/nuevo', 'CallController@create')
     ->name('calls.create');
 
+Route::post('/llamadas', 'CallController@store');
+
 Route::get('/llamadas/{call}', 'CallController@jobfromcall')
     ->name('calls.jobfromcall');
-
-Route::post('/', 'CallController@store');
 
 Route::get('/llamadas/{call}/editar', 'CallController@edit')
     ->where('id', '\d+')
