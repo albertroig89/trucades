@@ -8,6 +8,9 @@
 .pendingState {
     background-color: #aed7ff;
 }
+.normalStateGlobal {
+    background-color: lightgoldenrodyellow;
+}
 .table {
     font-size: small;
 }
