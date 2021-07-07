@@ -11,10 +11,11 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class ClientController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $builder = Client::orderBy("name");
-        $clients = $builder->paginate(50);
+        $clients = Client::name($request->get('name'))->orderBy('name')->paginate(50);
+//        $builder = Client::orderBy("name");
+//        $clients = $builder->paginate(50);
         $phones = Phone::all();
         $title = 'Clients';
         return view('clients.index', compact('title', 'clients', 'phones'));
@@ -89,13 +90,6 @@ class ClientController extends Controller
 
     public function import()
     {
-        //para recibir datos en formato json
-//        $data = $request->json()->all();
-        //variable que recogerá la url
-//        $url = $data['url'];
-
-        //función para importar los datos
-//        Excel::load($url, function($reader) {
         Excel::load('clients.xlsx', function($reader) {
 
             foreach ($reader->get() as $cliente) {
@@ -118,30 +112,9 @@ class ClientController extends Controller
                 if (empty($cliente->name)){
                     break;
                 }
-
-//                $client->phone()->create([
-//                    'phone' => $cliente->phone2,
-//                ]);
             }
         });
-//retornar toda la información de la tabla para verificar que las inserciones que hayan realizado con éxito
         return Client::all();
     }
-
-//    public function import()
-//    {
-//        Excel::load('clientes.csv', function($reader) {
-//            foreach ($reader->get() as $client) {
-//                Client::create([
-//                    'name' => $client->name,
-//                    'email' =>$client->email,
-//                ]);
-//            phone()->create([
-//                'phone' => $client->phone,
-//            ]);
-//            }
-//        });
-//        return Client::all();
-//    }
 
 }

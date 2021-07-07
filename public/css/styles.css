@@ -114,3 +114,11 @@ td{
 .card{
     /*float:center;*/
 }
+
+/*estils boto afegir*/
+.afegir{
+    width: 50%;
+}
+.afegirlink{
+    margin-right: 2%;
+}

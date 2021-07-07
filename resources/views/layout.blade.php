@@ -42,17 +42,17 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Trucades
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('home') }}">Mostrar trucades</a>
-                    <a class="dropdown-item" href="{{ route('calls.create') }}">Nova trucada</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{ route('calls.index') }}">Mostrar totes les trucades</a>
-                </div>
-            </li>
+{{--            <li class="nav-item dropdown">--}}
+{{--                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
+{{--                    Trucades--}}
+{{--                </a>--}}
+{{--                <div class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
+{{--                    <a class="dropdown-item" href="{{ route('home') }}">Mostrar trucades</a>--}}
+{{--                    <a class="dropdown-item" href="{{ route('calls.create') }}">Nova trucada</a>--}}
+{{--                    <div class="dropdown-divider"></div>--}}
+{{--                    <a class="dropdown-item" href="{{ route('calls.index') }}">Mostrar totes les trucades</a>--}}
+{{--                </div>--}}
+{{--            </li>--}}
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Feines
@@ -155,13 +155,6 @@
 
 
   <script>
-      jQuery(document).ready(function($){
-          $(document).ready(function() {
-              $('.selector-clients').select2();
-          });
-      });
-  </script>
-  <script>
       $(function(){
           $('.select2').select2({
               placeholder: "Selecciona un client o escriu-lo"
@@ -172,6 +165,7 @@
           });
       });
   </script>
+
   <script>
       $(document).ready(function() {
           $("#add_phone").click(function(){

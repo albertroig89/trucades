@@ -5,7 +5,12 @@
 @section('content')
 
     <div class="card pl-0 pr-0 col-md-12 mt-2" >
-        <div class="card-header"><h3>{{ $title }}</h3><a class="btn btn-default float-right" onclick="return confirm('Segur que vols eliminar tots els registres del historic')">Elimina tots el registres</a></div>
+        <div class="card-header">
+            <h3>
+                {{ $title }}
+                <a class="btn btn-default float-right" onclick="return confirm('Segur que vols eliminar tots els registres del historic')">Elimina tots el registres</a>
+            </h3>
+        </div>
         <div class="card-body">
             @if (session('status'))
                 <div class="alert alert-success">
@@ -24,8 +29,7 @@
                             <th scope="col">Inici feina</th>
                             <th scope="col">Final feina</th>
                             <th scope="col">Temps empleat</th>
-{{--                            <th></th>--}}
-{{--                            <th></th>--}}
+
                         </tr>
                         </thead>
                         <tbody>

@@ -26,4 +26,11 @@ class Client extends Model
     {
         return $this->hasMany(Job::class);
     }
+
+    public function scopeName($query, $name)
+    {
+        if (trim($name) != "") {
+            $query->where('name', "LIKE", "%$name%");
+        }
+    }
 }

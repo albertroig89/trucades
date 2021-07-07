@@ -6,7 +6,23 @@
 
 
     <div class="card pl-0 pr-0 col-md-12 mt-2" >
-        <div class="card-header"><h3>{{ $title }}</h3></div>
+        <div class="card-header">
+            <h3>
+                {{ $title }}
+                {!! Form::open(['route' => 'clients.index', 'method' => 'GET', 'class' => 'float-right', 'role' => 'search']) !!}
+                    <div class="form-inline">
+                        {!! Form::text('name', null, ['class' => 'form-control mr-2', 'placeholder' => 'Client']) !!}
+                    <div>
+                    <button type="submit" class="btn btn-default">Cerca</button>
+                {!! Form::close() !!}
+{{--                <form class="float-right">--}}
+{{--                    <div class="form-inline">--}}
+{{--                        <input class="form-control mr-5" role="search" type="text" placeholder="Client">--}}
+{{--                        <button type="submit" class="btn btn-default">Cerca</button>--}}
+{{--                    </div>--}}
+{{--                </form>--}}
+            </h3>
+        </div>
         <div class="card-body">
             @if (session('status'))
                 <div class="alert alert-success">
