@@ -15,12 +15,6 @@
                     <div>
                     <button type="submit" class="btn btn-default">Cerca</button>
                 {!! Form::close() !!}
-{{--                <form class="float-right">--}}
-{{--                    <div class="form-inline">--}}
-{{--                        <input class="form-control mr-5" role="search" type="text" placeholder="Client">--}}
-{{--                        <button type="submit" class="btn btn-default">Cerca</button>--}}
-{{--                    </div>--}}
-{{--                </form>--}}
             </h3>
         </div>
         <div class="card-body">
@@ -67,7 +61,7 @@
                     </table>
                     {{ $clients->links() }}
                 @else
-                    <li>No hi ha clients a la base de dades</li>
+                    <li>La cerca no ha retornat cap resultat</li>
                 @endif
             </ul>
         </div>

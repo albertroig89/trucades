@@ -14,7 +14,7 @@ class CallController extends Controller
 {
     public function index()
     {
-        $calls = Call::all();
+        $calls = Call::orderBy('created_at', 'DESC')->paginate();
         $users = User::all();
         $phones = Phone::all();
         $nStat = Stat::where('title', 'Normal')->value('id');

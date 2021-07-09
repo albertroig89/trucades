@@ -11,7 +11,6 @@
                 <td>
                     @if (!empty($call->client))
                         @foreach ($phones as $phone)
-
                                 @if ($phone->client_id === $call->client->id)
                                     {{ $phone->phone }}
                                 @endif

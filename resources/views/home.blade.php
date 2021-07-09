@@ -7,15 +7,22 @@
         <div class="card-header">
             <h3>
                 {{ $title }}
-                <form class="float-right" method="POST" action="{{ url('llamadas') }}">
-                    <select class="form-control" name="user_id" id="user_id">
-                        <option class="form-control" value="{{ auth()->id() }}">{{ auth()->user()->name }}</option>
-                        <option class="form-control" value="0">Totes les trucades</option>
+                <form class="float-right" method="GET" action="{{ url('/') }}">
+                    <select class="form-control" onchange="this.form.submit()" name="user_id" id="user_id">
+                        @if ($allcalls == true)
+                            <option class="form-control" value="100">Totes les trucades</option>
+                        @else
+                            <option class="form-control" value="{{ $usuari->id }}">{{ $usuari->name }}</option>
+                            <option class="form-control" value="100">Totes les trucades</option>
+                        @endif
                         @foreach ($users as $user)
-                            @if (auth()->id() != $user->id))
+                            @if (auth()->id() != $user->id)
+                                <option class="form-control" value="{{ $user->id }}">{{ $user->name }}</option>
+                            @elseif ($allcalls == true)
                                 <option class="form-control" value="{{ $user->id }}">{{ $user->name }}</option>
                             @endif
                         @endforeach
+
                     </select>
                 </form>
                 <a class="float-right afegirlink" href="{{ route('calls.create') }}"><img class="afegir" src="{{ asset('/images/afegir.png') }}"/></a>
@@ -27,7 +34,7 @@
                 </div>
             @endif
             <ul>
-                @if($userCalls->count() or $globalCalls->count())
+                @if($calls->count())
                     <table class="table">
                         <thead>
                         <tr>
@@ -43,24 +50,9 @@
                         </tr>
                         </thead>
                         <tbody>
-                            @if (auth()->user()->department_id === $techId)
-                                @foreach ($calls as $call)
-                                    @if (auth()->id() === $call->user_id)
-                                        @include('layouts.partials.call')
-                                    @endif
-                                @endforeach
-                                @foreach ($calls as $call)
-                                    @if ($globId === $call->user->department_id)
-                                        @include('layouts.partials.call')
-                                    @endif
-                                @endforeach
-                            @else
-                                @foreach ($calls as $call)
-                                    @if (auth()->id() === $call->user_id)
-                                        @include('layouts.partials.call')
-                                    @endif
-                                @endforeach
-                            @endif
+                        @foreach ($calls as $call)
+                                @include('layouts.partials.call')
+                        @endforeach
                         </tbody>
                     </table>
                 @else

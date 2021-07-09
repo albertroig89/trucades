@@ -22,7 +22,7 @@ class JobController extends Controller
 
     public function index() {
 
-        $jobs = Job::all();
+        $jobs = Job::orderBy('created_at', 'DESC')->paginate(50);
         $users = User::all();
 
         $title = 'Feines';
@@ -107,7 +107,7 @@ class JobController extends Controller
 
     public function histjob()
     {
-        $histjobs = HistJob::all();
+        $histjobs = HistJob::orderBy('created_at', 'DESC')->paginate(50);
         $title = "Historic de feines";
 
         return view('jobs.histjobs', compact('title', 'histjobs'));

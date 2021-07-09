@@ -7,6 +7,7 @@ use App\Department;
 use App\Phone;
 use App\Stat;
 use App\User;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -25,23 +26,50 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $calls = Call::all();
+        $title = 'Trucades';
         $users = User::all();
         $phones = Phone::all();
         $techId = Department::where('title', 'Tecnic')->value('id');
+        $admId = Department::where('title', 'Administracio')->value('id');
         $globId = Department::where('title', 'Global')->value('id');
         $nStat = Stat::where('title', 'Normal')->value('id');
         $uStat = Stat::where('title', 'Urgent')->value('id');
         $pStat = Stat::where('title', 'Pendent')->value('id');
 
         $globalId = User::where('name', 'Global')->value('id');
-        $globalCalls = Call::where('user_id', $globalId);
-        $userCalls = Call::where('user_id', auth()->id());
 
-        $title = 'Trucades';
-        return view('home', compact('title', 'calls', 'users', 'phones', 'techId', 'globId', 'nStat', 'uStat', 'pStat', 'userCalls', 'globalCalls'));
+        $allcalls = false;
+
+        if (!empty($request->get('user_id')) and $request->get('user_id') == "100"){
+            $allcalls = true;
+            $userid = User::where('id', auth()->id())->value('id');
+            $usuari = User::find($userid);
+        }
+        elseif (empty($request->get('user_id'))){
+            $userid = User::where('id', auth()->id())->value('id');
+            $usuari = User::find($userid);
+        }
+        else{
+            $userid = User::where('id', $request->get('user_id'))->value('id');
+            $usuari = User::find($userid);
+        }
+
+        if (empty($request->get('user_id')) and auth()->user()->department_id === $techId) {
+            $calls = Call::whereIn('user_id', [auth()->id(), $globalId])->orderBy('user_id', 'DESC')->orderBy('created_at', 'DESC')->paginate();
+        }else if (empty($request->get('user_id')) and auth()->user()->department_id === $admId) {
+            $calls = Call::orderBy('created_at', 'DESC')->paginate();
+            $allcalls = true;
+        } else if (empty($request->get('user_id'))) {
+            $calls = Call::where('user_id', auth()->id())->orderBy('created_at', 'DESC')->paginate();
+        } else if ($request->get('user_id') == "100") {
+            $calls = Call::orderBy('created_at', 'DESC')->paginate();
+        } else {
+            $calls = Call::where('user_id', $request->get('user_id'))->orderBy('created_at', 'DESC')->paginate();
+        }
+
+        return view('home', compact('title', 'calls', 'users', 'phones', 'techId', 'globId', 'nStat', 'uStat', 'pStat', 'usuari', 'allcalls'));
     }
 
 }
