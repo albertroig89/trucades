@@ -23,10 +23,6 @@
 Route::get('/usuarios', 'UserController@index')
     ->name('users.index');
 
-//Route::get('/usuarios/{user}', 'UserController@show')
-//    ->where('user', '[0-9]+')
-//    ->name('users.show');
-
 Route::get('/usuarios/nuevo', 'UserController@create')
     ->name('users.create');
 
@@ -116,4 +112,4 @@ Route::delete('/clientes/{client}', 'ClientController@destroy')
 Route::get('/clientes/importacion', 'ClientController@showimport')
     ->name('clients.import');
 
-Route::post('/clientes', 'ClientController@import');
+Route::post('/clientes/importacion', 'ClientController@import');

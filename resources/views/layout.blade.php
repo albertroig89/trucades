@@ -73,6 +73,7 @@
                     <a class="dropdown-item" href="{{ route('users.create') }}">Nou usuari</a>
                 </div>
             </li>
+            @if (auth()->user()->department === "Administració" or auth()->user()->name === "Albert Roig")
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Clients
@@ -83,7 +84,9 @@
                     <a class="dropdown-item" href="{{ route('clients.import') }}">Importar Clients</a>
                 </div>
             </li>
-
+            @else
+                <a class="nav-link" href="{{ route('clients.index') }}">Clients</a>
+            @endif
         </ul>
       </div>
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
