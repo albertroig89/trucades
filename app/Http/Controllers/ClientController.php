@@ -63,12 +63,13 @@ class ClientController extends Controller
             'phone' => $data['phone'],
         ]);
 
-        $phones = $data['phones'];
-
-        foreach($phones as $phone){
-            $client->phone()->update([
-                'phone' => $phone,
-            ]);
+        if (!empty($data['phones'])) {
+            $phones = $data['phones'];
+            foreach ($phones as $phone) {
+                $client->phone()->update([
+                    'phone' => $phone,
+                ]);
+            }
         }
 
         return redirect()->route('clients.index', ['client' => $client]);

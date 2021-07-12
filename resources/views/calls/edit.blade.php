@@ -84,8 +84,11 @@
                     <div class="form-group">
                         <label for="stat_id">Estat:</label>
                         <select class='form-control' name='stat_id' id='stat_id'>
+                            <option value="{{ old('id', $call->stat->id) }}">{{ old('title', $call->stat->title) }}</option>
                             @foreach ($stats as $stat)
-                                <option value="{{ ($stat->id) }}">{{ $stat->title }}</option>
+                                @if ($stat->id != old('id', $call->stat->id))
+                                    <option value="{{ ($stat->id) }}">{{ $stat->title }}</option>
+                                @endif
                             @endforeach
                         </select>
                     </div>

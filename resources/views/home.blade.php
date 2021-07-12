@@ -25,7 +25,7 @@
 
                     </select>
                 </form>
-                <a class="float-right afegirlink" href="{{ route('calls.create') }}"><img class="afegir" src="{{ asset('/images/afegir.png') }}"/></a>
+                <a class="float-right afegirlink" href="{{ route('calls.create') }}"><img class="afegir" src="{{ asset('/images/plus-icon.png') }}"/></a>
             </h3></div>
         <div class="card-body">
             @if (session('status'))

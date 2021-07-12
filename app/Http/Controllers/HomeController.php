@@ -57,16 +57,16 @@ class HomeController extends Controller
         }
 
         if (empty($request->get('user_id')) and auth()->user()->department_id === $techId) {
-            $calls = Call::whereIn('user_id', [auth()->id(), $globalId])->orderBy('user_id', 'DESC')->orderBy('created_at', 'DESC')->paginate();
+            $calls = Call::whereIn('user_id', [auth()->id(), $globalId])->orderBy('user_id', 'DESC')->orderBy('stat_id')->orderBy('created_at', 'DESC')->paginate(50);
         }else if (empty($request->get('user_id')) and auth()->user()->department_id === $admId) {
-            $calls = Call::orderBy('created_at', 'DESC')->paginate();
+            $calls = Call::orderBy('stat_id')->orderBy('created_at', 'DESC')->paginate(50);
             $allcalls = true;
         } else if (empty($request->get('user_id'))) {
-            $calls = Call::where('user_id', auth()->id())->orderBy('created_at', 'DESC')->paginate();
+            $calls = Call::where('user_id', auth()->id())->orderBy('stat_id')->orderBy('created_at', 'DESC')->paginate(50);
         } else if ($request->get('user_id') == "100") {
-            $calls = Call::orderBy('created_at', 'DESC')->paginate();
+            $calls = Call::orderBy('created_at', 'DESC')->paginate(50);
         } else {
-            $calls = Call::where('user_id', $request->get('user_id'))->orderBy('created_at', 'DESC')->paginate();
+            $calls = Call::where('user_id', $request->get('user_id'))->orderBy('stat_id')->orderBy('created_at', 'DESC')->paginate(50);
         }
 
         return view('home', compact('title', 'calls', 'users', 'phones', 'techId', 'globId', 'nStat', 'uStat', 'pStat', 'usuari', 'allcalls'));

@@ -26,11 +26,11 @@ class StatSeeder extends Seeder
 
 
         Stat::create([
-            'title' =>'Normal'
+            'title' =>'Urgent'
         ]);
 
         Stat::create([
-            'title' =>'Urgent'
+            'title' =>'Normal'
         ]);
 
         Stat::create([

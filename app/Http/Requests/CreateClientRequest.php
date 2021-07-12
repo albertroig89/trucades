@@ -59,13 +59,15 @@ class CreateClientRequest extends FormRequest
                 'phone' => $data['phone'],
             ]);
 
-            $phones = $data['phones'];
+            if (!empty($data['phones'])) {
+                $phones = $data['phones'];
+                foreach($phones as $phone){
+                    $client->phone()->create([
+                        'phone' => $phone,
+                    ]);
+                }
+            }
 
-            foreach($phones as $phone){
-                $client->phone()->create([
-                    'phone' => $phone,
-                ]);
-            };
         });
     }
 }

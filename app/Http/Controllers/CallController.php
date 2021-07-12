@@ -37,8 +37,9 @@ class CallController extends Controller
         $clients = Client::all();
         $users = User::all();
         $stats = Stat::all();
+        $nStat = Stat::where('title', 'Normal')->value('id');
 
-        return view('calls.create', compact('title', 'clients', 'users', 'stats'));
+        return view('calls.create', compact('title', 'clients', 'users', 'stats', 'nStat'));
     }
 
     public function jobfromcall(Call $call)
