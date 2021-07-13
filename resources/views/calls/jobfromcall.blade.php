@@ -6,18 +6,20 @@
 
     <div class="card pl-0 pr-0 col-md-4 mt-2">
         <div class="card-header">
-            <h3>
-                Feina {{ $call->clientname }}
+            <h4>
+                {{ $call->clientname }}
                 @if (empty($call->client) and empty($call->clientphone))
                     Sense telefon
-                @elseif (empty($call->client))
+                @elseif (empty($call->client_id))
                     {{$call->clientphone}}
                 @else
                     @foreach ($phones as $phone)
-                            {{ $phone }}
+                        @if ($phone->client_id == $call->client_id)
+                            {{ $phone->phone }}
+                        @endif
                     @endforeach
                 @endif
-            </h3>
+            </h4>
         </div>
         <div class="card-body">
             <form method="POST" action="{{ url("trabajos/{$call->id}") }}">
