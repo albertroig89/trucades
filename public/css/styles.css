@@ -61,7 +61,8 @@ td{
 
 }
 .btn-link{
-    padding-top: 0px;
+    padding: 0px;
+    border:none;
 }
 /*estils datetime picker*/
 .container {
@@ -120,7 +121,7 @@ td{
 
 /*estils boto afegir*/
 .afegir{
-    width: 50%;
+    width: 42%;
 }
 .afegirlink{
     width: 5%;

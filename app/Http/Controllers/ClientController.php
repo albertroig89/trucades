@@ -14,8 +14,6 @@ class ClientController extends Controller
     public function index(Request $request)
     {
         $clients = Client::name($request->get('name'))->orderBy('name')->paginate(50);
-//        $builder = Client::orderBy("name");
-//        $clients = $builder->paginate(50);
         $phones = Phone::all();
         $title = 'Clients';
         return view('clients.index', compact('title', 'clients', 'phones'));
@@ -94,15 +92,29 @@ class ClientController extends Controller
         Excel::load('clients.xlsx', function($reader) {
 
             foreach ($reader->get() as $cliente) {
-                if (!empty($cliente->phone1)){
-                    $client = Client::create([
-                        'name' => $cliente->name,
-                        'email' =>$cliente->email,
-                    ]);
+                if (!empty($cliente->phone1) and
+                    $cliente->name != "IES MONTSIA" and //TOTS ESTOS CLIENTS ESTAN DUPLICATS A LA BD I S'HAN D'INTRODUIR A MA
+                    $cliente->name != "FERRE ANDREU, MERCEDES" and
+                    $cliente->name != "AJUNTAMENT DELTEBRE" and
+                    $cliente->name != "PROJECTE PRINCIPAL, S.L." and
+                    $cliente->name != "VICENTE TALARN, VICTOR" and
+                    $cliente->name != "ALIAU PONS, GABRIEL" and
+                    $cliente->name != "BAYERRI BONANCIA, ALVARO" and
+                    $cliente->name != "MARTINEZ FORNER, VICENT" and
+                    $cliente->name != "MARCO PONS, OSCAR" and
+                    $cliente->name != "AJUNTAMENT D'AMPOSTA" and
+                    $cliente->name != "SOLER SUBIRATS, LAUREANO"
+                    )
 
-                    $client->phone()->create([
-                        'phone' => $cliente->phone1,
-                    ]);
+                {
+                        $client = Client::create([
+                            'name' => $cliente->name,
+                            'email' =>$cliente->email,
+                        ]);
+
+                        $client->phone()->create([
+                            'phone' => $cliente->phone1,
+                        ]);
                 }
                 if (!empty($cliente->phone2)){
                     $client->phone()->create([

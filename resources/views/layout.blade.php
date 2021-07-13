@@ -73,7 +73,7 @@
                     <a class="dropdown-item" href="{{ route('users.create') }}">Nou usuari</a>
                 </div>
             </li>
-            @if (auth()->user()->department === "Administració" or auth()->user()->name === "Albert Roig")
+            @if (auth()->user()->department->title === "Administracio" or auth()->user()->name === "Albert Roig")
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Clients

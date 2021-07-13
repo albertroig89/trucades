@@ -55,6 +55,7 @@
                         @endforeach
                         </tbody>
                     </table>
+                    {{ $calls->links() }}
                 @else
                     <li>No tens trucades pendents</li>
                 @endif

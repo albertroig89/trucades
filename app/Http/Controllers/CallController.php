@@ -47,8 +47,9 @@ class CallController extends Controller
         $clients = Client::all();
         $users = User::all();
         $stats = Stat::all();
+        $phones = Phone::where('client_id', $call->client_id);
 
-        return view('calls.jobfromcall', compact( 'call', 'clients', 'users', 'stats'));
+        return view('calls.jobfromcall', compact( 'call', 'clients', 'users', 'stats', 'phones'));
     }
 
     public function edit(Call $call)

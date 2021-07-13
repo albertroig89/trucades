@@ -48,7 +48,7 @@
                                     @endforeach
                                     </td>
                                     <td>{{ $client->email }}</td>
-                                    <td><a href="{{ route('clients.edit', ['call' => $client]) }}"><span class="oi oi-pencil"></span></a></td>
+                                    <td><a class="btn btn-link" href="{{ route('clients.edit', ['call' => $client]) }}"><span class="oi oi-pencil"></span></a></td>
 
                                     <td><form action="{{ route('clients.destroy', $client) }}" method="POST">
                                             {{ csrf_field() }}

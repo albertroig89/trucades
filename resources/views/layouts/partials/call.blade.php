@@ -25,8 +25,8 @@
                     <td>{{ $user->name }}</td>
                 @endif
             @endforeach
-            <td><a href="{{ route('calls.jobfromcall', ['call' => $call]) }}"><span class="oi oi-plus"></span></a></td>
-            <td><a href="{{ route('calls.edit', ['call' => $call]) }}"><span class="oi oi-pencil"></span></a></td>
+            <td><a class="btn btn-link" href="{{ route('calls.jobfromcall', ['call' => $call]) }}"><span class="oi oi-plus"></span></a></td>
+            <td><a class="btn btn-link" href="{{ route('calls.edit', ['call' => $call]) }}"><span class="oi oi-pencil"></span></a></td>
             <td>
                 <form action="{{ route('calls.destroy', $call) }}" method="POST">
                     {{ csrf_field() }}
@@ -62,8 +62,8 @@
                     <td>{{ $user->name }}</td>
                 @endif
             @endforeach
-            <td><a href="{{ route('calls.jobfromcall', ['call' => $call]) }}"><span class="oi oi-plus"></span></a></td>
-            <td><a href="{{ route('calls.edit', ['call' => $call]) }}"><span class="oi oi-pencil"></span></a></td>
+            <td><a class="btn btn-link" href="{{ route('calls.jobfromcall', ['call' => $call]) }}"><span class="oi oi-plus"></span></a></td>
+            <td><a class="btn btn-link" href="{{ route('calls.edit', ['call' => $call]) }}"><span class="oi oi-pencil"></span></a></td>
             <td>
                 <form action="{{ route('calls.destroy', $call) }}" method="POST">
                     {{ csrf_field() }}
@@ -100,8 +100,8 @@
                 <td>{{ $user->name }}</td>
             @endif
         @endforeach
-        <td><a href="{{ route('calls.jobfromcall', ['call' => $call]) }}"><span class="oi oi-plus"></span></a></td>
-        <td><a href="{{ route('calls.edit', ['call' => $call]) }}"><span class="oi oi-pencil"></span></a></td>
+        <td><a class="btn btn-link" href="{{ route('calls.jobfromcall', ['call' => $call]) }}"><span class="oi oi-plus"></span></a></td>
+        <td><a class="btn btn-link" href="{{ route('calls.edit', ['call' => $call]) }}"><span class="oi oi-pencil"></span></a></td>
 
         <td>
 
@@ -139,8 +139,8 @@
                 <td>{{ $user->name }}</td>
             @endif
         @endforeach
-        <td><a href="{{ route('calls.jobfromcall', ['call' => $call]) }}"><span class="oi oi-plus"></span></a></td>
-        <td><a href="{{ route('calls.edit', ['call' => $call]) }}"><span class="oi oi-pencil"></span></a></td>
+        <td><a class="btn btn-link" href="{{ route('calls.jobfromcall', ['call' => $call]) }}"><span class="oi oi-plus"></span></a></td>
+        <td><a class="btn btn-link" href="{{ route('calls.edit', ['call' => $call]) }}"><span class="oi oi-pencil"></span></a></td>
         <td>
             <form action="{{ route('calls.destroy', $call) }}" method="POST">
                 {{ csrf_field() }}

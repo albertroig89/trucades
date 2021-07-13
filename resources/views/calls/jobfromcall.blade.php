@@ -14,7 +14,6 @@
                     {{$call->clientphone}}
                 @else
                     @foreach ($phones as $phone)
-                        @if ($phone->client_id === $call->client->id)
                             {{ $phone }}
                     @endforeach
                 @endif
