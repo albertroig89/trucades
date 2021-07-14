@@ -42,17 +42,24 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
-{{--            <li class="nav-item dropdown">--}}
-{{--                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--                    Trucades--}}
-{{--                </a>--}}
-{{--                <div class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
-{{--                    <a class="dropdown-item" href="{{ route('home') }}">Mostrar trucades</a>--}}
-{{--                    <a class="dropdown-item" href="{{ route('calls.create') }}">Nova trucada</a>--}}
-{{--                    <div class="dropdown-divider"></div>--}}
-{{--                    <a class="dropdown-item" href="{{ route('calls.index') }}">Mostrar totes les trucades</a>--}}
+
+
+
+
+{{--            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">--}}
+{{--                <button type="button" class="btn btn-primary">Primary</button>--}}
+{{--                <div class="btn-group" role="group">--}}
+{{--                    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>--}}
+{{--                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="">--}}
+{{--                        <a class="dropdown-item" href="#">Dropdown link</a>--}}
+{{--                        <a class="dropdown-item" href="#">Dropdown link</a>--}}
+{{--                    </div>--}}
 {{--                </div>--}}
-{{--            </li>--}}
+{{--            </div>--}}
+
+
+
+
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Feines
@@ -64,15 +71,17 @@
                     <a class="dropdown-item" href="{{ route('jobs.histjobs') }}">Mostrar feines del historic</a>
                 </div>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Usuaris
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('users.index') }}">Mostrar usuaris</a>
-                    <a class="dropdown-item" href="{{ route('users.create') }}">Nou usuari</a>
-                </div>
-            </li>
+            @if (auth()->user()->department->title === "Administracio" or auth()->user()->name === "Albert Roig")
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Usuaris
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('users.index') }}">Mostrar usuaris</a>
+                        <a class="dropdown-item" href="{{ route('users.create') }}">Nou usuari</a>
+                    </div>
+                </li>
+            @endif
             @if (auth()->user()->department->title === "Administracio" or auth()->user()->name === "Albert Roig")
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -108,6 +117,9 @@
 
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li>
+                                @if (auth()->user()->department->title !== "Administracio" and auth()->user()->name !== "Albert Roig")
+                                    <a class="dropdown-item" href="{{ route('users.edit', ['id' => auth()->id()]) }}">Editar el teu usuari</a>
+                                @endif
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

@@ -31,8 +31,10 @@
                             <th scope="col">Client</th>
                             <th scope="col">Telèfons</th>
                             <th scope="col">Correu electronic</th>
-                            <th scope="col">Editar client</th>
-                            <th scope="col">Eliminar client</th>
+                            @if (auth()->user()->department->title === "Administracio" or auth()->user()->name === "Albert Roig")
+                                <th scope="col">Editar client</th>
+                                <th scope="col">Eliminar client</th>
+                            @endif
                         </tr>
                         </thead>
                         <tbody>
@@ -48,13 +50,17 @@
                                     @endforeach
                                     </td>
                                     <td>{{ $client->email }}</td>
-                                    <td><a class="btn btn-link" href="{{ route('clients.edit', ['call' => $client]) }}"><span class="oi oi-pencil"></span></a></td>
+                                    @if (auth()->user()->department->title === "Administracio" or auth()->user()->name === "Albert Roig")
+                                        <td><a class="btn btn-link" href="{{ route('clients.edit', ['call' => $client]) }}"><span class="oi oi-pencil"></span></a></td>
 
-                                    <td><form action="{{ route('clients.destroy', $client) }}" method="POST">
-                                            {{ csrf_field() }}
-                                            {{ method_field('DELETE') }}
-                                            <button class="btn btn-link" onclick="return confirm('Segur que vols eliminar el client?')" type="submit"><span class="oi oi-trash"></span></button>
-                                        </form></td>
+                                        <td>
+                                            <form action="{{ route('clients.destroy', $client) }}" method="POST">
+                                                {{ csrf_field() }}
+                                                {{ method_field('DELETE') }}
+                                                <button class="btn btn-link" onclick="return confirm('Segur que vols eliminar el client?')" type="submit"><span class="oi oi-trash"></span></button>
+                                            </form>
+                                        </td>
+                                    @endif
                                 </tr>
                         @endforeach
                         </tbody>
