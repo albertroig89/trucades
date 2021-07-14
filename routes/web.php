@@ -65,6 +65,9 @@ Route::get('/trabajos/contador', 'JobController@count')
 
 Route::delete('/trabajos/{job}', 'JobController@destroy')
     ->name('jobs.destroy');
+
+Route::delete('/trabajos/historico/{histjob}', 'JobController@histdestroy')
+    ->name('jobs.histdestroy');
 //----------------------------------------------------------------------------------------------CALLS
 
 

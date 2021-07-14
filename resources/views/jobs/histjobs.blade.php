@@ -29,6 +29,7 @@
                             <th scope="col">Inici feina</th>
                             <th scope="col">Final feina</th>
                             <th scope="col">Temps empleat</th>
+                            <th></th>
 
                         </tr>
                         </thead>
@@ -42,13 +43,12 @@
                                 <td>{{ \Carbon\Carbon::parse($histjob->inittime)->format('d-m-y H:i') }}</td>
                                 <td>{{ \Carbon\Carbon::parse($histjob->endtime)->format('d-m-y H:i') }}</td>
                                 <td>{{ $histjob->totalmin }} min</td>
-{{--                                <td><a href="{{ route('jobs.edit', ['id' => $histjob->id]) }}"><span class="oi oi-pencil"></span></a></td>--}}
 
-{{--                                <td><form action="{{ route('jobs.destroy', $histjob) }}" method="POST">--}}
-{{--                                        {{ csrf_field() }}--}}
-{{--                                        {{ method_field('DELETE') }}--}}
-{{--                                        <button class="btn btn-link" onclick="return confirm('Segur que vols eliminar la feina?')" type="submit"><span class="oi oi-trash"></span></button>--}}
-{{--                                </form></td>--}}
+                                <td><form action="{{ route('jobs.histdestroy', $histjob) }}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <button class="btn btn-link" onclick="return confirm('Segur que vols eliminar la feina de l\'historic?')" type="submit"><span class="oi oi-trash"></span></button>
+                                </form></td>
                             </tr>
                         @endforeach
                         </tbody>

@@ -126,6 +126,12 @@ class JobController extends Controller
         return view('jobs.count', compact('title', 'jobs', 'users', 'histjobs'));
     }
 
+    function histdestroy(HistJob $histjob)
+    {
+        $histjob->delete();
+        return redirect()->route('jobs.histjobs');
+    }
+
     function destroy(Job $job)
     {
         HistJob::create([
