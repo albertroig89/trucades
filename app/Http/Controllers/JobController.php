@@ -115,6 +115,17 @@ class JobController extends Controller
     }
 
 
+    public function count()
+    {
+        $jobs = Job::all();
+        $users = User::all();
+        $histjobs = HistJob::all();
+
+        $title = 'Contador';
+
+        return view('jobs.count', compact('title', 'jobs', 'users', 'histjobs'));
+    }
+
     function destroy(Job $job)
     {
         HistJob::create([

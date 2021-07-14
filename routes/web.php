@@ -60,6 +60,9 @@ Route::get('/trabajos/{job}/editar', 'JobController@edit')
 
 Route::put('/trabajos/{job}', 'JobController@update');
 
+Route::get('/trabajos/contador', 'JobController@count')
+    ->name('jobs.count');
+
 Route::delete('/trabajos/{job}', 'JobController@destroy')
     ->name('jobs.destroy');
 //----------------------------------------------------------------------------------------------CALLS

@@ -69,6 +69,10 @@
                     <a class="dropdown-item" href="{{ route('jobs.create') }}">Nova feina</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ route('jobs.histjobs') }}">Mostrar feines del historic</a>
+                    @if (auth()->user()->name === "Albert Roig")
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ route('jobs.count') }}">Contador de feines</a>
+                    @endif
                 </div>
             </li>
             @if (auth()->user()->department->title === "Administracio" or auth()->user()->name === "Albert Roig")
@@ -90,7 +94,9 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('clients.index') }}">Mostrar clients</a>
                     <a class="dropdown-item" href="{{ route('clients.create') }}">Nou client</a>
-                    <a class="dropdown-item" href="{{ route('clients.import') }}">Importar Clients</a>
+                    @if (auth()->user()->name === "Albert Roig")
+                        <a class="dropdown-item" href="{{ route('clients.import') }}">Importar Clients</a>
+                    @endif
                 </div>
             </li>
             @else
