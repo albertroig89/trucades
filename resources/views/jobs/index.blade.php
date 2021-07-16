@@ -49,6 +49,7 @@
                         @endforeach
                         </tbody>
                     </table>
+                    {{ $jobs->links() }}
                 @else
                     <li>No hi ha feines pendents</li>
                 @endif

@@ -53,6 +53,7 @@
                         @endforeach
                         </tbody>
                     </table>
+                    {{ $histjobs->links() }}
                 @else
                     <li>No hi ha feines al historic</li>
                 @endif

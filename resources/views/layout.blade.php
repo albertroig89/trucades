@@ -20,10 +20,10 @@
 
       <!--ESTILS PROPIS-->
       <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-      <link rel="stylesheet" type="text/css" href="{{ asset('/css/styles.css') }}" media="screen" />
+      <link rel="stylesheet" type="text/css" href="{{ asset('../ptrucades/css/styles.css') }}" media="screen" />
 
       <!-- Favicons -->
-      <link  rel="icon"   href="{{ asset('/images/favicon.png') }}" type="image/png" />
+      <link  rel="icon"   href="{{ asset('../ptrucades/images/favicon.png') }}" type="image/png" />
 
 
 
@@ -34,73 +34,90 @@
 <header>
 
   <!-- Fixed navbar -->
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+{{--  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">--}}
     <div class="container-fluid">
-      <a class="navbar-brand logolink" href="{{ route('home') }}"><img class="logo" src="{{ asset('/images/logo.png') }}"/></a>
+        <a class="navbar-brand logolink" href="{{ route('home') }}"><img class="logo" src="{{ asset('../ptrucades/images/logo.png') }}"/></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
-
-
-
-
-{{--            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">--}}
-{{--                <button type="button" class="btn btn-primary">Primary</button>--}}
-{{--                <div class="btn-group" role="group">--}}
-{{--                    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>--}}
-{{--                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="">--}}
-{{--                        <a class="dropdown-item" href="#">Dropdown link</a>--}}
-{{--                        <a class="dropdown-item" href="#">Dropdown link</a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-
-
-
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Feines
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('jobs.index') }}">Mostrar feines</a>
-                    <a class="dropdown-item" href="{{ route('jobs.create') }}">Nova feina</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{ route('jobs.histjobs') }}">Mostrar feines del historic</a>
-                    @if (auth()->user()->name === "Albert Roig")
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ route('jobs.count') }}">Contador de feines</a>
-                    @endif
+                <button type="button" onclick="location.href = '{{ route('calls.create') }}'" class="btn btn-primary">+</button>
+            </li>
+            <li class="nav-item dropdown ml-2">
+                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                    <button type="button" onclick="location.href = '{{ route('jobs.create') }}'" class="btn btn-primary">Feines</button>
+                    <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="">
+                            <a class="dropdown-item" href="{{ route('jobs.index') }}">Mostrar feines</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ route('jobs.histjobs') }}">Mostrar feines del historic</a>
+                            @if (auth()->user()->name === "Albert Roig")
+                                <a class="dropdown-item" href="{{ route('jobs.count') }}">Contador de feines</a>
+                            @endif
+                        </div>
+                    </div>
                 </div>
             </li>
             @if (auth()->user()->department->title === "Administracio" or auth()->user()->name === "Albert Roig")
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Usuaris
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('users.index') }}">Mostrar usuaris</a>
-                        <a class="dropdown-item" href="{{ route('users.create') }}">Nou usuari</a>
+                <li class="nav-item dropdown ml-2">
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        <button type="button" onclick="location.href = '{{ route('users.index') }}'" class="btn btn-primary">Usuaris</button>
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="">
+                                <a class="dropdown-item" href="{{ route('users.create') }}">Nou usuari</a>
+                            </div>
+                        </div>
                     </div>
                 </li>
+{{--                <li class="nav-item dropdown">--}}
+{{--                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
+{{--                        Usuaris--}}
+{{--                    </a>--}}
+{{--                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
+{{--                        <a class="dropdown-item" href="{{ route('users.index') }}">Mostrar usuaris</a>--}}
+{{--                        <a class="dropdown-item" href="{{ route('users.create') }}">Nou usuari</a>--}}
+{{--                    </div>--}}
+{{--                </li>--}}
             @endif
             @if (auth()->user()->department->title === "Administracio" or auth()->user()->name === "Albert Roig")
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Clients
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('clients.index') }}">Mostrar clients</a>
-                    <a class="dropdown-item" href="{{ route('clients.create') }}">Nou client</a>
-                    @if (auth()->user()->name === "Albert Roig")
-                        <a class="dropdown-item" href="{{ route('clients.import') }}">Importar Clients</a>
-                    @endif
-                </div>
-            </li>
+
+                <li class="nav-item dropdown ml-2">
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        <button type="button" onclick="location.href = '{{ route('clients.index') }}'" class="btn btn-primary">Clients</button>
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="">
+                                <a class="dropdown-item" href="{{ route('clients.create') }}">Nou client</a>
+                                @if (auth()->user()->name === "Albert Roig")
+                                    <a class="dropdown-item" href="{{ route('clients.import') }}">Importar Clients</a>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+{{--            <li class="nav-item dropdown">--}}
+{{--                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
+{{--                    Clients--}}
+{{--                </a>--}}
+{{--                <div class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
+{{--                    <a class="dropdown-item" href="{{ route('clients.index') }}">Mostrar clients</a>--}}
+{{--                    <a class="dropdown-item" href="{{ route('clients.create') }}">Nou client</a>--}}
+{{--                    @if (auth()->user()->name === "Albert Roig")--}}
+{{--                        <a class="dropdown-item" href="{{ route('clients.import') }}">Importar Clients</a>--}}
+{{--                    @endif--}}
+{{--                </div>--}}
+{{--            </li>--}}
             @else
-                <a class="nav-link" href="{{ route('clients.index') }}">Clients</a>
+                <li class="nav-item dropdown">
+                    <button type="button" onclick="location.href = '{{ route('clients.index') }}'" class="btn btn-primary ml-2">Clients</button>
+{{--                <a class="nav-link" href="{{ route('clients.index') }}">Clients</a>--}}
+                </li>
             @endif
         </ul>
       </div>
@@ -173,6 +190,12 @@
 {{--  <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.8/push.min.js"></script>--}}
 
 
+
+  <script>
+      $('.pagination li').addClass('page-item');
+      $('.pagination li a').addClass('page-link');
+      $('.pagination span').addClass('page-link');
+  </script>
 
 
   <script>
