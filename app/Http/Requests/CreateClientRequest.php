@@ -27,7 +27,7 @@ class CreateClientRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' => 'required|email|unique:users,email',
+            'email' => 'unique:users,email',
             'phone' => 'required',
             'phones' => '',
         ];
@@ -37,8 +37,6 @@ class CreateClientRequest extends FormRequest
     {
         return [
             'name.required' => 'Introdueix un nom per al client',
-            'email.required' => 'Introdueix un correu electronic',
-            'email.email' => 'Introdueix un correu electronic correcte',
             'email.unique' => 'El correu introduit ja exiteix',
             'phone.required' => 'Introdueix un telefon'
         ];

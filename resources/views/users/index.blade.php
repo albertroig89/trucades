@@ -31,13 +31,38 @@
                               @else
                               <td>{{ $user->department->title }}</td>
                               @endempty
-                            <td><a href="{{ route('users.edit', ['id' => $user->id]) }}"><span class="oi oi-pencil"></span></a></td>
+                              @if ($user->name === "Albert Roig")
+                                  @if (auth()->user()->name === "Albert Roig")
+                                      <td><a href="{{ route('users.edit', ['id' => $user->id]) }}"><span class="oi oi-pencil"></span></a></td>
+                                  @else
+                                      <td><a href="{{ route('users.edit', ['id' => $user->id]) }}"><span class="oi oi-pencil"></span></a></td>
+                                  @endif
+                              @else
+                                  <td><a href="{{ route('users.edit', ['id' => $user->id]) }}"><span class="oi oi-pencil"></span></a></td>
+                              @endif
 
-                            <td><form action="{{ route('users.destroy', $user) }}" method="POST">
-                                {{ csrf_field() }}
-                                {{ method_field('DELETE') }}
-                                <button class="btn btn-link" onclick="return confirm('Segur que vols eliminar l\'usuari?')" type="submit"><span class="oi oi-trash"></span></button>
-                            </form></td>
+
+
+                              @if ($user->name === "Albert Roig")
+                                  @if (auth()->user()->name === "Albert Roig")
+                                      <td><form action="{{ route('users.destroy', $user) }}" method="POST">
+                                              {{ csrf_field() }}
+                                              {{ method_field('DELETE') }}
+                                              <button class="btn btn-link" onclick="return confirm('Segur que vols eliminar l\'usuari?')" type="submit"><span class="oi oi-trash"></span></button>
+                                      </form></td>
+                                  @else
+                                      <td>
+                                          <button class="btn btn-link" onclick="return alert('No pots eliminar el compte d\'administrador')"><span class="oi oi-trash"></span></button>
+                                      </td>
+                                  @endif
+                              @else
+                                  <td><form action="{{ route('users.destroy', $user) }}" method="POST">
+                                          {{ csrf_field() }}
+                                          {{ method_field('DELETE') }}
+                                          <button class="btn btn-link" onclick="return confirm('Segur que vols eliminar l\'usuari?')" type="submit"><span class="oi oi-trash"></span></button>
+                                      </form></td>
+                              @endif
+
                           </tr>
                 @endforeach
                 </tbody>
