@@ -35,7 +35,7 @@
                                   @if (auth()->user()->name === "Albert Roig")
                                       <td><a href="{{ route('users.edit', ['id' => $user->id]) }}"><span class="oi oi-pencil"></span></a></td>
                                   @else
-                                      <td><a href="{{ route('users.edit', ['id' => $user->id]) }}"><span class="oi oi-pencil"></span></a></td>
+                                      <td><a onclick="return alert('No pots editar el compte d\'administrador')" href=""><span class="oi oi-pencil"></span></a></td>
                                   @endif
                               @else
                                   <td><a href="{{ route('users.edit', ['id' => $user->id]) }}"><span class="oi oi-pencil"></span></a></td>

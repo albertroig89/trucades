@@ -9,7 +9,7 @@
     background-color: #fab9b9;
 }
 .urgentState:hover {
-    background-color: #ee5f5b;
+    background-color: #f17a77;
 }
 .pendingState {
     background-color: #aed7ff;
@@ -21,7 +21,7 @@
     background-color: lightgoldenrodyellow;
 }
 .normalStateGlobal:hover {
-    background-color: yellow;
+    background-color: khaki;
 }
 .table {
     font-size: small;
