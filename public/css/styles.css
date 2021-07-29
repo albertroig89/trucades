@@ -23,6 +23,12 @@
 .normalStateGlobal:hover {
     background-color: khaki;
 }
+.normalStateAdm {
+    background-color: red;
+}
+.normalStateAdm:hover {
+    background-color: #f17a77;
+}
 .table {
     font-size: small;
 }

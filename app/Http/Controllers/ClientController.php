@@ -44,30 +44,40 @@ class ClientController extends Controller
     {
         $data = request()->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users,email'.$client->id,
             'phone' => 'required',
-            'phones' => '',
+            'phones' => ''
         ], [
             'name.required' => 'Introdueix un nom per al client',
-            'email.required' => 'Introdueix un correu electronic',
-            'email.email' => 'Introdueix un correu electronic correcte',
-            'email.unique' => 'El correu introduit ja exiteix',
-            'phone.required' => 'Introdueix un telefon'
+            'phone.required' => 'Introdueix un telèfon'
         ]);
 
         $client->update($data);
 
-        $client->phone()->update([
-            'phone' => $data['phone'],
-        ]);
+        $phones = Phone::all();
+        $count = 0;
+        foreach ($phones as $phone){
+            if ($phone->client_id == $client->id){
+                $count++;
+            }
+        }
 
         if (!empty($data['phones'])) {
+            $client->phone()->update([
+                'phone' => $data['phone'],
+            ]);
             $phones = $data['phones'];
             foreach ($phones as $phone) {
                 $client->phone()->update([
                     'phone' => $phone,
                 ]);
+//                dd($client->phone());
             }
+        }elseif (empty($data['phones']) and $count == 1){
+            $client->phone()->update([
+                'phone' => $data['phone'],
+            ]);
+        }else{
+
         }
 
         return redirect()->route('clients.index', ['client' => $client]);

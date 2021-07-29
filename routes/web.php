@@ -110,7 +110,7 @@ Route::get('/clientes/{client}/editar', 'ClientController@edit')
     ->where('id', '\d+')
     ->name('clients.edit');
 
-Route::put('/llamadas/{client}', 'ClientController@update');
+Route::put('/clientes/{client}', 'ClientController@update');
 
 Route::delete('/clientes/{client}', 'ClientController@destroy')
     ->name('clients.destroy');
