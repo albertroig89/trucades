@@ -22,7 +22,7 @@
                                 @endforeach
                             </select>
                         @else
-                            <select class='form-control selector-clients' name='client_id' id='client_id'>
+                            <select class='form-control select2' name='client_id' id='client_id'>
                                 <option value="{{ old('id', $call->client_id) }}">{{ old('name', $call->client->name) }}</option>
                                 <option value="">Sense client BD</option>
                                 @foreach ($clients as $client)
