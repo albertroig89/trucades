@@ -22,9 +22,25 @@
                             @endforeach
                         </select>
                     </div>
+                    @if ($errors->has('clientname'))
+                        <div class="form-group">
+                            <input class="form-control is-invalid" name="clientname" id="clientname" value="{{ old('clientname') }}">
+                            <div class="invalid-feedback">
+                                {{ $errors->first('clientname') }}
+                            </div>
+                        </div>
+                    @elseif ($errors->any())
+                        <div class="form-group">
+                            <input class="form-control is-valid" name="clientname" id="clientname" value="{{ old('clientname') }}">
+                            <div class="valid-feedback">
+                                Correcte!
+                            </div>
+                        </div>
+                    @else
                     <div class="form-group">
                         <input class="form-control" name="clientname" id="clientname">
                     </div>
+                    @endif
 
                     <div class="form-group">
                         <label for="inittime">Inici trucada:</label>
@@ -115,15 +131,6 @@
                 <button type="submit" class="btn btn-primary">Afegir feina</button>
                 <a href="{{ route('home') }}" class="btn btn-default float-right">Tornar a l'inici</a>
             </form>
-
-{{--            @if ($errors->any())--}}
-{{--                <br>--}}
-{{--                <div class="form-group">--}}
-{{--                    <div class="alert alert-danger">--}}
-{{--                        <h5>Por favor corrige los errores mencionados arriba {{ $errors }}</h5>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            @endif--}}
         </div>
     </div>
 

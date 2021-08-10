@@ -11,15 +11,6 @@
                 {!! csrf_field() !!}
 
                 <div class="form-group">
-{{--                    <div class="form-group">--}}
-{{--                        <label for="selector-clients">Client:</label>--}}
-{{--                        <select class='form-control selector-clients' name='client_id' id='client_id'>--}}
-{{--                            <option value="">Selecciona un client</option>--}}
-{{--                            @foreach ($clients as $client)--}}
-{{--                                <option value="{{ ($client->id) }}">{{ $client->name }}</option>--}}
-{{--                            @endforeach--}}
-{{--                        </select>--}}
-{{--                    </div>--}}
                     <div class="form-group">
                         <label for="selector-clients">Client:</label>
                         <select class='form-control select2' name='client_id' id='client_id'>
