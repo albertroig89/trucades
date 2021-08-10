@@ -38,7 +38,7 @@
                     </div>
                     <div class="form-group">
                         <label for="clientphone">Telefon:</label>
-                        <input class="form-control" name="clientphone" id="clientphone">
+                        <input class="form-control" name="clientphone" id="clientphone" value="{{ old('call', $call->clientphone) }}">
                     </div>
                     <div class="form-group">
                         <label for="id">Ates per:</label>
