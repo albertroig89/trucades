@@ -12,18 +12,6 @@ use App\Http\Requests\CreateCallRequest;
 
 class CallController extends Controller
 {
-    public function index()
-    {
-        $calls = Call::orderBy('created_at', 'DESC')->paginate();
-        $users = User::all();
-        $phones = Phone::all();
-        $nStat = Stat::where('title', 'Normal')->value('id');
-        $uStat = Stat::where('title', 'Urgent')->value('id');
-        $pStat = Stat::where('title', 'Pendent')->value('id');
-
-        $title = 'Trucades';
-        return view('calls.index', compact('title', 'calls', 'users', 'phones', 'nStat', 'uStat', 'pStat'));
-    }
 
     public function show(Call $call)
     {

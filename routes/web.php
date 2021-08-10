@@ -78,9 +78,6 @@ Route::delete('/trabajos/historico/{histjob}', 'JobController@histdestroy')
 Route::get('/', 'HomeController@index')
     ->name('home');
 
-Route::get('/llamadas', 'CallController@index')
-    ->name('calls.index');
-
 Route::get('/llamadas/nuevo', 'CallController@create')
     ->name('calls.create');
 
