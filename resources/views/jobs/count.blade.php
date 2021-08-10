@@ -16,6 +16,7 @@
                             <th scope="col">Nom</th>
                             <th scope="col">Temps total feines</th>
                             <th scope="col">Temps total historic</th>
+                            <th scope="col">Temps total historic ocult</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -35,6 +36,15 @@
                                 <td>
                                     <?php $contador=0 ?>
                                     @foreach ($histjobs as $histjob)
+                                        @if ($user->name == $histjob->username)
+                                            <?php $contador = $contador + $histjob->totalmin ?>
+                                        @endif
+                                    @endforeach
+                                    {{$contador}} min
+                                </td>
+                                <td>
+                                    <?php $contador=0 ?>
+                                    @foreach ($histjobs2 as $histjob)
                                         @if ($user->name == $histjob->username)
                                             <?php $contador = $contador + $histjob->totalmin ?>
                                         @endif

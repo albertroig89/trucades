@@ -54,6 +54,9 @@ Route::post('/trabajos/{job}', 'JobController@jobfromcall');
 Route::get('/trabajos/historico', 'JobController@histjob')
     ->name('jobs.histjobs');
 
+Route::get('/trabajos/historico2', 'JobController@histjob2')
+    ->name('jobs.histjobs2');
+
 Route::get('/trabajos/{job}/editar', 'JobController@edit')
     ->where('id', '\d+')
     ->name('jobs.edit');

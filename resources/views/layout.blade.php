@@ -56,6 +56,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('jobs.histjobs') }}">Mostrar feines del historic</a>
                             @if (auth()->user()->name === "Albert Roig")
+                                <a class="dropdown-item" href="{{ route('jobs.histjobs2') }}">Mostrar historic ocult</a>
                                 <a class="dropdown-item" href="{{ route('jobs.count') }}">Contador de feines</a>
                             @endif
                         </div>

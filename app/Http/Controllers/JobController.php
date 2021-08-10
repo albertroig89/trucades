@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Call;
 use App\Client;
 use App\HistJob;
+use App\HistJob2;
 use App\Http\Requests\CreateJobRequest;
 use App\Http\Requests\CreateJobFromCallRequest;
 use App\Job;
@@ -114,20 +115,39 @@ class JobController extends Controller
 
     }
 
+    public function histjob2()
+    {
+        $histjobs = HistJob2::orderBy('created_at', 'DESC')->paginate(50);
+        $title = "Historic de feines ocult";
+
+        return view('jobs.histjobs2', compact('title', 'histjobs'));
+
+    }
+
 
     public function count()
     {
         $jobs = Job::all();
         $users = User::all();
         $histjobs = HistJob::all();
+        $histjobs2 = HistJob2::all();
 
         $title = 'Contador';
 
-        return view('jobs.count', compact('title', 'jobs', 'users', 'histjobs'));
+        return view('jobs.count', compact('title', 'jobs', 'users', 'histjobs', 'histjobs2'));
     }
 
     function histdestroy(HistJob $histjob)
     {
+        HistJob2::create([
+            'username' => $histjob->username,
+            'job' => $histjob->job,
+            'inittime' => $histjob->inittime,
+            'endtime' => $histjob->endtime,
+            'totalmin' => $histjob->totalmin,
+            'clientname' => $histjob->clientname,
+        ]);
+
         $histjob->delete();
         return redirect()->route('jobs.histjobs');
     }
