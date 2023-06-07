@@ -12,26 +12,26 @@ class ClientSeeder extends Seeder
      */
     public function run()
     {
-//        Client::create([
-//            'name' => "Bertomeu i Santiago",
-//            'email' => "kilian@gabinetadministratiu.com",
-//        ]);
-//
-//        Client::create([
-//            'name' => "Materials Selma",
-//            'email' => "juanjo@selma.es",
-//        ]);
-//
-//        Client::create([
-//            'name' => "Carburants del Montsia",
-//            'email' => "miguel@carburantsmontsia.com",
-//        ]);
-//
-//        Client::create([
-//            'name' => "Optica Esguard",
-//            'email' => "isa@opticaesguard.com",
-//        ]);
+        Client::create([
+            'name' => "Gestoria Paquita",
+            'email' => "info@gestoriapaquita.com",
+        ]);
 
-//        factory(Client::class, 40)->create();
+        Client::create([
+            'name' => "Materials de construcció Pepe",
+            'email' => "info@mcpepe.es",
+        ]);
+
+        Client::create([
+            'name' => "Carburants BP",
+            'email' => "info@carburantsbp.com",
+        ]);
+
+        Client::create([
+            'name' => "Optica Miranda",
+            'email' => "info@opticamiranda.com",
+        ]);
+
+        factory(Client::class, 40)->create();
     }
 }

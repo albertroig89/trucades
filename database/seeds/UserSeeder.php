@@ -43,42 +43,42 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-            'name' => 'Jordi Espinosa',
+            'name' => 'Jordi Espinoso',
             'email' => 'sat@microdelta.net',
             'password' => bcrypt('MicAmposta43'),
             'department_id' => $techId,
         ]);
 
         User::create([
-            'name' => 'Joel Valor',
+            'name' => 'Joel Galindo',
             'email' => 'joel@microdelta.net',
             'password' => bcrypt('MicAmposta43'),
             'department_id' => $techId,
         ]);
 
         User::create([
-            'name' => 'Josep Castells',
+            'name' => 'Josep Costelles',
             'email' => 'josep@microdelta.net',
             'password' => bcrypt('MicAmposta43'),
             'department_id' => $techId,
         ]);
 
         User::create([
-            'name' => 'Cristina Esquerre',
+            'name' => 'Cristina Dretera',
             'email' => 'administracio@microdelta.net',
             'password' => bcrypt('MicAmposta43'),
             'department_id' => $admId,
         ]);
 
         User::create([
-            'name' => 'Manel Bel',
+            'name' => 'Manel Pel',
             'email' => 'comercial@microdelta.net',
             'password' => bcrypt('MicAmposta43'),
             'department_id' => $comId,
         ]);
 
         User::create([
-            'name' => 'Juan Valor',
+            'name' => 'Juan Galindo',
             'email' => 'soft@microdelta.net',
             'password' => bcrypt('MicAmposta43'),
             'department_id' => $progId,
