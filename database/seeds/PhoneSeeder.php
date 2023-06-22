@@ -46,5 +46,7 @@ class PhoneSeeder extends Seeder
             'client_id' => 4,
             'phone' => 977706942,
         ]);
+
+        factory(Phone::class, 40)->create();
     }
 }
